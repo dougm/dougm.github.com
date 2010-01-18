@@ -3,7 +3,7 @@
 
   },
   "command": {
-
+    "ps": "ps -ef"
   },
   "kernel": {
     "modules": {
@@ -14,24 +14,248 @@
     "version": "U",
     "release": "B.11.11"
   },
-  "platform_version": "B.11.11",
-  "platform": "hpux11.11",
-  "keys": {
-
-  },
-  "network": {
-    "interfaces": {
-
+  "uptime_seconds": 2957935000,
+  "memory": {
+    "total": "2097152kB",
+    "free": "1043596kB",
+    "used": "1053556kB",
+    "swap": {
+      "total": "4096kB",
+      "free": "4096kB",
+      "used": "0kB"
     }
   },
-  "ohai_time": 1263799041.05009,
-  "os": "hpux11.11",
+  "platform_version": "B.11.11",
+  "platform": "hpux",
+  "keys": {
+    "ssh": {
+      "host_dsa_public": "AAAAB3NzaC1kc3MAAACBAMn/rhAHFMKwRu5RuhJLC7b4G/E+kAxtIvHR66s02E9X5zvvUIc4LOD4JFbmpgoRSGTXs5jygFcYoe1Vy5EJNwGM1YSnlx5Ye4WcZczd/y88B4RdREgHnX3mrYqu3BKiB6uWpLvDtQUCqH1WMQyjBFqzQtIG2WVySszj3X/mF5LbAAAAFQDQoIO1uWKUvE248N/8jE7OZ/nn0wAAAIEAweBAC9jr+rU5bwunZzUg/HrcQfRm7LwWJcnDWu/DGsnH0lPsCEKV5C4y+ipJJdwxJ1IoDc56vS47ne1JW8YsdyUwsWBvi9RwpfuwDq57amSJAobnuwlpZHkNbca00ruIDSSVXARfVkjVqA/GRckdaZGdA2P3B+96GypfZ3phwIAAAACAEvFhvvLqu2E6dEwWPE+E+DxTpkoQbXHaGP0AkiiiczmyrKL42esu50Z9TeevlbsebZrmu7GsuT1Sp0J4dGdk5udE4IKlRrVnUbxwuVhUg/cLqDLIel1/B1jcHGd7K4Vhkgoqh8WSeG8p80VHz42BArGhqxmj/rhLnut6YiXgcJ4=",
+      "host_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAzmc+KQAw9ZTqf1Daj/g+GNKTZPsYIvnOzCvR3S5vVdoOnhC2dI8wq4ZrHHUvBNMDPQTPgDG3+KYyZ8is1jqCeSlGKgyT3xJkx0erwNJIMgvQcvOs8VljhtDBAII6kx26fv9AqjqMDDpXWXBEjx+YhIO7BjAw8wimOFY2ouEpmvj1pMgRzeXOEaMFDnfFWlm4mTB6joaT2Dxpwqrt+0MzLR7CBasy+zxjulrksnAlD3NB1Eu1zpoIe1hIz8UrYBaZkGMDs3mlreHJYqJw3J7BP4cckvypINDBBjB6Y616nkQXYy4BBE5IIKB53g7uC2kMw7JB8iy8bAQYC8deSEuTCw=="
+    }
+  },
+  "ipaddress": "10.17.143.3",
+  "network": {
+    "default_interface": "lan0",
+    "interfaces": {
+      "lo0": {
+        "flags": [
+          "UP",
+          "LOOPBACK",
+          "RUNNING",
+          "MULTICAST"
+        ],
+        "addresses": {
+          "::1": {
+            "scope": "Host",
+            "prefixlen": "10",
+            "family": "inet6"
+          },
+          "127.0.0.1": {
+            "netmask": "255.0.0.0",
+            "family": "inet"
+          }
+        },
+        "number": "0",
+        "mtu": "4136",
+        "queuelen": "-1",
+        "type": "lo",
+        "encapsulation": "Loopback"
+      },
+      "lan0": {
+        "flags": [
+          "UP",
+          "BROADCAST",
+          "RUNNING",
+          "MULTICAST"
+        ],
+        "addresses": {
+          "10.17.143.3": {
+            "broadcast": "10.17.143.255",
+            "netmask": "255.255.255.0",
+            "family": "inet"
+          },
+          "00:10:83:7B:50:91": {
+            "family": "lladdr"
+          }
+        },
+        "number": "0",
+        "mtu": "1500",
+        "queuelen": "-1",
+        "type": "lan",
+        "encapsulation": "Ethernet"
+      }
+    },
+    "default_gateway": "10.17.143.253"
+  },
+  "fqdn": "hubble.eng.vmware.com",
+  "filesystem": {
+    "hercules:/RAID": {
+      "kb_available": "28902",
+      "mount": "/raid",
+      "percent_used": "90.0%",
+      "fs_type": "nfs",
+      "mount_options": "rw,suid",
+      "kb_used": "241721",
+      "kb_size": "270624"
+    },
+    "bert:/raid/share": {
+      "kb_available": "7669",
+      "mount": "/home",
+      "percent_used": "97.0%",
+      "fs_type": "nfs",
+      "mount_options": "rw,suid",
+      "kb_used": "162902",
+      "kb_size": "170571"
+    },
+    "/dev/vg00/lvol1": {
+      "kb_available": "246",
+      "mount": "/stand",
+      "percent_used": "16.0%",
+      "fs_type": "hfs",
+      "mount_options": "defaults",
+      "kb_used": "41",
+      "kb_size": "288"
+    },
+    "/dev/vg00/lvol3": {
+      "kb_available": "53",
+      "mount": "/",
+      "percent_used": "74.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "146",
+      "kb_size": "200"
+    },
+    "/dev/vg00/lvol4": {
+      "kb_available": "132",
+      "mount": "/tmp",
+      "percent_used": "34.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "67",
+      "kb_size": "200"
+    },
+    "/dev/scratch/local0": {
+      "kb_available": "11391",
+      "mount": "/local0",
+      "percent_used": "35.0%",
+      "fs_type": "vxfs",
+      "mount_options": "rw,suid,nolargefiles,delaylog,datainlog",
+      "kb_used": "5968",
+      "kb_size": "17360"
+    },
+    "/dev/vg00/lvol5": {
+      "kb_available": "17",
+      "mount": "/home.orig",
+      "percent_used": "11.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "2",
+      "kb_size": "20"
+    },
+    "/dev/vg00/lvol6": {
+      "kb_available": "184",
+      "mount": "/opt",
+      "percent_used": "96.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "3923",
+      "kb_size": "4108"
+    },
+    "/dev/scratch2/local1": {
+      "kb_available": "6883",
+      "mount": "/local1",
+      "percent_used": "21.0%",
+      "fs_type": "vxfs",
+      "mount_options": "rw,suid,nolargefiles,delaylog,datainlog",
+      "kb_used": "1748",
+      "kb_size": "8632"
+    },
+    "/dev/vg00/lvol7": {
+      "kb_available": "338",
+      "mount": "/usr",
+      "percent_used": "86.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "1945",
+      "kb_size": "2284"
+    },
+    "/dev/vg00/lvol8": {
+      "kb_available": "3867",
+      "mount": "/var",
+      "percent_used": "16.0%",
+      "fs_type": "vxfs",
+      "mount_options": "delaylog",
+      "kb_used": "728",
+      "kb_size": "4596"
+    }
+  },
+  "ohai_time": 1263799187.62784,
+  "domain": "eng.vmware.com",
+  "os": "hpux",
   "counters": {
     "network": {
-
+      "interfaces": {
+        "lo0": {
+          "tx": {
+            "packets": "618460",
+            "bytes": "28741566",
+            "collisions": "-1",
+            "carrier": "-1",
+            "errors": "0",
+            "drop": "0",
+            "overrun": "-1"
+          },
+          "rx": {
+            "packets": "618460",
+            "bytes": "28741566",
+            "errors": "0",
+            "drop": "0",
+            "overrun": "-1",
+            "frame": "-1"
+          }
+        },
+        "lan0": {
+          "tx": {
+            "packets": "1164524",
+            "bytes": "214016026",
+            "collisions": "-1",
+            "carrier": "-1",
+            "errors": "0",
+            "drop": "0",
+            "overrun": "-1"
+          },
+          "rx": {
+            "packets": "3379788",
+            "bytes": "1532704574",
+            "errors": "0",
+            "drop": "0",
+            "overrun": "-1",
+            "frame": "-1"
+          }
+        }
+      }
     }
   },
   "os_version": "B.11.11",
+  "uptime": "34 days 05 hours 38 minutes 55 seconds",
+  "cpu": {
+    "real": 2,
+    "total": 2,
+    "0": {
+      "vendor_id": "HP",
+      "cache_size": "-1",
+      "mhz": "440",
+      "model": "PA RISC"
+    },
+    "1": {
+      "vendor_id": "HP",
+      "cache_size": "-1",
+      "mhz": "440",
+      "model": "PA RISC"
+    }
+  },
+  "hostname": "hubble",
+  "macaddress": "00:10:83:7B:50:91",
   "languages": {
     "java": {
       "runtime": {
