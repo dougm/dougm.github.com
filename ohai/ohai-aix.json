@@ -1,0 +1,63 @@
+{
+  "keys": {
+
+  },
+  "dmi": {
+
+  },
+  "kernel": {
+    "modules": {
+
+    },
+    "machine": "000BA3AF4C00",
+    "name": "AIX",
+    "version": "5",
+    "release": "2"
+  },
+  "platform_version": "2",
+  "command": {
+
+  },
+  "counters": {
+    "network": {
+
+    }
+  },
+  "os": "aix5.2.0.0",
+  "network": {
+    "interfaces": {
+
+    }
+  },
+  "ohai_time": 1263799002.31869,
+  "os_version": "2",
+  "languages": {
+    "java": {
+      "runtime": {
+        "name": "Java(TM) SE Runtime Environment",
+        "build": "pap6460sr4-20090219_01(SR4)"
+      },
+      "version": "1.6.0"
+    },
+    "perl": {
+      "version": "5.8.0",
+      "archname": "aix-thread-multi"
+    },
+    "ruby": {
+      "target_os": "aix5.2.0.0",
+      "host_vendor": "ibm",
+      "target_vendor": "ibm",
+      "ruby_bin": "/local0/dougm/ruby/bin/ruby",
+      "target_cpu": "powerpc",
+      "version": "1.8.7",
+      "host_os": "aix5.2.0.0",
+      "host_cpu": "powerpc",
+      "host": "powerpc-ibm-aix5.2.0.0",
+      "target": "powerpc-ibm-aix5.2.0.0",
+      "release_date": "2008-05-31",
+      "gems_dir": "/local0/dougm/ruby/lib/ruby/gems/1.8",
+      "platform": "powerpc-aix5.2.0.0"
+    }
+  },
+  "platform": "aix5.2.0.0"
+}
