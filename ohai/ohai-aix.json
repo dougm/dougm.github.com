@@ -1,6 +1,9 @@
 {
   "keys": {
-
+    "ssh": {
+      "host_dsa_public": "AAAAB3NzaC1kc3MAAACBAKpE27mn4B/mi1AC+Ygv2G1y6RSd90e1lg9wf4E4OHXMRDxP0J6iMH+BKPibOQPvDnJP8BKd0HrDQsnqnlMypMDOeqCWskDrJ1D8gGS6pKzPthsxCl0i5DVcGTg+i9ox8G6VRPUMNxPAZQ3x+wx7xmJGvJNl26N/LEGUoiPQUcnTAAAAFQCSAsdYhJBnpb7zlO6od/WYbnKn5wAAAIAlEn6jHRNb9xojkX+HtPwy9pNRsQ/lyRf4jvQJS7unLXDdKvMPofLJIfVTDSTBio8Jt83Uhb54HW0/pzcppIRAWhkJF1b0fKws3G3L+YpwTjRO8rk31XCPUkb03Y6IAqHjDReyMk/zwPUdz/HZZbFNeoCjXHnpjQI9lLyvEwGJegAAAIBYkMigZxoTCmYrz//0ypwqZcm7ui5aYMY9Pg10kwF/FWgSQhbPyNCW4c4ZeIuV8wBy4da9vIqQpr4gxL9RHfGFp8NIwj6MJH5qYUaWyajfWXxcA5B/GK64i0tNNNV81Sv8Bdl5mG9V9f0azh99WJBlbDKwUTN9yFjo70Wgdjnpqg==",
+      "host_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAuQZFlvIdepogf0yHjRPTx7aGZwbCTJ0Os7VmwmPxA9FfeecCT7VtXTXf8fzQFGvLlvKvzOfbPxh9piBZHi2y+4nU2gg6GkxaZQF81a7t/Oz/sRgQObkqfNos6MnBDFwWO2APp2WqWhOWxxZMmWW7j2YmcWbiD+h83xspoma9I8iwU+xaED00Y+JqZpKEJN/AOy0pDGWDgZuSvYjZYxLwBwelbgmaYiUds1qY/b2Fw1yv2Nse0lzLj8g1mQIKLKAlm/XAMG62CqTO2k+9FrTD9ar6zNVRWzRQQRMATDO7AtFRDu6pqRdfCjaBpwCWVmmgHOW7HdtSzoR3+h/6WVNrMw=="
+    }
   },
   "dmi": {
 
@@ -14,22 +17,207 @@
     "version": "5",
     "release": "2"
   },
-  "platform_version": "2",
+  "platform_version": "5.2",
+  "fqdn": "axelb.eng.vmware.com",
+  "filesystem": {
+    "hercules:/RAID": {
+      "kb_size": "270624",
+      "kb_available": "28902",
+      "mount_options": "bg,hard,intr,rw",
+      "percent_used": "90.0%",
+      "fs_type": "nfs",
+      "mount": "/raid",
+      "kb_used": "241721"
+    },
+    "bert:/raid/share": {
+      "kb_size": "170571",
+      "kb_available": "7671",
+      "mount_options": "bg,hard,intr,rw",
+      "percent_used": "97.0%",
+      "fs_type": "nfs",
+      "mount": "/home",
+      "kb_used": "162899"
+    },
+    "/dev/hd2": {
+      "kb_size": "2304",
+      "kb_available": "82",
+      "mount_options": "rw,log=/dev/hd8",
+      "percent_used": "97.0%",
+      "fs_type": "aix",
+      "mount": "/usr",
+      "kb_used": "2221"
+    },
+    "/proc": {
+      "kb_size": "4194303",
+      "kb_available": "0",
+      "mount_options": "rw",
+      "percent_used": "100.0%",
+      "fs_type": "none",
+      "mount": "/proc",
+      "kb_used": "4194303"
+    },
+    "/dev/hd3": {
+      "kb_size": "64",
+      "kb_available": "59",
+      "mount_options": "rw,log=/dev/hd8",
+      "percent_used": "7.0%",
+      "fs_type": "aix",
+      "mount": "/tmp",
+      "kb_used": "4"
+    },
+    "/dev/lv00": {
+      "kb_size": "15488",
+      "kb_available": "6286",
+      "mount_options": "rw,log=/dev/loglv00",
+      "percent_used": "60.0%",
+      "fs_type": "jfs",
+      "mount": "/local0",
+      "kb_used": "9201"
+    },
+    "/dev/hd10opt": {
+      "kb_size": "448",
+      "kb_available": "225",
+      "mount_options": "rw,log=/dev/hd8",
+      "percent_used": "50.0%",
+      "fs_type": "aix",
+      "mount": "/opt",
+      "kb_used": "222"
+    },
+    "/dev/hd4": {
+      "kb_size": "64",
+      "kb_available": "48",
+      "mount_options": "rw,log=/dev/hd8",
+      "percent_used": "24.0%",
+      "fs_type": "aix",
+      "mount": "/",
+      "kb_used": "15"
+    },
+    "/dev/hd9var": {
+      "kb_size": "64",
+      "kb_available": "30",
+      "mount_options": "rw,log=/dev/hd8",
+      "percent_used": "53.0%",
+      "fs_type": "aix",
+      "mount": "/var",
+      "kb_used": "33"
+    }
+  },
+  "ipaddress": "10.17.142.1",
   "command": {
-
+    "ps": "ps -ef"
+  },
+  "memory": {
+    "total": "1048576kB",
+    "used": "645540kB",
+    "free": "403036kB",
+    "swap": {
+      "total": "524288kB",
+      "used": "2048kB",
+      "free": "522240kB"
+    }
   },
   "counters": {
     "network": {
-
+      "interfaces": {
+        "lo0": {
+          "tx": {
+            "packets": "5029",
+            "bytes": "265351",
+            "collisions": "0",
+            "errors": "0",
+            "carrier": "-1",
+            "overrun": "-1",
+            "drop": "-1"
+          },
+          "rx": {
+            "packets": "3557",
+            "bytes": "224135",
+            "errors": "0",
+            "overrun": "-1",
+            "drop": "-1",
+            "frame": "-1"
+          }
+        },
+        "en0": {
+          "tx": {
+            "packets": "1885392",
+            "bytes": "268088447",
+            "collisions": "0",
+            "errors": "0",
+            "carrier": "-1",
+            "overrun": "-1",
+            "drop": "-1"
+          },
+          "rx": {
+            "packets": "4066818",
+            "bytes": "366736200",
+            "errors": "0",
+            "overrun": "-1",
+            "drop": "-1",
+            "frame": "-1"
+          }
+        }
+      }
     }
   },
-  "os": "aix5.2.0.0",
+  "domain": "eng.vmware.com",
+  "os": "aix",
   "network": {
+    "default_interface": "en0",
     "interfaces": {
-
-    }
+      "lo0": {
+        "flags": [
+          "UP",
+          "BROADCAST",
+          "LOOPBACK",
+          "RUNNING",
+          "MULTICAST"
+        ],
+        "number": "0",
+        "addresses": {
+          "::1": {
+            "scope": "Host",
+            "prefixlen": "28",
+            "family": "inet6"
+          },
+          "127.0.0.1": {
+            "netmask": "255.0.0.0",
+            "family": "inet"
+          }
+        },
+        "mtu": "16896",
+        "queuelen": "-1",
+        "type": "lo",
+        "encapsulation": "Loopback"
+      },
+      "en0": {
+        "flags": [
+          "UP",
+          "BROADCAST",
+          "NOTRAILERS",
+          "RUNNING",
+          "MULTICAST"
+        ],
+        "number": "0",
+        "addresses": {
+          "10.17.142.1": {
+            "netmask": "255.255.255.0",
+            "broadcast": "10.17.142.255",
+            "family": "inet"
+          },
+          "00:06:29:C3:25:65": {
+            "family": "lladdr"
+          }
+        },
+        "mtu": "1500",
+        "queuelen": "-1",
+        "type": "en",
+        "encapsulation": "Ethernet"
+      }
+    },
+    "default_gateway": "10.17.142.253"
   },
-  "ohai_time": 1263799002.31869,
+  "ohai_time": 1263799104.05987,
   "os_version": "2",
   "languages": {
     "java": {
@@ -59,5 +247,25 @@
       "platform": "powerpc-aix5.2.0.0"
     }
   },
-  "platform": "aix5.2.0.0"
+  "uptime": "35 days 12 hours 51 minutes 36 seconds",
+  "cpu": {
+    "real": 2,
+    "total": 2,
+    "0": {
+      "model": "PowerPC 630",
+      "mhz": "375",
+      "vendor_id": "IBM",
+      "cache_size": "4096"
+    },
+    "1": {
+      "model": "PowerPC 630",
+      "mhz": "375",
+      "vendor_id": "IBM",
+      "cache_size": "4096"
+    }
+  },
+  "hostname": "axelb",
+  "macaddress": "00:06:29:C3:25:65",
+  "uptime_seconds": 3070296000,
+  "platform": "aix"
 }
