@@ -1,0 +1,63 @@
+{
+  "dmi": {
+
+  },
+  "command": {
+
+  },
+  "kernel": {
+    "modules": {
+
+    },
+    "machine": "9000/785",
+    "name": "HP-UX",
+    "version": "U",
+    "release": "B.11.11"
+  },
+  "platform_version": "B.11.11",
+  "platform": "hpux11.11",
+  "keys": {
+
+  },
+  "network": {
+    "interfaces": {
+
+    }
+  },
+  "ohai_time": 1263799041.05009,
+  "os": "hpux11.11",
+  "counters": {
+    "network": {
+
+    }
+  },
+  "os_version": "B.11.11",
+  "languages": {
+    "java": {
+      "runtime": {
+        "name": "Java(TM) 2 Runtime Environment, Standard Edition",
+        "build": "1.5.0.04-_27_jul_2006_10_52"
+      },
+      "version": "1.5.0.04"
+    },
+    "perl": {
+      "archname": "PA-RISC1.1-thread-multi",
+      "version": "5.8.8"
+    },
+    "ruby": {
+      "gems_dir": "/local0/dougm/ruby/lib/ruby/gems/1.8",
+      "target_os": "hpux11.11",
+      "platform": "hppa2.0w-hpux11.11",
+      "host_vendor": "hp",
+      "target_vendor": "hp",
+      "target_cpu": "hppa2.0w",
+      "host_os": "hpux11.11",
+      "ruby_bin": "/local0/dougm/ruby/bin/ruby",
+      "host_cpu": "hppa2.0w",
+      "version": "1.8.6",
+      "host": "hppa2.0w-hp-hpux11.11",
+      "target": "hppa2.0w-hp-hpux11.11",
+      "release_date": "2007-09-23"
+    }
+  }
+}
