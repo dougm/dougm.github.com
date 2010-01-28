@@ -1,0 +1,505 @@
+<h2>HSCW Episode #38 - <code>sigar_arp_list_get()</code></h2>
+
+<p>The <code>sigar_arp_list_get()</code> function returns the system ARP cache as an array of type <code>sigar_arp_t</code>, which includes:</p>
+
+<ul>
+<li><p>ifname - Network interface name</p></li>
+<li><p>type - Hardware type</p></li>
+<li><p>hwaddr - Hardware (link-layer) address</p></li>
+<li><p>address - IP address</p></li>
+<li><p>flags - State of the ARP cache entry</p></li>
+</ul>
+
+<h3>Preamble</h3>
+
+<p>If you're not already familar with SIGAR, you are encouraged to read the <a href="http://sigar.hyperic.com/">user documentation</a>.  The primary functional goal of SIGAR is to provide a cross-platform API to gather system information from multiple languages.  One of the main design points is to implemention the functionality in-process, without having to execute external commands and parse their output.  This requires understanding what system commands are doing underneath so SIGAR can tap directly into the same data sources.</p>
+
+<p>This document contain notes on the platform specific implementations of the <code>sigar_arp_list_get()</code> API. The notes are specific to the data gathered by the SIGAR API and as such do not cover the complete functionality of the given system command(s) we are emulating.  The information that follows has been captured for future reference by SIGAR developers and general interest for systems programmers.  It is terse in spots as much of what's written here are in note-to-self style.  We welcome any corrections and additions.  The resulting sources can be found on <a href="http://github.com/hyperic/sigar/tree/master/src/os/">github</a>.</p>
+
+<h3>AIX</h3>
+
+<p>Let's start by using <code>truss</code> to trace the system calls made when invoking the <code>arp -an</code> command:</p>
+
+<pre><code>% truss -f arp -an
+</code></pre>
+
+<p>The first point of interest in the truss output:</p>
+
+<pre><code>340204: knlist(0x0000000110000B08, 5, 24) = 0
+</code></pre>
+
+<p><code>knlist()</code> is used to lookup the address of symbols exported by the kernel.  The addresses in turn are used as seek offsets when reading from a kernel device such as <em>/dev/kmem</em>.  The first argument to <em>knlist()</em> is a pointer to an array of <em>struct nlist *</em>.  The second argument is the number of elements in the array and the third is the total sizeof the array.  The array is <code>NULL</code> terminated, so the <code>arp</code> command is really looking up <em>4</em> addresses.  Now on to the next <em>4</em> lines of the truss output:</p>
+
+<pre><code>340204: getkerninfo(2048, 0x0FFFFFFFFFFFF7F8, 0x0FFFFFFFFFFFF7F0, 4428264) = 8 
+340204: getkerninfo(2048, 0x0FFFFFFFFFFFF800, 0x0FFFFFFFFFFFF7F0, 4428272) = 8 
+340204: getkerninfo(2048, 0x0FFFFFFFFFFFF808, 0x0FFFFFFFFFFFF7F0, 7871696) = 8 
+340204: getkerninfo(2048, 0x0FFFFFFFFFFFF810, 0x0FFFFFFFFFFFF7F0, 7871288) = 8
+</code></pre>
+
+<p>First, what does <code>getkerninfo()</code> do?  Failing to find documentation at ibm.com, we grep <em>/usr/include</em> and find in <em>net/proto_uipc.h</em>:</p>
+
+<pre><code>int getkerninfo PROTO((int, char *, int *, int32long64_t));
+</code></pre>
+
+<p>Not too helpful.  We can infer <em>what</em> the function does given its name, still need to figure <em>how</em> it is used.  Looking at the grep output:</p>
+
+<pre><code>/usr/include/sys/ndd.h: * Structure returned by getkerninfo KINFO_NDD
+</code></pre>
+
+<p>Hmm, several <code>KINFO_</code> defines in <em>sys/kinfo.h</em>, including:</p>
+
+<pre><code>#define KINFO_READ (8&lt;&lt;8)
+</code></pre>
+
+<p>And with that, we have our first argument to <code>getkerninfo()</code> as <code>8&lt;&lt;8 == 2048</code>.  Smells like a wrapper or replacement of <code>seek()</code> and <code>read()</code>.  Making it safe to assume the second argument is a pointer to an output buffer and the third argument is the size of the buffer.  The fourth argument is would be an address in kernel space, those returned by <code>knlist()</code>.  Next question, what are the symbol names used by <code>arp</code> to lookup these addresses?  Easy to narrow down using the <code>strings</code> command:</p>
+
+<pre><code>% strings /usr/sbin/arp | perl -ne 'print if /^arp\w+$/'
+arptabp
+arptabnb
+arptabsize
+arptab_bsiz
+</code></pre>
+
+<p>Whadda know, <em>4</em> names match.  Let's assume these are the symbols that the <code>arp</code> command is looking up, we need to know the data structure to get further.  Thanks again to grep, we see:</p>
+
+<pre><code>/usr/include/net/if_arp.h:extern struct arptab  *arptabp;
+/usr/include/net/if_arp.h:extern long           arptabnb;
+/usr/include/net/if_arp.h:extern long           arptabsize;
+/usr/include/net/if_arp.h:extern long           arptab_bsiz;
+</code></pre>
+
+<p>Looks like <code>struct arptab</code> has exactly what we're looking for:</p>
+
+<pre><code>/* 
+ * Internet to link layer address resolution table. 
+ */ 
+struct arptab {
+    struct in_addr at_iaddr;   /* internet address */
+    u_char hwaddr[MAX_HWADDR]; /* hardware address */ 
+    ...
+</code></pre>
+
+<p>Now let's try to reproduce the initial calls to <code>getkerninfo()</code> with the following C program:</p>
+
+<pre><code>int main(int argc, char `argv) {
+   long arptabsize;
+   long arptabnb;
+   long arptabbsiz;
+   struct arptab *arptabp;
+
+   struct nlist klist[] = {
+       {"arptabsize", 0, 0, 0, 0, 0}, 
+       {"arptabnb", 0, 0, 0, 0, 0}, 
+       {"arptab_bsiz", 0, 0, 0, 0, 0},
+       {"arptabp", 0, 0, 0, 0, 0},
+       {NULL, 0, 0, 0, 0, 0} 
+   }; 
+
+   if (knlist(klist, 
+              sizeof(klist) / sizeof(klist[0]), 
+              sizeof(klist[0])) != 0) 
+   { 
+       return errno; 
+   } 
+
+   size = sizeof(arptabsize); 
+   getkerninfo(KINFO_READ, &amp;arptabsize, &amp;size, klist[0].n_value); 
+
+   size = sizeof(arptabnb); 
+   getkerninfo(KINFO_READ, &amp;arptabnb, &amp;size, klist[1].n_value); 
+
+   size = sizeof(arptabbsiz); 
+   getkerninfo(KINFO_READ, &amp;arptabbsiz, &amp;size, klist[2].n_value); 
+
+   size = sizeof(arptabp); 
+   getkerninfo(KINFO_READ, &amp;arptabp, &amp;size, klist[3].n_value); 
+}
+</code></pre>
+
+<p>Compile and trace:</p>
+
+<pre><code>% xlc_r -w -q64 -o tarp tarp.c &amp;&amp; truss ./tarp
+...
+knlist(0x0FFFFFFFFFFFF9B8, 5, 24) = 0
+getkerninfo(2048, 0x0FFFFFFFFFFFF990, 0x0FFFFFFFFFFFF9B0, 4428264) = 8
+getkerninfo(2048, 0x0FFFFFFFFFFFF998, 0x0FFFFFFFFFFFF9B0, 4428272) = 8
+getkerninfo(2048, 0x0FFFFFFFFFFFF9A0, 0x0FFFFFFFFFFFF9B0, 7871696) = 8
+getkerninfo(2048, 0x0FFFFFFFFFFFF9A8, 0x0FFFFFFFFFFFF9B0, 7871288) = 8
+</code></pre>
+
+<p>Sure enough, the fourth argument to the <code>getkerninfo()</code> calls is filled in with the same values seen in the <code>truss arp -an</code> output.  Based on these results and looking closer at <em>net/if_arp.h</em>. Here's what we have so far:</p>
+
+<ul>
+<li><p><code>struct arptabp *</code> - address of a hash table used to store the arp cache in kernel memory.</p></li>
+<li><p><code>long arptabsize</code> - total size of the hash table.</p></li>
+<li><p><code>long arptabnb</code> - number of buckets in the hash table.</p></li>
+<li><p><code>long arptab_bsize</code> - bucket size - number of entries in each bucket.</p></li>
+</ul>
+
+<p>Back to the <code>truss arp -an</code> output, there are a number of <code>getkerninfo()</code> calls that follow, <em>511</em> of which have the same pattern:</p>
+
+<pre><code>340204: getkerninfo(2048, 0x0FFFFFFFFFFFF818, 0x0FFFFFFFFFFFF7F0, -1080862866890817536) = 104 
+340204: getkerninfo(2048, 0x0FFFFFFFFFFFF818, 0x0FFFFFFFFFFFF7F0, -1080862866890817432) = 104 
+340204: getkerninfo(2048, 0x0FFFFFFFFFFFF818, 0x0FFFFFFFFFFFF7F0, -1080862866890817328) = 104 
+...
+</code></pre>
+
+<p>Where:</p>
+
+<ul>
+<li><p>The first argument is <code>KINFO_READ</code></p></li>
+<li><p>The second argument is the same address each time (reusing a buffer).</p></li>
+<li><p>The third argument is the same address each time (reusing a size variable).</p></li>
+<li><p>The fourth (output) argument is an address incremented by <em>104</em> each time</p></li>
+<li><p>The return value is <em>104</em> - same value as the <code>sizeof(struct arptab)</code></p></li>
+</ul>
+
+<p>Going back to the <em>tarp.c</em> test program, changed to output the size variables:</p>
+
+<ul>
+<li><p>arptabsize == 511</p></li>
+<li><p>arptabnb == 73</p></li>
+<li><p>arptabbsiz == 7</p></li>
+</ul>
+
+<p>So, the number of syscalls that return <em>104</em> == arptabsize == 511 == (73 * 7)</p>
+
+<p>Clearly the <code>arp</code> command is iterating over the entire arp cache table, reading each entry from kernel memory, along the lines of:</p>
+
+<pre><code>for (i=0; i&lt;arptabsize; i++) { 
+    struct arptab entry; 
+    int size = sizeof(entry);
+    getkerninfo(KINFO_READ, &amp;entry, &amp;size, arptabp + i);
+}
+</code></pre>
+
+<p>Now that we're able to read the entire table, let's focus on get the specific pieces of data we need.  The definition of <code>struct arptab</code> includes the flags, IP address and hardware address, but what about the hardware type and associated network interface name?  The system I'm testing on currently has 4 entries in the arp cache and truss shows the following when each entry is printed:</p>
+
+<pre><code>340204: getkerninfo(2048, 0x0000000110001560, 0x0FFFFFFFFFFFF770, -1080862935453995008) = 408
+...
+340204: kwrite(1, "     ?   ( 1 0 . 1 7 . 1".., 70)     = 70
+</code></pre>
+
+<p>Another call to <code>getkerninfo()</code>, this time with a different return length, followed by the entry being printed on the console (kwrite).  What is being read here?</p>
+
+<p>Looking again at the structure:</p>
+
+<pre><code>struct arptab {
+    ...
+    struct ifnet *at_ifp; /* ifnet associated with entry */
+    ...
+}
+</code></pre>
+
+<p>A pointer to:</p>
+
+<pre><code>struct ifnet { 
+    char *if_name; /* name, e.g. ``en'' or ``lo'' */ 
+    ...
+    u_char if_type; /* ethernet, tokenring, etc */ 
+    ...
+    u_char if_index; /* numeric abbreviation for this if  */ 
+    ...
+}
+</code></pre>
+
+<p>Bingo: <code>sizeof(struct ifnet) == 408</code>.  <em>if_type</em> is the hardware type, the value of which would be one of the <code>IFT_</code> defines in <em>net/if_types.h</em>.  Since <em>if_name</em> is a pointer, we'll just use <em>if_index</em> to lookup the interface name using the <code>if_indextoname()</code> function.  Adding to the for loop of the test program, just need to check for a valid entry and the <code>struct ifnet</code> can be read using the address pointed to by <em>at_ifp</em>:</p>
+
+<pre><code>    if (entry.at_flags != 0) {
+        struct ifnet ifb;
+        size = sizeof(ifb);
+        getkerninfo(KINFO_READ, &amp;ifb, &amp;size, entry.at_ifp);
+    }
+</code></pre>
+
+<h4>Notes</h4>
+
+<ul>
+<li><p>You'll want to check that the return value of <code>getkerninfo()</code> == expected_size</p></li>
+<li><p>64-bit kernel AIX requires a 64-bit calling process.</p></li>
+<li><p>The user running the process must have privs to call <code>getkerninfo()</code>, e.g. <em>root</em>.</p></li>
+</ul>
+
+<h3>Darwin</h3>
+
+<p>See: FreeBSD</p>
+
+<h3>FreeBSD</h3>
+
+<p>Going into FreeBSD expecting to be using <code>sysctl()</code> to access the kernel data:</p>
+
+<pre><code>% ktrace arp -an
+% kdump | grep -n3 sysctl
+...
+298: 40900 arp      CALL  __sysctl(0x7fffffffe740,0x6,0,0x7fffffffe758,0,0)
+299: 40900 arp      RET   __sysctl 0
+300: 40900 arp      CALL  __sysctl(0x7fffffffe740,0x6,0x800902800,0x7fffffffe758,0,0)
+301: 40900 arp      RET   __sysctl 0
+302- 40900 arp      CALL  write(0x1,0x80090a000,0x36)
+303- 40900 arp      GIO   fd 1 wrote 54 bytes
+304-       "? (10.16.16.1) at 00:1b:90:ab:b1:41 on em0 [ethernet]
+...
+</code></pre>
+
+<p>There's two calls to <code>sysctl()</code> just before printing out the arp cache table, both with the same <code>int *</code> array pointer and length of <em>6</em>.  In the first call the output buffer (3rd argument) is <code>NULL</code>, in which case <code>sysctl()</code> will set the size required to hold the data in the 4th <code>size_t*</code> argument.  The size is used to allocate the output buffer which is used in the 2nd call.  But hey, FreeBSD is open source, so let's take a peek at <em>usr.sbin/arp/arp.c</em>.  The <code>search</code> function has the key bits we need. The MIB names:</p>
+
+<pre><code>int mib[] = { CTL_NET, PF_ROUTE, 0, AF_INET, NET_RT_FLAGS, RTF_LLINFO };
+</code></pre>
+
+<p>And how to dereference the generic <code>struct rt_msghdr *</code> which would be returned for any <code>sysctl</code> with a root of <code>CTL_NET</code> + <code>PF_ROUTE</code>, for our particular request of <code>RTF_LLINFO</code>:</p>
+
+<pre><code>for (next = buf; next &lt; lim; next += rtm-&gt;rtm_msglen) {
+    rtm = (struct rt_msghdr *)next;
+    /* the IP address */
+    sin = (struct sockaddr_inarp *)(rtm + 1);
+    /* LLADDR(dsl) == hwaddr */
+    /* sdl-&gt;sdl_index lookup w/ if_indextoname == ifname */
+    sdl = (struct sockaddr_dl *)((char *)sin + SA_SIZE(sin));
+    ...
+}
+</code></pre>
+
+<p>In turns out that the resulting implementation works as-is on <em>Darwin</em>, <em>NetBSD</em> and <em>OpenBSD</em>.  Four birds with one stone.  Hurrah!</p>
+
+<h3>HP-UX</h3>
+
+<p>HP-UX provides an implementation of the standard <code>IP-MIB</code> via the <em>/dev/ip</em> driver, wrapped by the <code>open_mib()</code> and <code>get_mib_info()</code> functions defined in <em>sys/mib.h</em>.  SIGAR uses this interface to implement <code>sigar_net_route_list_get()</code>, <code>sigar_net_connection_walk()</code> and other related functions.  Looking at <code>IP-MIB</code>:</p>
+
+<pre><code>ipNetToPhysicalTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF IpNetToPhysicalEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION "The IP Address Translation table used for mapping from IP addresses to physical addresses..."
+ ...
+
+ipNetToMediaTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF IpNetToMediaEntry
+    MAX-ACCESS not-accessible
+    STATUS     deprecated
+    DESCRIPTION "The IPv4 Address Translation table used for mapping from IPv4 addresses to physical addresses.
+                 This table has been deprecated, as a new IP version-neutral table has been added.
+                 It is loosely replaced by the ipNetToPhysicalTable."
+</code></pre>
+
+<p>Alrighty then, let's check HP-UX 11.11 and 11.23, results are the same:</p>
+
+<pre><code>% egrep 'ipNet.*Table' /usr/include/sys/mib.h
+#define ID_ipNetToMediaTableNum           OBJID(GP_ip,1031)
+#define ID_ipNetToMediaTable              OBJID(GP_ip,1032)
+#define ID_ipNetToMediaTableEnt           OBJID(GP_ip,1033)
+</code></pre>
+
+<p>Seems the deprecated <code>ipNetToMediaTable</code> is the only option.  Now to see what an entry in the table looks like:</p>
+
+<pre><code>typedef struct {
+    int             IfIndex;
+    mib_physaddr_t  PhysAddr;
+    ip_addr         NetAddr;
+    int             Type;
+} mib_ipNetToMediaEnt;
+</code></pre>
+
+<p>That's just about everything we need.  First, let's see what HPUX's <code>arp</code> command is doing:</p>
+
+<pre><code>% tusc /usr/sbin/arp -an
+...
+open("/dev/dlpi", O_RDWR, 0) ........................................................... = 5
+putmsg(5, 0x7a000de8, NULL, NULL) ...................................................... = 0
+getmsg(5, 0x7a000de8, NULL, 0x7a000f98) ................................................ = 0
+...
+write(1, "  ( 1 0 . 1 7 . 1 4 3 . 2 5 3 ) ".., 43) ..................................... = 43
+...
+</code></pre>
+
+<p>Ah yes, the good old Data Link Provider Interface.  A bit more primitive than the mib wrappers, but likely the same information:</p>
+
+<pre><code>% strings /usr/sbin/arp | grep ID_ipNetToMediaTable
+Can't get ID_ipNetToMediaTableNum
+Can't get ID_ipNetToMediaTable
+</code></pre>
+
+<p>Yep.  Sticking with <em>/dev/ip</em>, here's gist of getting the table data:</p>
+
+<pre><code>int fd, len, count, i, status;
+struct nmparms parms;
+mib_ipNetToMediaEnt *entries;
+
+if ((fd = open_mib("/dev/ip", O_RDONLY, 0, 0)) &lt; 0) {
+    return errno;
+}
+
+/* get the size of the table */
+len = sizeof(count);
+parms.objid = ID_ipNetToMediaTableNum;
+parms.buffer = &amp;count;
+parms.len = &amp;len;
+
+if ((status = get_mib_info(fd, parms)) != 0) {
+    return status;
+}
+
+/* allocate buffer */
+len = count * sizeof(*entries);
+entries = malloc(len);
+
+/* get the table */
+parms.objid = ID_ipNetToMediaTable;
+parms.buffer = entries;
+parms.len = &amp;len;
+
+if ((status = get_mib_info(fd, &amp;parms)) != 0) {
+    free(entries);
+    return status;
+}
+/* iterate over the table */
+for (i=0; i&lt;count; i++) {
+    mib_ipNetToMediaEnt *entry = &amp;entries[i];
+    /* do what you will with entry */
+}
+
+free(entries);
+close_mib(fd);
+</code></pre>
+
+<h3>Linux</h3>
+
+<p>It's almost always the case with Linux that we'll be parsing files from the <em>/proc</em> file system:</p>
+
+<pre><code>% strace /sbin/arp -an 2&gt;&amp;1 | grep /proc
+open("/proc/net/arp", O_RDONLY) = 4
+</code></pre>
+
+<p>Sure enough:</p>
+
+<pre><code>% cat /proc/net/arp 
+IP address       HW type     Flags       HW address            Mask     Device
+10.17.143.3      0x1         0x2         00:10:83:7B:50:91     *        eth0
+10.17.143.253    0x1         0x2         00:10:DB:EB:E0:83     *        eth0
+</code></pre>
+
+<p>Hey, easy to parse, right?  Sure, but this is also an example of inconsistency within Linux <em>/proc</em>.  The <em>IP address</em> and <em>HW address</em> are already in human readable form.  Yet, in other <em>/proc</em> files, addresses are in hex format.  Pfft.</p>
+
+<h3>Solaris</h3>
+
+<p>Similar to HPUX, Solaris implements <code>MIB-II</code>, including <code>IP-MIB</code>, defined in the <em>inet/mib2.h</em> header file.  The query interface is quite different but the data structures are quite similar.  It appears only the deprecated version is implemented:</p>
+
+<p>% egrep 'ipNet.*Table' /usr/include/inet/mib2.h 
+ *      ipNetToMediaTable OBJECT-TYPE</p>
+
+<p>And <em>ipNetToMediaEntry</em> is defined in <em>inet/mib2.h</em> as:</p>
+
+<pre><code>typedef struct mib2_ipNetToMediaEntry { 
+    /* Unique interface index               { ipNetToMediaEntry 1 } RW */ 
+    DeviceName      ipNetToMediaIfIndex; 
+    /* Media dependent physical addr        { ipNetToMediaEntry 2 } RW */ 
+    PhysAddress     ipNetToMediaPhysAddress; 
+    /* ip addr for this physical addr       { ipNetToMediaEntry 3 } RW */ 
+    IpAddress       ipNetToMediaNetAddress; 
+    /* other(1), inval(2), dyn(3), stat(4)  { ipNetToMediaEntry 4 } RW */ 
+    int             ipNetToMediaType; 
+    struct ipNetToMediaInfo_s { 
+        PhysAddress     ntm_mask;       /* subnet mask for entry */ 
+        int             ntm_flags;      /* ACE_F_* flags in arp.h */ 
+    } ipNetToMediaInfo; 
+} mib2_ipNetToMediaEntry_t;
+</code></pre>
+
+<p>That's the ticket.  Skimming through the output of <code>truss -f /usr/sbin/arp -an</code>:</p>
+
+<pre><code>27460:  open("/dev/arp", O_RDWR)  = 3
+27460:  ioctl(3, I_PUSH, "tcp")   = 0
+27460:  ioctl(3, I_PUSH, "udp")   = 0
+27460:  ioctl(3, I_PUSH, "icmp")  = 0
+</code></pre>
+
+<p>That tell us the Solaris <code>arp</code> command is using the ARP stream device to retrieve IP MIB-II information.  Sun doesn't seem to provide any documentation on using the ARP device.  However, Vic Abell (of lsof fame), created a wrapper called <em>get_mib2</em>, which makes it simple to access the Solaris <code>MIB-II</code> data.  We've been using this wrapper in SIGAR for several years now.  The wrapper reads the entire MIB stream, it's up to the caller to filter the stream:</p>
+
+<pre><code>while ((rc = get_mib2(&amp;sigar-&gt;mib2, &amp;op, &amp;data, &amp;len)) == GET_MIB2_OK) {
+    mib2_ipNetToMediaEntry_t *entry;
+    size_t size = sizeof(*entry); /* see solaris_sigar.c for the proper value of size */
+    char *end;
+
+    if (op-&gt;level != MIB2_IP) { /* checking for the IP MIB */
+        continue;
+    }
+
+    if (op-&gt;name != MIB2_IP_MEDIA) { /* checking for ipNetToMediaEntry */
+        continue;
+    }
+
+    for (entry = (mib2_ipNetToMediaEntry_t *)data, end = data + len;
+         (char *)entry &lt; end;
+         nread+=size, entry = (mib2_ipNetToMediaEntry_t *)((char *)data+nread))
+    {
+        /* do what you will with entry */
+    }
+}
+</code></pre>
+
+<h4>Notes</h4>
+
+<ul>
+<li>For binary compatibility, use <code>((mib2_ip_t *)data)-&gt;ipRouteEntrySize</code> rather than <code>sizeof(*entry)</code>.  This is also why we cast <code>(char *)data</code> and increment by <code>nbytes</code>, as the <code>sizeof(mib2_ipNetToMediaEntry_t)</code> differs between Solaris versions.</li>
+</ul>
+
+<h3>Windows</h3>
+
+<p>Using Bing at msdn.microsoft.com, we land at the <code>GetIpNetTable()</code> function.  "The GetIpNetTable function retrieves the IPv4 to physical address mapping table.":</p>
+
+<pre><code>DWORD GetIpNetTable(
+    PMIB_IPNETTABLE pIpNetTable,
+    PULONG pdwSize,
+    BOOL bOrder);
+</code></pre>
+
+<p>Where the <code>MIB_IPNETTABLE</code> structure contains "a pointer to a table of arp entries implemented as an array of <code>MIB_IPNETROW</code> structures." and <code>MIB_IPNETROW</code> consists of:</p>
+
+<pre><code>typedef struct _MIB_IPNETROW {
+    DWORD dwIndex;
+    DWORD dwPhysAddrLen;
+    BYTE  bPhysAddr[MAXLEN_PHYSADDR];
+    DWORD dwAddr;
+    DWORD dwType;
+} MIB_IPNETROW, *PMIB_IPNETROW;
+</code></pre>
+
+<p>Iterate over this table using something along the lines of:</p>
+
+<pre><code>DWORD rc, size=0, i;
+PMIB_IPNETTABLE ipnet;
+
+/* get the size of the table */
+rc = GetIpNetTable(null, &amp;size, false);
+if (rc != ERROR_INSUFFICIENT_BUFFER) {
+    return GetLastError();
+}
+ipnet = malloc(size); /* allocate the table */
+rc = GetIpNetTable(ipnet, &amp;size, false);
+if (rc) {
+    free(ipnet);
+    return GetLastError();
+}
+
+for (i = 0; i &lt; ipnet-&gt;dwNumEntries; i++) {
+    PMIB_IPNETROW entry = &amp;ipnet-&gt;table[i];
+    /* do what you will with entry */
+}
+</code></pre>
+
+<h4>Notes</h4>
+
+<ul>
+<li>A newer version of this function <code>GetIpNetTable2()</code> was introducted in Vista/2008 Server</li>
+</ul>
+
+<h3>NetBSD</h3>
+
+<p>See: FreeBSD</p>
+
+<h3>OpenBSD</h3>
+
+<p>See: FreeBSD</p>
+
+<h3>Author</h3>
+
+<p><a href="http://dougm.github.com/sigar/">Doug MacEachern</a></p>
