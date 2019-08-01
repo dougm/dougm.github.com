@@ -1,0 +1,131 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.Datastore" name="hbr.replica.Datastore"></a>
+<h1>Managed Object -  
+						HbrDatastore(hbr.replica.Datastore)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.StorageManager.html#field_detail">HbrStorageManager</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to manage a datastore configured for the host-based
+ replication server at the secondary site.
+
+ <h2>UUID</h2>
+
+ Datastores are identified by their host and path independent "UUID".  A
+ UUID is a simple ASCII string of "-"-separated hexadecimal numbers.
+ For example "48ea7ff9-bcd852c2-b76c-0019b9e3cc39" and
+ "21611661-515d59e4" are valid UUIDs.  For VMFS volumes, the id is the
+ VMFS generated UUID for the datastore.
+
+ <h2>Managed Object ID</h2>
+
+ Datastore object MoIDs are stable.  They are a function only of the
+ datastore UUID, so the MoIDs will be consistent across a datastore being
+ added to and removed from an HbrServer.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="accessible" name="accessible"></a><strong>accessible</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         Connectivity status of datasore. It is set to true when
+ there is at least one host connected to this datastore,
+ and false when none.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="lastError" name="lastError"></a><strong>lastError</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a></td><td>
+<p></p>
+         The last error encountered while accessing the datastore
+ or the status of a connectivity error.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="uuid" name="uuid"></a><strong>uuid</strong></td><td>xsd:string</td><td>
+<p></p>
+         Unique id for this datastore.
+ <p>
+ See the UUID description in the class documentation.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td>
+							None
+						</td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

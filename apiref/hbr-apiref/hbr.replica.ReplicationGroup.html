@@ -1,0 +1,1003 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.ReplicationGroup" name="hbr.replica.ReplicationGroup"></a>
+<h1>Managed Object -  
+						HbrReplicationGroup(hbr.replica.ReplicationGroup)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#field_detail">HbrReplicationManager</a>
+</dd>
+<dt>Returned by</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#createReplicationGroup">CreateReplicationGroup_Task</a>, <a href="hbr.replica.ReplicationManager.html#getReplicationGroup">GetReplicationGroup</a>, <a href="hbr.replica.ReplicationManager.html#loadReplicationGroup">LoadReplicationGroup_Task</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.GroupImage.html">HbrGroupImage</a>, <a href="hbr.replica.IdentSpec.html">HbrIdentSpec</a>, <a href="hbr.replica.Task.html">HbrReplicaTask</a>, <a href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>, <a href="hbr.replica.VirtualMachineImage.html">HbrVirtualMachineImage</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to manage the group for a replication target.
+
+ <p>
+ In the initial release, a consistency group can only contain a single
+ Virtual Machine. In the future, it may include more than one VM.
+ <p>
+ Each group may have zero or more "consistent" instances (see <a href="hbr.replica.BaseGroup.html#latestInstances">latestInstances</a>).
+
+ <p> A group may have at most one image, no matter how many consistent
+ instances it has.  To find the image, check <a href="hbr.replica.ReplicationGroup.html#activeImage">activeImage</a>
+ for this Group.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="activeImage" name="activeImage"></a><strong>activeImage</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.GroupImage.html">HbrGroupImage</a></td><td>
+<p></p>
+         Get the active image (if any) of this group.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="syncPruneTask" name="syncPruneTask"></a><strong>syncPruneTask</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td>
+<p></p>
+         The task of an in progress prune.
+
+ <p> If a synchronous prune is in progress, returns the corresponding
+ Task to track its progress updates.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="vms" name="vms"></a><strong>vms</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="hbr.replica.VirtualMachine.html">HbrVirtualMachine[]</a></td><td>
+<p></p>
+         Set of virtual machines currently configured for replication in this replica
+ group.
+ <p>
+ Only one virtual machine is supported in version HBR v1.
+ <p>
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3"><a href="hbr.replica.BaseGroup.html#currentRpoViolation">currentRpoViolation</a>, <a href="hbr.replica.BaseGroup.html#groupStats">groupStats</a>, <a href="hbr.replica.BaseGroup.html#id">id</a>, <a href="hbr.replica.BaseGroup.html#lastGroupError">lastGroupError</a>, <a href="hbr.replica.BaseGroup.html#latestInstance">latestInstance</a>, <a href="hbr.replica.BaseGroup.html#latestInstances">latestInstances</a>, <a href="hbr.replica.BaseGroup.html#repConfig">repConfig</a>, <a href="hbr.replica.BaseGroup.html#state">state</a></td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#commitToImage">HbrReplicationGroupCommitToImage_Task</a>, <a href="#createFailoverImage">HbrReplicationGroupCreateFailoverImage_Task</a>, <a href="#createTestBubbleImage">HbrReplicationGroupCreateTestBubbleImage_Task</a>, <a href="#pauseRpoViolationReporting">HbrReplicationGroupPauseRpoReporting</a>, <a href="#resumeRpoViolationReporting">HbrReplicationGroupResumeRpoReporting</a>, <a href="#revertImage">HbrReplicationGroupRevertImage_Task</a>, <a href="#unconfigure">HbrReplicationGroupUnconfigure_Task</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a></td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.BaseGroup.html#remove">BaseGroupRemove_Task</a>, <a href="hbr.replica.BaseGroup.html#getInstanceCount">GetInstanceCount</a>, <a href="hbr.replica.BaseGroup.html#getInstanceDataEx">GetInstanceDataEx</a>, <a href="hbr.replica.BaseGroup.html#getInstances">GetInstances</a>, <a href="hbr.replica.BaseGroup.html#updateRepConfig">UpdateRepConfig</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="commitToImage" name="commitToImage"></a>
+<h1>HbrReplicationGroupCommitToImage_Task(commitToImage)</h1>
+<p></p>
+         <p> Commit this replica to the given fail-over image, and disable this
+ replication configuration.  All files associated with the replica
+ group, except those needed by the given image, will be cleaned up. The
+ disk chain for the instances newer than the selected instance is discarded.
+
+ <p> The files associated with the image (directly or indirectly via the
+ disk hierarchy) will no longer be managed by this server.
+
+ <p> Only "fail-over" images can be committed to. It is an error to
+ commit to a test-bubble image.  See <a href="hbr.replica.ReplicationGroup.html#createTestBubbleImage">HbrReplicationGroupCreateTestBubbleImage_Task</a> and
+ <a href="hbr.replica.ReplicationGroup.html#createFailoverImage">HbrReplicationGroupCreateFailoverImage_Task</a>.
+
+ <p> See <a href="hbr.replica.BaseGroup.html#remove">BaseGroupRemove_Task</a> which removes a group only if an existing
+ image has been reverted, and see <a href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a> which removes
+ an image without impacting the group state.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>image</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.GroupImage.html">HbrGroupImage</a></td><td>
+<p></p>
+         Identifies the image that needs to be committed.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>consolidateDisks</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         If true, the disk chain up to the instance for
+        the image selected for commit is consolidated. The virtual machine
+        configuration files are updated to point to the instance disks
+        after consolidation. The VirtualMachineImage returned by this API
+        will have the information about the new disks after the
+        consolidate. The disk consolidation request is ignored if the
+        snapshotPITImages option was requested when creating the fail over
+        image. Replications using a UDM replication style do not
+        currently support setting this to false.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupDestructionPending.html">HbrReplicaFaultGroupDestructionPending</a></td><td>Thrown if remove or unconfigure is pending.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.GroupImageOwnerMismatch.html">HbrReplicaFaultGroupImageOwnerMismatch</a></td><td>Thrown if the image does not belong to the group.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupImageTypeMismatch.html">HbrReplicaFaultGroupImageTypeMismatch</a></td><td>Thrown if the image is a test-bubble.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.StorageLocked.html">HbrReplicaFaultStorageLocked</a></td><td>Thrown if the consolidation is requested but the disks are locked. If the image is registered as a virtual machine and powered on, the commitToImage must be called with consolidateDisks set to false. Otherwise, the server may have disconnected with the host and the previous consolidation may still be in progress. If so, retry commitToImage after a delay.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.TaskInProgress.html">HbrReplicaFaultTaskInProgress</a></td><td>Thrown if there is an on-going task that must first finish or be canceled (like a move operation)</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="createFailoverImage" name="createFailoverImage"></a>
+<h1>HbrReplicationGroupCreateFailoverImage_Task(createFailoverImage)</h1>
+<p></p>
+         Create an image from an instance for this group in the given location.
+
+ <p> The image config files are fixed up.  (E.g., the datastore paths or
+ disk labels, and the hbr replication configuration).
+
+ <p> Only the config files for the virtual machine image are stored in
+ the given location.  The disks of the virtual machine are left where
+ they were created during configuration of the replication.
+
+ <p> Replication is blocked for the group before it starts to create
+ the image files. In most common cases where a failover image is requested,
+ the orchestrator managing VM recovery (such as vSphere Replication
+ or VMware Site Recovery Manager) should already ensure that the protected VM
+ at source site was powered off. Replication will continue when the failover
+ image is reverted (<a href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a>).
+
+ <p> When using the UDM replication style, the vmx will point to a
+ dummy disk and will only be fixed to point at a valid disk when
+ <a href="hbr.replica.ReplicationGroup.html#commitToImage">HbrReplicationGroupCommitToImage_Task</a> is invoked. This allows the VM to be registered
+ but it cannot be powered on until after a successful commit.
+
+ <p> Caller must eventually <a href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a> or
+ <a href="hbr.replica.ReplicationGroup.html#commitToImage">HbrReplicationGroupCommitToImage_Task</a> the resulting image.
+
+ <p> The Group cannot be destroyed until the image is removed or committed
+ to.
+
+ <p> If the disk mode of a replicated disk is independent-persistent,
+ independent-nonpersistent, or nonpersistent, it is changed to be
+ persistent.
+
+ <p> This API does not apply if the group is idle. XXX new fault.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>instanceId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         (<a href="hbr.replica.GroupInstanceData.html#key">key</a>) identifies the instance
+        for which to create an image.
+        If the instance is not specified, a latest instance is used to
+        create an image.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>snapshotPITImages</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true exposes point in time instances of the
+        group as snapshots. Groups with the UDM replication
+        style do not currently support setting this to true.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>locations</strong></td><td><a href="hbr.replica.IdentSpec.html">HbrIdentSpec[]</a></td><td>
+<p></p>
+         identifies the datastore where the new image
+        should be created and the full path to a directory where the
+        image should be created for each virtual machine in the group.
+        The id in the IdentSpec must  be set to the VM replication id.
+        The directories must already exist. This call only accepts
+        FilePathLocation locations
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>disableNics</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true, the startConnected flag for all NICs of the
+        virtual machine will be set to FALSE. If false, the flag will
+        not be changed.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>keepOnlyReplicatedDisks</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true, all non-replicated disks will be
+        removed from the vmx file. If false, the non-replicated disks will
+        be left in the vmx file but the file path information will be
+        removed so that it will refer to disks only in the VM configuration
+        folder and the file name will be changed to ensure it is unique. If
+        snapshotPITImages is true and keepOnlyReplicatedDisks is false,
+        the non-replicated disks are kept only in the current VM
+        configuration, this means, they will not be referenced by the VM
+        after a revert to a snapshot.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InstanceHasImage.html">HbrReplicaFaultInstanceHasImage</a></td><td>Thrown if any of the instances of this group was used to create an image.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InstanceNotFound.html">HbrReplicaFaultInstanceNotFound</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidIdentSpec.html">HbrReplicaFaultInvalidIdentSpec</a></td><td>Thrown if any of the location for a virtual machine is invalid.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.MissingIdentSpec.html">HbrReplicaFaultMissingIdentSpec</a></td><td>Thrown if any of the location for a virtual machine in the group is not specified.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.NoInstances.html">HbrReplicaFaultNoInstances</a></td><td>Thrown if an instance is not specified and the group does not have any instances.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="createTestBubbleImage" name="createTestBubbleImage"></a>
+<h1>HbrReplicationGroupCreateTestBubbleImage_Task(createTestBubbleImage)</h1>
+<p></p>
+         Create a test-bubble image from an instance of this group in the given
+ location.
+
+ <p> The image config files are fixed up.  (E.g., the datastore paths or
+ disk labels, and the hbr replication configuration).
+
+ <p> The config files for the virtual machine image are stored in the given
+ location. Additionally, redo logs for each disk of the virtual machine
+ will be stored in the given location, too.
+
+ <p> Caller must <a href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a> the resulting image to clean
+ up disk state associated with the VM.  The instance state this image is
+ created from will exist until the image is destroyed.  The Group cannot
+ be destroyed until the image is reverted.
+
+ <p> It is an error if the given directory already exists.  Reverting a
+ test-bubble image that is created in a directory with other 'useful'
+ items in it is sketchy.
+
+ <p> If the disk mode of a replicated disk is independent-persistent,
+ independent-nonpersistent, or nonpersistent, it is changed to be
+ persistent.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>instanceId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         (<a href="hbr.replica.GroupInstanceData.html#key">key</a>) identifies the instance
+        for which to create an image.
+        If the instance is not specified, a latest instance is used to
+        create an image.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>snapshotPITImages</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true exposes point in time instances of the
+        group as snapshots.  Groups with the UDM replication
+        style do not currently support setting this to true.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>locations</strong></td><td><a href="hbr.replica.IdentSpec.html">HbrIdentSpec[]</a></td><td>
+<p></p>
+         identifies the datastore where the new image
+        should be created and the full path to a directory where the
+        image should be created for each virtual machine in the group.
+        The id in the IdentSpec must  be set to the VM replication id.
+        The directories must not exist. This call only accepts
+        FilePathLocation locations.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>disableNics</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true, the startConnected flag for all NICs of the
+        virtual machine will be set to FALSE. If false, the flag will
+        not be changed.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>keepOnlyReplicatedDisks</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         If true, all non-replicated disks will be
+        removed from the vmx file. If false, the non-replicated disks will
+        be left in the vmx file but the file path information will be
+        removed so that it will refer to disks only in the VM configuration
+        folder and the file name will be changed to ensure it is unique. If
+        snapshotPITImages is true and keepOnlyReplicatedDisks is false,
+        the non-replicated disks are kept only in the current VM
+        configuration, this means, they will not be referenced by the VM
+        after a revert to a snapshot.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InstanceHasImage.html">HbrReplicaFaultInstanceHasImage</a></td><td>Thrown if any of the instances of this group was used to create an image.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InstanceNotFound.html">HbrReplicaFaultInstanceNotFound</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidIdentSpec.html">HbrReplicaFaultInvalidIdentSpec</a></td><td>Thrown if any of the location for a virtual machine is invalid.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.MissingIdentSpec.html">HbrReplicaFaultMissingIdentSpec</a></td><td>Thrown if any of the location for a virtual machine in the group is not specified.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.NoInstances.html">HbrReplicaFaultNoInstances</a></td><td>Thrown if an instance is not specified and the group does not have any instances.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.StorageAlreadyExists.html">HbrReplicaFaultStorageAlreadyExists</a></td><td>Thrown if pathname refers to an existing file/directory</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="pauseRpoViolationReporting" name="pauseRpoViolationReporting"></a>
+<h1>HbrReplicationGroupPauseRpoReporting(pauseRpoViolationReporting)</h1>
+<p></p>
+         Pause the reporting for RPO violations.
+ <p>
+ No further property updates for #currentRpoViolation will be
+ posted until <a href="hbr.replica.ReplicationGroup.html#resumeRpoViolationReporting">HbrReplicationGroupResumeRpoReporting</a> is called.
+ <p>
+ This is usually called after replication is paused at the primary side.
+ This flag is persistent across hbrsrv reboot. This is an idempotent
+ operation (it is a no-op when RPO violations reporting has already been
+ paused).
+ <p>
+ See #currentRpoViolation which returns the current RPO violations.
+ <p>
+ This API does not apply if the group is idle. XXX new fault
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrReplicationGroupPauseRpoReporting-textarea');expandcontent(this, 'HbrReplicationGroupPauseRpoReporting-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrReplicationGroupPauseRpoReporting-div">
+<textarea cols="20" rows="10" name="HbrReplicationGroupPauseRpoReporting-textarea" wrap="off" readonly="1" id="HbrReplicationGroupPauseRpoReporting-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrReplicationGroupPauseRpoReporting" type="hbrsrv:HbrReplicationGroupPauseRpoReportingRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrReplicationGroupPauseRpoReportingResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="resumeRpoViolationReporting" name="resumeRpoViolationReporting"></a>
+<h1>HbrReplicationGroupResumeRpoReporting(resumeRpoViolationReporting)</h1>
+<p></p>
+         Resume the reporting for RPO violations.
+ <p>
+ This function causes a property update with the current value for #currentRpoViolation to be posted (to ensure the caller has the correct
+ value).
+ <p>
+ This is usually called after replication is resumed at the primary side.
+ This flag is persistent across hbrsrv reboot. This is an idempotent
+ operation (it is a no-op when RPO violations reporting has already been
+ resumed).
+ <p>
+ See #currentRpoViolation which returns the current RPO violations.
+ <p>
+ This API does not apply if the group is idle. XXX new fault
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrReplicationGroupResumeRpoReporting-textarea');expandcontent(this, 'HbrReplicationGroupResumeRpoReporting-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrReplicationGroupResumeRpoReporting-div">
+<textarea cols="20" rows="10" name="HbrReplicationGroupResumeRpoReporting-textarea" wrap="off" readonly="1" id="HbrReplicationGroupResumeRpoReporting-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrReplicationGroupResumeRpoReporting" type="hbrsrv:HbrReplicationGroupResumeRpoReportingRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrReplicationGroupResumeRpoReportingResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="revertImage" name="revertImage"></a>
+<h1>HbrReplicationGroupRevertImage_Task(revertImage)</h1>
+<p></p>
+         All image files explicitly created by this HBR server for this
+ image will be cleaned up.  Any instances implicitly pinned by
+ this image will be released.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>image</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.GroupImage.html">HbrGroupImage</a></td><td>
+<p></p>
+         identifies the image which needs to be reverted.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>disksOnly</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         if true, revert the image but only remove the disks
+                  associated with it.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidImageState.html">HbrReplicaFaultInvalidImageState</a></td><td>Thrown if <a href="hbr.replica.ReplicationGroup.html#commitToImage">HbrReplicationGroupCommitToImage_Task</a> was invoked this image</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="unconfigure" name="unconfigure"></a>
+<h1>HbrReplicationGroupUnconfigure_Task(unconfigure)</h1>
+<p></p>
+         Prepare this group to be moved to another hbrsrv.
+
+ <p> Like a <a href="hbr.replica.BaseGroup.html#remove">BaseGroupRemove_Task</a> except this does not clean up any files,
+ leaving them behind with the expectation that a different HBR server
+ will be tasked with picking up the pieces via the
+ <a href="hbr.replica.ReplicationManager.html#loadReplicationGroup">LoadReplicationGroup_Task</a> method.
+
+ <p> Note that a group with an associated image cannot be unconfigured.
+ The image must be reverted before a group can be unconfigured.
+
+ <p> Any replica disks that are unconfigured and ready for removal
+ (i.e., they are not referenced by any instances) will be cleaned up
+ (as if the VirtualMachine#removeDisk method were invoked on it) as a
+ side-effect of the unconfigure.
+
+ <p> Throws exceptions if the storage for the group is currently
+ unreachable (and the state file cannot be written).
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupDestructionPending.html">HbrReplicaFaultGroupDestructionPending</a></td><td>Thrown if remove or commitToImage is pending.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.GroupHasImage.html">HbrReplicaFaultGroupHasImage</a></td><td>Thrown if there is an image of this replica group.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.TaskInProgress.html">HbrReplicaFaultTaskInProgress</a></td><td>Thrown if there is an on-going task that must first finish or be canceled (like a move operation)</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

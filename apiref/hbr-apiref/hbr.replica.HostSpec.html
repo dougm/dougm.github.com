@@ -1,0 +1,147 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.HostSpec" name="hbr.replica.HostSpec"></a>
+<h1>Data Object - HbrHostSpec(hbr.replica.HostSpec)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.fault.InvalidHostSpec.html#field_detail">HbrReplicaFaultInvalidHostSpec</a>
+</dd>
+<dt>Parameter to</dt>
+<dd>
+<a href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Data object that encapsulates the specification of a host.  Used by
+ <a href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>.
+ <p>
+ Note: In the previous version, HostSpec contained a single
+ <tt>hostAddress</tt> instead of <a href="hbr.replica.HostSpec.html#hostId">hostId</a>, <a href="hbr.replica.HostSpec.html#hostNameOnCert">hostNameOnCert</a>, and
+ <a href="hbr.replica.HostSpec.html#hostAddresses">hostAddresses</a>. To get the same result, <a href="hbr.replica.HostSpec.html#hostId">hostId</a>, <a href="hbr.replica.HostSpec.html#hostNameOnCert">hostNameOnCert</a>, and a single entry in <a href="hbr.replica.HostSpec.html#hostAddresses">hostAddresses</a> can all be set
+ to the same value.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="hostAddresses" name="hostAddresses"></a><strong>hostAddresses</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         Known hostname/IP addresses of the host.
+ <p>
+ List of known IPs or hostnames for the host. The HBR Server will use
+ whatever address it can connect to.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="hostAuth" name="hostAuth"></a><strong>hostAuth</strong></td><td>xsd:string</td><td>
+<p></p>
+         Authorization string, of the form "username:password".  If the
+ username is "-", the password is assumed to be the SSL thumbprint
+ of the host. The target host must have this connecting-host's
+ thumbprint cached.
+ <p>
+ See <a href="hbr.replica.ServerManager.html#sslThumbprint">sslThumbprint</a>.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="hostId" name="hostId"></a><strong>hostId</strong></td><td>xsd:string</td><td>
+<p></p>
+         Opaque string identifier to refer to this host.
+
+ <p> When re-configuring a host, the same host identifier string must be
+ used.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="hostNameOnCert" name="hostNameOnCert"></a><strong>hostNameOnCert</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         The name of the host, as it appears on its host certificate.
+ <p>
+ Only used to verify the host's certificate (not used as a network
+ address).
+ <p>
+ If not set, whatever address is used to connect to the host is used to
+ verify the certificate - so all addresses in <a href="hbr.replica.HostSpec.html#hostAddresses">hostAddresses</a> must
+ appear on the certificate.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrHostSpec">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="hostId" type="xsd:string"/>
+                     <element name="hostNameOnCert" type="xsd:string" minOccurs="0"/>
+                     <element name="hostAddresses" type="xsd:string" maxOccurs="unbounded"/>
+                     <element name="hostAuth" type="xsd:string"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

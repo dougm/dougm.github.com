@@ -1,0 +1,599 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.SessionManager" name="hbr.replica.SessionManager"></a>
+<h1>Managed Object -  
+						HbrSessionManager(hbr.replica.SessionManager)</h1>
+<dl>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>, <a href="hbr.replica.StorageManager.html">HbrStorageManager</a>, <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to establish and maintain authenticated sessions to the
+ host-based replication secondary site server.
+ <p>
+ This object has a fixed Managed Object identifier (MoID) "HbrSessionManager".
+
+ <h2>Secure Access Scheme</h2>
+
+ HMS (the client of this interface) uses the guest-info backdoor as a trusted
+ way of exchanging SSL thumbprints with the HBR server. Specifically, the
+ following guestinfo keys are used:
+ <ul>
+ <li><tt>guestinfo.hbr.hbrsrv-thumbprint</tt> is set by the HBR server to the
+           SHA1 thumbprint of its current certificate. The HMS retrieves this
+           thumbprint in order to authenticate the HBR server. If the server
+           is up, this value will always be set.
+
+ <li><tt>guestinfo.hbr.hms-thumbprint</tt> is set by the HMS server. The HBR
+           server only allows trusted connections if the client's certificate
+           hashes to this thumbprint.
+
+ <li><tt>guestinfo.hbr.hbrsrv-certificate-revoked</tt> is set by the HMS
+           server to force the HBR Server to generate a new certificate upon
+           the next vmodl server (re)start. HMS can set this to any value
+           except "false", "FALSE", or "0" to trigger a new certificate.
+ </ul>
+
+ Since guestinfo data is not stored persistently, the server stores the last
+ read value in its database. The server tries to re-read these values every
+ time it starts up, and when demanded through the <a href="hbr.replica.SessionManager.html#readGuestInfoKeys">HbrSessionReadGuestInfo</a> call.
+
+ <h2>Authenticated Access</h2>
+
+ The login functions and <a href="hbr.replica.SessionManager.html#readGuestInfoKeys">HbrSessionReadGuestInfo</a> are the only
+ functions that can be invoked without authenticating to the server.  Once
+ authenticated, all the other interfaces are accessible.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="propertyCollector" name="propertyCollector"></a><strong>propertyCollector</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a></td><td>
+<p></p>
+         Return a reference to the implicitly per-session property collector
+ that to listen for property updates.
+ <p>
+ XXX is this true?  The managed object returned here is implicitly
+ associated with this session.  If a new session is started, a new
+ PropertyCollector must be retrieved for that session.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="replicationManager" name="replicationManager"></a><strong>replicationManager</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a></td><td>
+<p></p>
+         Return a reference to the replication manager that will be used for
+ configuring replication groups.
+ <p>
+ Note that the managed object returned is not session-specific, so it may be
+ used after reconnecting (e.g., after a disconnection or hbrsrv crash).
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="storageManager" name="storageManager"></a><strong>storageManager</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.StorageManager.html">HbrStorageManager</a></td><td>
+<p></p>
+         Return a reference to the storage manager that will be used for
+ configuring hosts and datastores
+ <p>
+ Note that the managed object returned is not session-specific, so it may be
+ used after reconnecting (e.g., after a disconnection or hbrsrv crash).
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#loginBySSLThumbprint">HbrSessionLoginSSL</a>, <a href="#login">HbrSessionLoginUser</a>, <a href="#logoff">HbrSessionLogoff</a>, <a href="#readGuestInfoKeys">HbrSessionReadGuestInfo</a>, <a href="#restartVmodlServer">HbrSessionRestartServer</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="loginBySSLThumbprint" name="loginBySSLThumbprint"></a>
+<h1>HbrSessionLoginSSL(loginBySSLThumbprint)</h1>
+<p></p>
+         Use client's SSL thumbprint to authenticate the client.
+ The thumbprint of the connecting SSL's certificate must match the value
+ obtained from guestinfo key <tt>guestinfo.hbr.hms-thumbprint</tt> on the
+ last vmodl server (re)start (see <a href="hbr.replica.SessionManager.html#restartVmodlServer">HbrSessionRestartServer</a>).
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.AlreadyLoggedIn.html">HbrReplicaFaultAlreadyLoggedIn</a></td><td>the session already has credentials associated with it.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InvalidLogin.html">HbrReplicaFaultInvalidLogin</a></td><td>Thrown if SSL thumbprint not recognized.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.NoClientCertificate.html">HbrReplicaFaultNoClientCertificate</a></td><td>Thrown if no certificate was used by the client to connect.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrSessionLoginSSL-textarea');expandcontent(this, 'HbrSessionLoginSSL-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrSessionLoginSSL-div">
+<textarea cols="20" rows="10" name="HbrSessionLoginSSL-textarea" wrap="off" readonly="1" id="HbrSessionLoginSSL-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLoginSSL" type="hbrsrv:HbrSessionLoginSSLRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLoginSSLResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="login" name="login"></a>
+<h1>HbrSessionLoginUser(login)</h1>
+<p></p>
+         Authenticate this VMODL session as the given user and password.
+
+ NOTE: This method is for internal (testing) use only.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>user</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>password</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.AlreadyLoggedIn.html">HbrReplicaFaultAlreadyLoggedIn</a></td><td>Thrown if the session already has credentials associated with it.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InvalidLogin.html">HbrReplicaFaultInvalidLogin</a></td><td>Thrown if either the username or password is bad (doesn't indicate which.)</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrSessionLoginUser-textarea');expandcontent(this, 'HbrSessionLoginUser-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrSessionLoginUser-div">
+<textarea cols="20" rows="10" name="HbrSessionLoginUser-textarea" wrap="off" readonly="1" id="HbrSessionLoginUser-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLoginUser" type="hbrsrv:HbrSessionLoginUserRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLoginUserResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="logoff" name="logoff"></a>
+<h1>HbrSessionLogoff(logoff)</h1>
+<p></p>
+         Deauthorize the current session.
+ <p>
+ Any in-progress operations (is that possible?) on this session will
+ continue.  Only prevents new operations.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrSessionLogoff-textarea');expandcontent(this, 'HbrSessionLogoff-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrSessionLogoff-div">
+<textarea cols="20" rows="10" name="HbrSessionLogoff-textarea" wrap="off" readonly="1" id="HbrSessionLogoff-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLogoff" type="hbrsrv:HbrSessionLogoffRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionLogoffResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="readGuestInfoKeys" name="readGuestInfoKeys"></a>
+<h1>HbrSessionReadGuestInfo(readGuestInfoKeys)</h1>
+<p></p>
+         Triggers a re-read of the guestinfo keys storing the HMS thumbprint
+ and the hbrsrv certificate-revoked flag. The new thumbprint is used to
+ authenticate all further thumbprint-based logins. The certificate-revoked
+ flag will trigger a new certificate revocation upon the next vmodl server
+ (re)start (see <a href="hbr.replica.SessionManager.html#restartVmodlServer">HbrSessionRestartServer</a>).
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrSessionReadGuestInfo-textarea');expandcontent(this, 'HbrSessionReadGuestInfo-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrSessionReadGuestInfo-div">
+<textarea cols="20" rows="10" name="HbrSessionReadGuestInfo-textarea" wrap="off" readonly="1" id="HbrSessionReadGuestInfo-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionReadGuestInfo" type="hbrsrv:HbrSessionReadGuestInfoRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionReadGuestInfoResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="restartVmodlServer" name="restartVmodlServer"></a>
+<h1>HbrSessionRestartServer(restartVmodlServer)</h1>
+<p></p>
+         Triggers a restart of the VMODL server, dropping all connections.
+ Used to drop any potentially compromised clients, or to get the server to
+ generate and use a new certificate (if the revoked-certificate guestinfo
+ key is set).
+ <p>
+ Note that on (re)start, the server reads the authorized thumbprint from
+ guestinfo key <tt>guestinfo.hbr.hms-thumbprint<tt>. If there is no
+ thumbprint in guestinfo (e.g. the VM just booted), the last thumbprint
+ read is used.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrSessionRestartServer-textarea');expandcontent(this, 'HbrSessionRestartServer-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrSessionRestartServer-div">
+<textarea cols="20" rows="10" name="HbrSessionRestartServer-textarea" wrap="off" readonly="1" id="HbrSessionRestartServer-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionRestartServer" type="hbrsrv:HbrSessionRestartServerRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrSessionRestartServerResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

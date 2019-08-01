@@ -1,0 +1,498 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="vim.Task" name="vim.Task"></a>
+<h1>Managed Object -  
+						Task(vim.Task)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="vim.cluster.AttemptedVmInfo.html#field_detail">ClusterAttemptedVmInfo</a>, <a href="vim.ManagedEntity.html#field_detail">ManagedEntity</a>, <a href="vim.scheduler.ScheduledTaskInfo.html#field_detail">ScheduledTaskInfo</a>, <a href="vim.storageDrs.StoragePlacementResult.html#field_detail">StoragePlacementResult</a>, <a href="vim.TaskInfo.html#field_detail">TaskInfo</a>, <a href="vim.fault.TaskInProgress.html#field_detail">TaskInProgress</a>, <a href="vim.TaskManager.html#field_detail">TaskManager</a>, <a href="vim.VsanUpgradeSystem.UpgradeHistoryItem.html#field_detail">VsanUpgradeSystemUpgradeHistoryItem</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vim.ExtensibleManagedObject.html">ExtensibleManagedObject</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="vmodl.LocalizableMessage.html">LocalizableMessage</a>, <a href="vmodl.MethodFault.html">MethodFault</a>, <a href="vim.TaskInfo.html">TaskInfo</a>, <a href="vim.TaskInfo.State.html">TaskInfoState</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         A task is used to monitor and potentially cancel long
+  running operations.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="info" name="info"></a><strong>info</strong></td><td><a href="vim.TaskInfo.html">TaskInfo</a></td><td>
+<p></p>
+         Detailed information about this task.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vim.ExtensibleManagedObject.html">ExtensibleManagedObject</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3"><a href="vim.ExtensibleManagedObject.html#availableField">availableField</a>, <a href="vim.ExtensibleManagedObject.html#value">value</a></td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#cancel">CancelTask</a>, <a href="#UpdateDescription">SetTaskDescription</a>, <a href="#setState">SetTaskState</a>, <a href="#UpdateProgress">UpdateProgress</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href="vim.ExtensibleManagedObject.html">ExtensibleManagedObject</a></td>
+</tr>
+<tr class="r0">
+<td><a href="vim.ExtensibleManagedObject.html#setCustomValue">setCustomValue</a></td>
+</tr>
+</table>
+<br>
+<a id="cancel" name="cancel"></a>
+<h1>CancelTask(cancel)</h1>
+<p></p>
+         Cancels a running or queued task.  A task may only be canceled if it is
+  cancelable.  Multiple cancel requests will be treated as a single
+  cancelation request.  Canceling a completed or already canceled task
+  will throw an InvalidState exception.
+  <p>
+  If a task is canceled, its runtime state will be set to error and its
+  error state will be set to <a href="vmodl.fault.RequestCanceled.html">RequestCanceled</a>.
+  <p>
+  A cancel operation is asynchronous.  The operation may return before
+  the task is canceled.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>Dynamic - See discussion above</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="vim.Task.html">Task</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.InvalidState.html">InvalidState</a></td><td>Thrown if the task is already canceled or completed.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.NotSupported.html">NotSupported</a></td><td>Thrown if the task is not cancelable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('CancelTask-textarea');expandcontent(this, 'CancelTask-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="CancelTask-div">
+<textarea cols="20" rows="10" name="CancelTask-textarea" wrap="off" readonly="1" id="CancelTask-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="CancelTask" type="sms:CancelTaskRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="CancelTaskResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="UpdateDescription" name="UpdateDescription"></a>
+<h1>SetTaskDescription(UpdateDescription)</h1>
+<p></p>
+         Updates task description to describe the current phase of the task.
+  <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>Task.Update</dd>
+<dt>Since </dt>
+<dd>vSphere API 4.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="vim.Task.html">Task</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>description</strong></td><td><a href="vmodl.LocalizableMessage.html">LocalizableMessage</a></td><td>
+<p></p>
+         New description for task
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('SetTaskDescription-textarea');expandcontent(this, 'SetTaskDescription-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="SetTaskDescription-div">
+<textarea cols="20" rows="10" name="SetTaskDescription-textarea" wrap="off" readonly="1" id="SetTaskDescription-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="SetTaskDescription" type="sms:SetTaskDescriptionRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="SetTaskDescriptionResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="setState" name="setState"></a>
+<h1>SetTaskState(setState)</h1>
+<p></p>
+         Sets task state and optionally sets results or fault,
+  as appropriate for state
+  <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>Task.Update</dd>
+<dt>Since </dt>
+<dd>VI API 2.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="vim.Task.html">Task</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>state</strong></td><td><a href="vim.TaskInfo.State.html">TaskInfoState</a></td><td>
+<p></p>
+         New state for task
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>result</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:anyType</td><td>
+<p></p>
+         Result to set, valid only if task state is
+    TaskInfo.State.success
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>fault</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vmodl.MethodFault.html">MethodFault</a></td><td>
+<p></p>
+         Fault to set, valid only if task state is
+    <a href="vim.TaskInfo.State.html#error">error</a>.  The fault must be a of a fault type that
+    directly or indirectly extends <a href="vim.fault.VimFault.html">VimFault</a>.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.InvalidState.html">InvalidState</a></td><td>Thrown if attempting to change states after task is completed or in error, or attempting to set the result or fault incorrectly</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('SetTaskState-textarea');expandcontent(this, 'SetTaskState-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="SetTaskState-div">
+<textarea cols="20" rows="10" name="SetTaskState-textarea" wrap="off" readonly="1" id="SetTaskState-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="SetTaskState" type="sms:SetTaskStateRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="SetTaskStateResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="UpdateProgress" name="UpdateProgress"></a>
+<h1>UpdateProgress</h1>
+<p></p>
+         Sets percentage done for this task and recalculates overall
+  percentage done. If a percentDone value of less than zero or
+  greater than 100 is specified, a value of zero or 100
+  respectively is used.
+  <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>Task.Update</dd>
+<dt>Since </dt>
+<dd>VI API 2.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="vim.Task.html">Task</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>percentDone</strong></td><td>xsd:int</td><td>
+<p></p>
+         Percentage to set for this task
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.InvalidState.html">InvalidState</a></td><td>Thrown if task is not running</td>
+</tr>
+<tr class="r0">
+<td><a href="vim.fault.OutOfBounds.html">OutOfBounds</a></td><td>VirtualCenter 2.x servers throw this fault if percentDone is less than 0 or greater than 100. Newer versions behave as described above, and never throw this fault.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('UpdateProgress-textarea');expandcontent(this, 'UpdateProgress-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="UpdateProgress-div">
+<textarea cols="20" rows="10" name="UpdateProgress-textarea" wrap="off" readonly="1" id="UpdateProgress-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="UpdateProgress" type="sms:UpdateProgressRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="UpdateProgressResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

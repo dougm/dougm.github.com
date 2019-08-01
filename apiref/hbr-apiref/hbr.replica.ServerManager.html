@@ -1,0 +1,1206 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.ServerManager" name="hbr.replica.ServerManager"></a>
+<h1>Managed Object -  
+						HbrServerManager(hbr.replica.ServerManager)</h1>
+<dl>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.SupportBundleInfo.html">HbrSupportBundleInfo</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to hbrsrv internal debugging/configuration APIs.
+ <p>
+ Not for public consumption.  Disabled (?) in release builds.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="currentTime" name="currentTime"></a><strong>currentTime</strong></td><td>xsd:string</td><td>
+<p></p>
+         Return the current timestamp on this hbrsrv, in UTC.
+
+ <p> The format is "YYYY-MM-DD HH:MM:SS UTC".  HH is 0-23.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="logModules" name="logModules"></a><strong>logModules</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         Get a list of all the log modules in the server.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="sslCertificate" name="sslCertificate"></a><strong>sslCertificate</strong></td><td>xsd:string</td><td>
+<p></p>
+         Return the SSL certificate this HBR server uses (for VAMI
+ identification, for this SSL connection and for talking to hostd).
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="sslThumbprint" name="sslThumbprint"></a><strong>sslThumbprint</strong></td><td>xsd:string</td><td>
+<p></p>
+         Return the thumbprint of the SSL certificate this HBR server uses
+ (for VAMI identification, for this SSL connection and for talking to
+ hostd).
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="stressOptions" name="stressOptions"></a><strong>stressOptions</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         Get a list of all the stress options in the server.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#generateSupportBundle">GenerateSupportBundle_Task</a>, <a href="#disableLocalLog">HbrServerDisableLocalLog</a>, <a href="#disableSyslog">HbrServerDisableSyslog</a>, <a href="#enableLocalLog">HbrServerEnableLocalLog</a>, <a href="#enableSyslog">HbrServerEnableSyslog</a>, <a href="#supportBundleChunk">HbrServerGetBundleChunk</a>, <a href="#resetGroup">HbrServerResetGroup</a>, <a href="#changeLoglevel">HbrServerSetLoglevel</a>, <a href="#changeStressOption">HbrServerSetStressLevel</a>, <a href="#shutdown">HbrServerShutdown</a>, <a href="#verifyServer">HbrServerVerify</a>, <a href="#verifyGroup">HbrServerVerifyGroup</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="generateSupportBundle" name="generateSupportBundle"></a>
+<h1>GenerateSupportBundle_Task(generateSupportBundle)</h1>
+<p></p>
+         Generate a support bundle for this server and return a task to
+ monitor progress as the bundle generation happens asynchronously.
+
+ <p> Returned bundle objects are good for "a while".  The HBR server
+ will clean up old bundles as new ones are created, and may clean up
+ old bundles that have been around for a "long time".
+
+ <p> This method will return immediately. The support bundle generation
+ progress may be tracked using the returned task object.
+
+ <p> When the operation completes, the SupportBundleInfo will be returned
+ in <a href="hbr.replica.TaskInfo.html#result">result</a>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="disableLocalLog" name="disableLocalLog"></a>
+<h1>HbrServerDisableLocalLog(disableLocalLog)</h1>
+<p></p>
+         Disable file-based logging on this hbrsrv.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerDisableLocalLog-textarea');expandcontent(this, 'HbrServerDisableLocalLog-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerDisableLocalLog-div">
+<textarea cols="20" rows="10" name="HbrServerDisableLocalLog-textarea" wrap="off" readonly="1" id="HbrServerDisableLocalLog-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerDisableLocalLog" type="hbrsrv:HbrServerDisableLocalLogRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerDisableLocalLogResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="disableSyslog" name="disableSyslog"></a>
+<h1>HbrServerDisableSyslog(disableSyslog)</h1>
+<p></p>
+         Disable syslog-based logging on this server.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerDisableSyslog-textarea');expandcontent(this, 'HbrServerDisableSyslog-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerDisableSyslog-div">
+<textarea cols="20" rows="10" name="HbrServerDisableSyslog-textarea" wrap="off" readonly="1" id="HbrServerDisableSyslog-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerDisableSyslog" type="hbrsrv:HbrServerDisableSyslogRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerDisableSyslogResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="enableLocalLog" name="enableLocalLog"></a>
+<h1>HbrServerEnableLocalLog(enableLocalLog)</h1>
+<p></p>
+         Enable and configure 'local' (vmacore) based logging on this hbrsrv.
+
+ <p>The default log level can be changed.  Other options (directory,
+ file size, number of files, etc), can be changed via the config
+ file in the hbrsrv.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>defaultLogLevel</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerEnableLocalLog-textarea');expandcontent(this, 'HbrServerEnableLocalLog-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerEnableLocalLog-div">
+<textarea cols="20" rows="10" name="HbrServerEnableLocalLog-textarea" wrap="off" readonly="1" id="HbrServerEnableLocalLog-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerEnableLocalLog" type="hbrsrv:HbrServerEnableLocalLogRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerEnableLocalLogResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="enableSyslog" name="enableSyslog"></a>
+<h1>HbrServerEnableSyslog(enableSyslog)</h1>
+<p></p>
+         Enable 'syslog' based logging on this hbrsrv.  Logs will be sent to
+ the given syslog 'facility' (e.g., 'local4'), with the given
+ identity (e.g., 'hbrsrv').
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>ident</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>facility</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerEnableSyslog-textarea');expandcontent(this, 'HbrServerEnableSyslog-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerEnableSyslog-div">
+<textarea cols="20" rows="10" name="HbrServerEnableSyslog-textarea" wrap="off" readonly="1" id="HbrServerEnableSyslog-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerEnableSyslog" type="hbrsrv:HbrServerEnableSyslogRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerEnableSyslogResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="supportBundleChunk" name="supportBundleChunk"></a>
+<h1>HbrServerGetBundleChunk(supportBundleChunk)</h1>
+<p></p>
+         Fetch a chunk of the support bundle object, starting at the given
+ offset.  When re-assembled the resulting support bundle object
+ should have the MD5 checksum returned in the SupportBundleInfo, and
+ should be a gzip-compressed tar file.
+
+ <p> The given size is a maximum.  The returned array may be
+ smaller than requested.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>supportBundleKey</strong></td><td>xsd:string</td><td>
+<p></p>
+         is the key from the SupportBundleInfo
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>offset</strong></td><td>xsd:long</td><td>
+<p></p>
+         is the offset in the bundle
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>size</strong></td><td>xsd:long</td><td>
+<p></p>
+         maximum size chunk to return
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td>xsd:base64Binary</td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the given key is invalid</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the given key is invalid</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerGetBundleChunk-textarea');expandcontent(this, 'HbrServerGetBundleChunk-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerGetBundleChunk-div">
+<textarea cols="20" rows="10" name="HbrServerGetBundleChunk-textarea" wrap="off" readonly="1" id="HbrServerGetBundleChunk-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerGetBundleChunk" type="hbrsrv:HbrServerGetBundleChunkRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerGetBundleChunkResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="xsd:base64Binary"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="resetGroup" name="resetGroup"></a>
+<h1>HbrServerResetGroup(resetGroup)</h1>
+<p></p>
+         Reset group.  Reset the given group, dropping all open connections
+ and throwing away all run-time state.  Should be similar to a hbrsrv
+ crash and restart, but just isolated to the given group.
+
+ <p>This is only useful for debugging and testing HBR server crash
+ resiliency.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupID</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerResetGroup-textarea');expandcontent(this, 'HbrServerResetGroup-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerResetGroup-div">
+<textarea cols="20" rows="10" name="HbrServerResetGroup-textarea" wrap="off" readonly="1" id="HbrServerResetGroup-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerResetGroup" type="hbrsrv:HbrServerResetGroupRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerResetGroupResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="changeLoglevel" name="changeLoglevel"></a>
+<h1>HbrServerSetLoglevel(changeLoglevel)</h1>
+<p></p>
+         Sets log level of given component.
+
+ <p> Valid levels are: none, quiet, panic, error, warning, info,
+ verbose, and trivia.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>logModule</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>level</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerSetLoglevel-textarea');expandcontent(this, 'HbrServerSetLoglevel-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerSetLoglevel-div">
+<textarea cols="20" rows="10" name="HbrServerSetLoglevel-textarea" wrap="off" readonly="1" id="HbrServerSetLoglevel-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerSetLoglevel" type="hbrsrv:HbrServerSetLoglevelRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerSetLoglevelResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="changeStressOption" name="changeStressOption"></a>
+<h1>HbrServerSetStressLevel(changeStressOption)</h1>
+<p></p>
+         Set the stress level for the given stress option to the given level.
+ Returns the old value (if any).  If given level is NULL or empty,
+ just return the existing level without changing anything.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>option</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>level</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td>xsd:string</td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerSetStressLevel-textarea');expandcontent(this, 'HbrServerSetStressLevel-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerSetStressLevel-div">
+<textarea cols="20" rows="10" name="HbrServerSetStressLevel-textarea" wrap="off" readonly="1" id="HbrServerSetStressLevel-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerSetStressLevel" type="hbrsrv:HbrServerSetStressLevelRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerSetStressLevelResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="xsd:string"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="shutdown" name="shutdown"></a>
+<h1>HbrServerShutdown(shutdown)</h1>
+<p></p>
+         Shut this hbrserver down gracefully.
+
+ <p> There is no VMODL way of restarting the HBR server, so beware.
+
+ <p> This should always throw a connection error (the method will not
+ return, instead the hbrsrv will shutdown with the open request).
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerShutdown-textarea');expandcontent(this, 'HbrServerShutdown-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerShutdown-div">
+<textarea cols="20" rows="10" name="HbrServerShutdown-textarea" wrap="off" readonly="1" id="HbrServerShutdown-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerShutdown" type="hbrsrv:HbrServerShutdownRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerShutdownResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="verifyServer" name="verifyServer"></a>
+<h1>HbrServerVerify(verifyServer)</h1>
+<p></p>
+         Verify hbrsrv database is sane.  Presumably this will check to make
+ sure that all the groups in the database are in memory and
+ vice-versa, and it can check the host info and guest-keys for
+ consistency, too.
+
+ <p>Throws exceptions or crashes the hbrsrv if there are
+ inconsistencies.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerVerify-textarea');expandcontent(this, 'HbrServerVerify-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerVerify-div">
+<textarea cols="20" rows="10" name="HbrServerVerify-textarea" wrap="off" readonly="1" id="HbrServerVerify-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerVerify" type="hbrsrv:HbrServerVerifyRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerVerifyResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="verifyGroup" name="verifyGroup"></a>
+<h1>HbrServerVerifyGroup(verifyGroup)</h1>
+<p></p>
+         Verify the given group.  Make sure the run-time C++ state and the
+ database state are consistent.  Make sure the state in memory
+ matches the state on disk, etc.  Other internal sanity/consistency
+ checks on the specific group.
+
+ <p>Throws exceptions or crashes the hbrsrv if the group isn't
+ consistent.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ServerManager.html">HbrServerManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupID</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrServerVerifyGroup-textarea');expandcontent(this, 'HbrServerVerifyGroup-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrServerVerifyGroup-div">
+<textarea cols="20" rows="10" name="HbrServerVerifyGroup-textarea" wrap="off" readonly="1" id="HbrServerVerifyGroup-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerVerifyGroup" type="hbrsrv:HbrServerVerifyGroupRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerVerifyGroupResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

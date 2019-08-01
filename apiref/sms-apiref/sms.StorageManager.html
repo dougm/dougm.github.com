@@ -1,0 +1,2506 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="sms.StorageManager" name="sms.StorageManager"></a>
+<h1>Managed Object -  
+						SmsStorageManager(sms.StorageManager)</h1>
+<dl>
+<dt>Returned by</dt>
+<dd>
+<a href="sms.ServiceInstance.html#queryStorageManager">QueryStorageManager</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="sms.storage.BackingStoragePool.html">BackingStoragePool</a>, <a href="vim.Datastore.html">Datastore</a>, <a href="sms.storage.DatastoreBackingPoolMapping.html">DatastoreBackingPoolMapping</a>, <a href="sms.storage.DrsMigrationCapabilityResult.html">DrsMigrationCapabilityResult</a>, <a href="sms.FaultDomainFilter.html">FaultDomainFilter</a>, <a href="vim.vm.replication.FaultDomainId.html">FaultDomainId</a>, <a href="sms.storage.replication.GroupOperationResult.html">GroupOperationResult</a>, <a href="vim.HostSystem.html">HostSystem</a>, <a href="sms.ReplicationGroupFilter.html">ReplicationGroupFilter</a>, <a href="sms.provider.Provider.html">SmsProvider</a>, <a href="sms.provider.ProviderSpec.html">SmsProviderSpec</a>, <a href="sms.storage.StorageArray.html">StorageArray</a>, <a href="sms.storage.StorageCapability.html">StorageCapability</a>, <a href="sms.storage.StorageContainerResult.html">StorageContainerResult</a>, <a href="sms.storage.StorageContainerSpec.html">StorageContainerSpec</a>, <a href="sms.storage.StorageFileSystem.html">StorageFileSystem</a>, <a href="sms.storage.StorageLun.html">StorageLun</a>, <a href="sms.storage.StoragePort.html">StoragePort</a>, <a href="sms.storage.StorageProcessor.html">StorageProcessor</a>
+</dd>
+<dt>Since </dt>
+<dd>SMS API 2.0</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         The <a href="sms.StorageManager.html">SmsStorageManager</a> managed object (SMS) provides methods to retrieve
+  information about available storage topology, capabilities, and state.
+  SMS establishes and maintains connections with VASA providers. SMS retrieves
+  information about storage availability from the providers, and clients can use
+  the SMS API to perform the following operations.
+  <ul>
+  <li>Identify VASA providers.</li>
+  <li>Retrieve information about storage arrays.</li>
+  <li>Identify vSphere inventory entities (hosts and datastores)
+      which are associated with external storage entities on the storage arrays.</li>
+  </ul>
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#queryArray">QueryArray</a>, <a href="#queryArrayAssociatedWithLun">QueryArrayAssociatedWithLun</a>, <a href="#queryAssociatedBackingStoragePool">QueryAssociatedBackingStoragePool</a>, <a href="#queryDatastoreBackingPoolMapping">QueryDatastoreBackingPoolMapping</a>, <a href="#queryDatastoreCapability">QueryDatastoreCapability</a>, <a href="#queryDrsMigrationCapabilityForPerformance">QueryDrsMigrationCapabilityForPerformance</a>, <a href="#queryDrsMigrationCapabilityForPerformanceEx">QueryDrsMigrationCapabilityForPerformanceEx</a>, <a href="#queryFaultDomain">QueryFaultDomain</a>, <a href="#queryFileSystemAssociatedWithArray">QueryFileSystemAssociatedWithArray</a>, <a href="#queryHostAssociatedWithLun">QueryHostAssociatedWithLun</a>, <a href="#queryLunAssociatedWithArray">QueryLunAssociatedWithArray</a>, <a href="#queryLunAssociatedWithPort">QueryLunAssociatedWithPort</a>, <a href="#queryNfsDatastoreAssociatedWithFileSystem">QueryNfsDatastoreAssociatedWithFileSystem</a>, <a href="#queryPortAssociatedWithArray">QueryPortAssociatedWithArray</a>, <a href="#queryPortAssociatedWithLun">QueryPortAssociatedWithLun</a>, <a href="#queryPortAssociatedWithProcessor">QueryPortAssociatedWithProcessor</a>, <a href="#queryProcessorAssociatedWithArray">QueryProcessorAssociatedWithArray</a>, <a href="#queryProvider">QueryProvider</a>, <a href="#queryReplicationGroupInfo">QueryReplicationGroupInfo</a>, <a href="#queryStorageContainer">QueryStorageContainer</a>, <a href="#queryVmfsDatastoreAssociatedWithLun">QueryVmfsDatastoreAssociatedWithLun</a>, <a href="#registerProvider">RegisterProvider_Task</a>, <a href="#refreshCACertificatesAndCRLs">SmsRefreshCACertificatesAndCRLs_Task</a>, <a href="#unregisterProvider">UnregisterProvider_Task</a></td>
+</tr>
+</table>
+<br>
+<a id="queryArray" name="queryArray"></a>
+<h1>QueryArray(queryArray)</h1>
+<p></p>
+         Get the list of storage arrays managed by all the registered VASA providers.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>providerId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string[]</td><td>
+<p></p>
+         List of <a href="sms.provider.ProviderInfo.html#uid">uid</a> for the VASA
+ provider objects.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageArray.html">StorageArray[]</a></td><td>List of data objects containing information about StorageArray.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the given providerId does not have any reference.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryArray-textarea');expandcontent(this, 'QueryArray-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryArray-div">
+<textarea cols="20" rows="10" name="QueryArray-textarea" wrap="off" readonly="1" id="QueryArray-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryArray" type="sms:QueryArrayRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryArrayResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageArray" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryArrayAssociatedWithLun" name="queryArrayAssociatedWithLun"></a>
+<h1>QueryArrayAssociatedWithLun(queryArrayAssociatedWithLun)</h1>
+<p></p>
+         Get the StorageArray object that is associated with the
+ ScsiLun.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>canonicalName</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="vim.host.ScsiLun.html#canonicalName">canonicalName</a>
+                      of ScsiLun
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageArray.html">StorageArray</a></td><td>StorageArray for the for the ScsiLun.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryArrayAssociatedWithLun-textarea');expandcontent(this, 'QueryArrayAssociatedWithLun-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryArrayAssociatedWithLun-div">
+<textarea cols="20" rows="10" name="QueryArrayAssociatedWithLun-textarea" wrap="off" readonly="1" id="QueryArrayAssociatedWithLun-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryArrayAssociatedWithLun" type="sms:QueryArrayAssociatedWithLunRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryArrayAssociatedWithLunResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageArray" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryAssociatedBackingStoragePool" name="queryAssociatedBackingStoragePool"></a>
+<h1>QueryAssociatedBackingStoragePool(queryAssociatedBackingStoragePool)</h1>
+<p></p>
+         Query Backing Storage Pools for StorageLun or StorageFileSystem.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entityId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Unique identifier of a StorageLun or StorageFileSystem.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>entityType</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Entity type of the entity specified using entityId. This can be either
+ StorageLun or StorageFileSystem.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.BackingStoragePool.html">BackingStoragePool[]</a></td><td>Array of BackingStoragePool<a href="sms.storage.BackingStoragePool.html">BackingStoragePool</a> associated with specified StorageLun or StorageFileSystem. If entityId is null then API returns all the BackingStoragePools of the specified type. If both entityId and entityType are not specified then API returns all the BackingStoragePools available.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entityId does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryAssociatedBackingStoragePool-textarea');expandcontent(this, 'QueryAssociatedBackingStoragePool-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryAssociatedBackingStoragePool-div">
+<textarea cols="20" rows="10" name="QueryAssociatedBackingStoragePool-textarea" wrap="off" readonly="1" id="QueryAssociatedBackingStoragePool-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryAssociatedBackingStoragePool" type="sms:QueryAssociatedBackingStoragePoolRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryAssociatedBackingStoragePoolResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:BackingStoragePool" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDatastoreBackingPoolMapping" name="queryDatastoreBackingPoolMapping"></a>
+<h1>QueryDatastoreBackingPoolMapping(queryDatastoreBackingPoolMapping)</h1>
+<p></p>
+         Query BackingStoragePools for the given set of datastores.
+ Available information for all types of BackingStoragePoolssms.storage.BackingStoragePool#BackingStoragePoolType
+ for every input datastore is returned as part of the result.
+ More than one datastore can map to same set of BackingStoragePools.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastore</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore[]</a></td><td>
+<p></p>
+         Array containing references to <a href="vim.Datastore.html">Datastore</a> objects.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.DatastoreBackingPoolMapping.html">DatastoreBackingPoolMapping[]</a></td><td><a href="sms.storage.DatastoreBackingPoolMapping.html">DatastoreBackingPoolMapping</a></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if any <a href="vim.Datastore.html">Datastore</a> in the specified input array does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryDatastoreBackingPoolMapping-textarea');expandcontent(this, 'QueryDatastoreBackingPoolMapping-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryDatastoreBackingPoolMapping-div">
+<textarea cols="20" rows="10" name="QueryDatastoreBackingPoolMapping-textarea" wrap="off" readonly="1" id="QueryDatastoreBackingPoolMapping-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDatastoreBackingPoolMapping" type="sms:QueryDatastoreBackingPoolMappingRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDatastoreBackingPoolMappingResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:DatastoreBackingPoolMapping" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDatastoreCapability" name="queryDatastoreCapability"></a>
+<h1>QueryDatastoreCapability(queryDatastoreCapability)</h1>
+<p></p>
+         Get the capability for the given datastore.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastore</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore</a></td><td>
+<p></p>
+         reference to <a href="vim.Datastore.html">Datastore</a>
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageCapability.html">StorageCapability</a></td><td>A data object containing information about StorageCapability. If the VMFS datastore have heterogeneous Luns (in case of VMFS extends), StorageCapability#description will be empty.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryDatastoreCapability-textarea');expandcontent(this, 'QueryDatastoreCapability-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryDatastoreCapability-div">
+<textarea cols="20" rows="10" name="QueryDatastoreCapability-textarea" wrap="off" readonly="1" id="QueryDatastoreCapability-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDatastoreCapability" type="sms:QueryDatastoreCapabilityRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDatastoreCapabilityResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageCapability" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDrsMigrationCapabilityForPerformance" name="queryDrsMigrationCapabilityForPerformance"></a>
+<h1>QueryDrsMigrationCapabilityForPerformance(queryDrsMigrationCapabilityForPerformance)</h1>
+<B>Deprecated.</B><I>
+         As of SMS API 3.0, use <a href="sms.StorageManager.html#queryDrsMigrationCapabilityForPerformanceEx">QueryDrsMigrationCapabilityForPerformanceEx</a>
+      </I>
+<p></p>
+         Query the provider to figure out whether Storage DRS should
+ migrate VMDKs between the two given datastores.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>srcDatastore</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore</a></td><td>
+<p></p>
+         Reference to the source <a href="vim.Datastore.html">Datastore</a>
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>dstDatastore</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore</a></td><td>
+<p></p>
+         Reference to the destination <a href="vim.Datastore.html">Datastore</a>
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td>xsd:boolean</td><td>true if VM migration is recommended from srcDatastore to dstDatastore. false if VM migration is not recommended from srcDatastore to dstDatastore.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryDrsMigrationCapabilityForPerformance-textarea');expandcontent(this, 'QueryDrsMigrationCapabilityForPerformance-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryDrsMigrationCapabilityForPerformance-div">
+<textarea cols="20" rows="10" name="QueryDrsMigrationCapabilityForPerformance-textarea" wrap="off" readonly="1" id="QueryDrsMigrationCapabilityForPerformance-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDrsMigrationCapabilityForPerformance" type="sms:QueryDrsMigrationCapabilityForPerformanceRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDrsMigrationCapabilityForPerformanceResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="xsd:boolean"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDrsMigrationCapabilityForPerformanceEx" name="queryDrsMigrationCapabilityForPerformanceEx"></a>
+<h1>QueryDrsMigrationCapabilityForPerformanceEx(queryDrsMigrationCapabilityForPerformanceEx)</h1>
+<B>Deprecated.</B><I>
+         As of SMS API 5.0
+      </I>
+<p></p>
+         Query available VASA providers for I/O performance based migration recommendations
+ for all pair combinations of the given set of datastores. Datastore pairs for which
+ a recommendation cannot be obtained are not included in the result.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 3.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastore</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore[]</a></td><td>
+<p></p>
+         Array containing references to <a href="vim.Datastore.html">Datastore</a> objects.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.DrsMigrationCapabilityResult.html">DrsMigrationCapabilityResult</a></td><td><a href="sms.storage.DrsMigrationCapabilityResult.html">DrsMigrationCapabilityResult</a></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if any <a href="vim.Datastore.html">Datastore</a> in the specified input array does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryDrsMigrationCapabilityForPerformanceEx-textarea');expandcontent(this, 'QueryDrsMigrationCapabilityForPerformanceEx-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryDrsMigrationCapabilityForPerformanceEx-div">
+<textarea cols="20" rows="10" name="QueryDrsMigrationCapabilityForPerformanceEx-textarea" wrap="off" readonly="1" id="QueryDrsMigrationCapabilityForPerformanceEx-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDrsMigrationCapabilityForPerformanceEx" type="sms:QueryDrsMigrationCapabilityForPerformanceExRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryDrsMigrationCapabilityForPerformanceExResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:DrsMigrationCapabilityResult"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryFaultDomain" name="queryFaultDomain"></a>
+<h1>QueryFaultDomain(queryFaultDomain)</h1>
+<p></p>
+         Query for fault domains based on the query spec. If spec is null, SMS
+ will return all the root fault domains only.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>filter</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="sms.FaultDomainFilter.html">FaultDomainFilter</a></td><td>
+<p></p>
+         spec for the query operation.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vim.vm.replication.FaultDomainId.html">FaultDomainId[]</a></td><td>All the fault domains based on the query spec.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if invalid input is provided.</td>
+</tr>
+<tr class="r0">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified providerId in the spec does not exist</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryFaultDomain-textarea');expandcontent(this, 'QueryFaultDomain-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryFaultDomain-div">
+<textarea cols="20" rows="10" name="QueryFaultDomain-textarea" wrap="off" readonly="1" id="QueryFaultDomain-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryFaultDomain" type="sms:QueryFaultDomainRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryFaultDomainResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:FaultDomainId" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryFileSystemAssociatedWithArray" name="queryFileSystemAssociatedWithArray"></a>
+<h1>QueryFileSystemAssociatedWithArray(queryFileSystemAssociatedWithArray)</h1>
+<p></p>
+         Get the StorageFileSystem data objects for the Array.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageFileSystem.html">StorageFileSystem[]</a></td><td>List of data objects containing information about StorageFileSystem.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryFileSystemAssociatedWithArray-textarea');expandcontent(this, 'QueryFileSystemAssociatedWithArray-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryFileSystemAssociatedWithArray-div">
+<textarea cols="20" rows="10" name="QueryFileSystemAssociatedWithArray-textarea" wrap="off" readonly="1" id="QueryFileSystemAssociatedWithArray-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryFileSystemAssociatedWithArray" type="sms:QueryFileSystemAssociatedWithArrayRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryFileSystemAssociatedWithArrayResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageFileSystem" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryHostAssociatedWithLun" name="queryHostAssociatedWithLun"></a>
+<h1>QueryHostAssociatedWithLun(queryHostAssociatedWithLun)</h1>
+<p></p>
+         Get HostSystem managed entities that share the StorageLun.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>scsi3Id</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageLun.html#uuid">uuid</a> for the StorageLun
+ object.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="vim.HostSystem.html">HostSystem[]</a></td><td>List of HostSystems.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryHostAssociatedWithLun-textarea');expandcontent(this, 'QueryHostAssociatedWithLun-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryHostAssociatedWithLun-div">
+<textarea cols="20" rows="10" name="QueryHostAssociatedWithLun-textarea" wrap="off" readonly="1" id="QueryHostAssociatedWithLun-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryHostAssociatedWithLun" type="sms:QueryHostAssociatedWithLunRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryHostAssociatedWithLunResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryLunAssociatedWithArray" name="queryLunAssociatedWithArray"></a>
+<h1>QueryLunAssociatedWithArray(queryLunAssociatedWithArray)</h1>
+<p></p>
+         Get the list of StorageLun data objects that for the Array.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageLun.html">StorageLun[]</a></td><td>List of data object containing information about StorageLun.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryLunAssociatedWithArray-textarea');expandcontent(this, 'QueryLunAssociatedWithArray-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryLunAssociatedWithArray-div">
+<textarea cols="20" rows="10" name="QueryLunAssociatedWithArray-textarea" wrap="off" readonly="1" id="QueryLunAssociatedWithArray-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryLunAssociatedWithArray" type="sms:QueryLunAssociatedWithArrayRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryLunAssociatedWithArrayResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageLun" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryLunAssociatedWithPort" name="queryLunAssociatedWithPort"></a>
+<h1>QueryLunAssociatedWithPort(queryLunAssociatedWithPort)</h1>
+<p></p>
+         Get the StorageLun data objects that are associated with StoragePort.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>portId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StoragePort.html#uuid">uuid</a> for the StoragePort
+ object.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageLun.html">StorageLun[]</a></td><td>List of data objects containing information about StorageLun.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryLunAssociatedWithPort-textarea');expandcontent(this, 'QueryLunAssociatedWithPort-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryLunAssociatedWithPort-div">
+<textarea cols="20" rows="10" name="QueryLunAssociatedWithPort-textarea" wrap="off" readonly="1" id="QueryLunAssociatedWithPort-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryLunAssociatedWithPort" type="sms:QueryLunAssociatedWithPortRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryLunAssociatedWithPortResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageLun" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryNfsDatastoreAssociatedWithFileSystem" name="queryNfsDatastoreAssociatedWithFileSystem"></a>
+<h1>QueryNfsDatastoreAssociatedWithFileSystem(queryNfsDatastoreAssociatedWithFileSystem)</h1>
+<p></p>
+         Get NFS datastore  managed entity that are associated with
+ StorageFileSystem.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>fileSystemId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageFileSystem.html#uuid">uuid</a> for the
+ StorageFileSystem object
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore</a></td><td>Nas datastore for the storage file system id.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryNfsDatastoreAssociatedWithFileSystem-textarea');expandcontent(this, 'QueryNfsDatastoreAssociatedWithFileSystem-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryNfsDatastoreAssociatedWithFileSystem-div">
+<textarea cols="20" rows="10" name="QueryNfsDatastoreAssociatedWithFileSystem-textarea" wrap="off" readonly="1" id="QueryNfsDatastoreAssociatedWithFileSystem-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryNfsDatastoreAssociatedWithFileSystem" type="sms:QueryNfsDatastoreAssociatedWithFileSystemRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryNfsDatastoreAssociatedWithFileSystemResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:ManagedObjectReference" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryPortAssociatedWithArray" name="queryPortAssociatedWithArray"></a>
+<h1>QueryPortAssociatedWithArray(queryPortAssociatedWithArray)</h1>
+<p></p>
+         Get the StoragePort data objects that are associated with Array.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StoragePort.html">StoragePort[]</a></td><td>List of data objects containing information about StoragePort.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryPortAssociatedWithArray-textarea');expandcontent(this, 'QueryPortAssociatedWithArray-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryPortAssociatedWithArray-div">
+<textarea cols="20" rows="10" name="QueryPortAssociatedWithArray-textarea" wrap="off" readonly="1" id="QueryPortAssociatedWithArray-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithArray" type="sms:QueryPortAssociatedWithArrayRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithArrayResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StoragePort" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryPortAssociatedWithLun" name="queryPortAssociatedWithLun"></a>
+<h1>QueryPortAssociatedWithLun(queryPortAssociatedWithLun)</h1>
+<p></p>
+         Get the StoragePort data object that is associated with LUN.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>scsi3Id</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageLun.html#uuid">uuid</a> for the StorageLun
+ object.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StoragePort.html">StoragePort</a></td><td>A data object containing information about StoragePort.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryPortAssociatedWithLun-textarea');expandcontent(this, 'QueryPortAssociatedWithLun-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryPortAssociatedWithLun-div">
+<textarea cols="20" rows="10" name="QueryPortAssociatedWithLun-textarea" wrap="off" readonly="1" id="QueryPortAssociatedWithLun-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithLun" type="sms:QueryPortAssociatedWithLunRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithLunResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StoragePort" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryPortAssociatedWithProcessor" name="queryPortAssociatedWithProcessor"></a>
+<h1>QueryPortAssociatedWithProcessor(queryPortAssociatedWithProcessor)</h1>
+<p></p>
+         Get the StoragePort data objects that are associated with Processor.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>processorId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageProcessor.html#uuid">uuid</a> for the
+ StorageProcessor object.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StoragePort.html">StoragePort[]</a></td><td>List of data objects containing information about StoragePort.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryPortAssociatedWithProcessor-textarea');expandcontent(this, 'QueryPortAssociatedWithProcessor-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryPortAssociatedWithProcessor-div">
+<textarea cols="20" rows="10" name="QueryPortAssociatedWithProcessor-textarea" wrap="off" readonly="1" id="QueryPortAssociatedWithProcessor-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithProcessor" type="sms:QueryPortAssociatedWithProcessorRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPortAssociatedWithProcessorResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StoragePort" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryProcessorAssociatedWithArray" name="queryProcessorAssociatedWithArray"></a>
+<h1>QueryProcessorAssociatedWithArray(queryProcessorAssociatedWithArray)</h1>
+<p></p>
+         Get the StorageProcessor data objects that are associated with Array.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageProcessor.html">StorageProcessor[]</a></td><td>List of data objects containing information about StorageProcessor.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryProcessorAssociatedWithArray-textarea');expandcontent(this, 'QueryProcessorAssociatedWithArray-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryProcessorAssociatedWithArray-div">
+<textarea cols="20" rows="10" name="QueryProcessorAssociatedWithArray-textarea" wrap="off" readonly="1" id="QueryProcessorAssociatedWithArray-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryProcessorAssociatedWithArray" type="sms:QueryProcessorAssociatedWithArrayRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryProcessorAssociatedWithArrayResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageProcessor" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryProvider" name="queryProvider"></a>
+<h1>QueryProvider(queryProvider)</h1>
+<p></p>
+         Get the list of Providers that are currently registered
+ with StorageManager.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="sms.provider.Provider.html">SmsProvider[]</a></td><td>List of Providers.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryProvider-textarea');expandcontent(this, 'QueryProvider-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryProvider-div">
+<textarea cols="20" rows="10" name="QueryProvider-textarea" wrap="off" readonly="1" id="QueryProvider-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryProvider" type="sms:QueryProviderRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryProviderResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryReplicationGroupInfo" name="queryReplicationGroupInfo"></a>
+<h1>QueryReplicationGroupInfo(queryReplicationGroupInfo)</h1>
+<p></p>
+         Query for replication group details based on the query filter spec. The replication
+ group id list in the filter spec cannot be null or empty.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>rgFilter</strong></td><td><a href="sms.ReplicationGroupFilter.html">ReplicationGroupFilter</a></td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.replication.GroupOperationResult.html">GroupOperationResult[]</a></td><td>An array of sms.storage.GroupOperationresult elements. The length of the result array must be the same as the input. In the result array, each entry is either a <a href="sms.storage.replication.QueryReplicationGroupSuccessResult.html">QueryReplicationGroupSuccessResult</a> (for success), or a <a href="sms.storage.replication.GroupErrorResult.html">GroupErrorResult</a> (for failure). <p> The following fault may be set in error result entry: <li>NotFound if the replication group cannot be found. <li>ProviderUnavailable if the provider for the entity is temporarily unavailable. <li>InactiveProvider if the provider for the entity is not active. <li>ProviderBusy if the provider for the entity is busy. <li>NotImplemented if the provider does not implement this function. <li>QueryExceptionFault for any other error.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if <a href="sms.ReplicationGroupFilter.html#groupId">groupId</a> is null or empty.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ServiceNotInitialized.html">ServiceNotInitialized</a></td><td>Thrown if SMS service is not initialized.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryReplicationGroupInfo-textarea');expandcontent(this, 'QueryReplicationGroupInfo-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryReplicationGroupInfo-div">
+<textarea cols="20" rows="10" name="QueryReplicationGroupInfo-textarea" wrap="off" readonly="1" id="QueryReplicationGroupInfo-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationGroupInfo" type="sms:QueryReplicationGroupInfoRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationGroupInfoResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:GroupOperationResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryStorageContainer" name="queryStorageContainer"></a>
+<h1>QueryStorageContainer(queryStorageContainer)</h1>
+<p></p>
+         Query storage containers that are retrieved from VASA providers.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>containerSpec</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="sms.storage.StorageContainerSpec.html">StorageContainerSpec</a></td><td>
+<p></p>
+         <a href="sms.storage.StorageContainerSpec.html">StorageContainerSpec</a>
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.StorageContainerResult.html">StorageContainerResult</a></td><td><a href="sms.storage.StorageContainerResult.html">StorageContainerResult</a></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the input provided as part of <a href="sms.storage.StorageContainerSpec.html">StorageContainerSpec</a> is not found.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryStorageContainer-textarea');expandcontent(this, 'QueryStorageContainer-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryStorageContainer-div">
+<textarea cols="20" rows="10" name="QueryStorageContainer-textarea" wrap="off" readonly="1" id="QueryStorageContainer-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryStorageContainer" type="sms:QueryStorageContainerRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryStorageContainerResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:StorageContainerResult" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryVmfsDatastoreAssociatedWithLun" name="queryVmfsDatastoreAssociatedWithLun"></a>
+<h1>QueryVmfsDatastoreAssociatedWithLun(queryVmfsDatastoreAssociatedWithLun)</h1>
+<p></p>
+         Get VMFS Datastore managed entity that are associated with
+ StorageLun.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>scsi3Id</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageLun.html#uuid">uuid</a> for the StorageLun object
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>arrayId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.storage.StorageArray.html#uuid">uuid</a> for the StorageArray
+ object.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vim.Datastore.html">Datastore</a></td><td>Vmfs datastore for the file system id.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryVmfsDatastoreAssociatedWithLun-textarea');expandcontent(this, 'QueryVmfsDatastoreAssociatedWithLun-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryVmfsDatastoreAssociatedWithLun-div">
+<textarea cols="20" rows="10" name="QueryVmfsDatastoreAssociatedWithLun-textarea" wrap="off" readonly="1" id="QueryVmfsDatastoreAssociatedWithLun-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryVmfsDatastoreAssociatedWithLun" type="sms:QueryVmfsDatastoreAssociatedWithLunRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryVmfsDatastoreAssociatedWithLunResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:ManagedObjectReference" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="registerProvider" name="registerProvider"></a>
+<h1>RegisterProvider_Task(registerProvider)</h1>
+<p></p>
+         Register the provider and issue a sync operation on it.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>providerSpec</strong></td><td><a href="sms.provider.ProviderSpec.html">SmsProviderSpec</a></td><td>
+<p></p>
+         <a href="sms.provider.ProviderSpec.html">SmsProviderSpec</a>
+             containing parameters needed to register the
+             provider
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.AlreadyExists.html">AlreadyExists</a></td><td>Thrown if the provider already exists.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if invalid input is provided.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderRegistrationFault.html">ProviderRegistrationFault</a></td><td>Thrown if an error is encountered during the registration operation. For instance, <a href="sms.fault.IncorrectUsernamePassword.html">IncorrectUsernamePassword</a> is thrown if the login credentials are incorrect. <a href="sms.fault.CertificateNotTrusted.html">CertificateNotTrusted</a> is thrown if the provider identifies itself with an untrusted certificate.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="refreshCACertificatesAndCRLs" name="refreshCACertificatesAndCRLs"></a>
+<h1>SmsRefreshCACertificatesAndCRLs_Task(refreshCACertificatesAndCRLs)</h1>
+<p></p>
+         SMS pushes the latest CA root certificates and CRLs to all registered VASA providers.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>providerId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string[]</td><td>
+<p></p>
+         <a href="sms.provider.ProviderInfo.html#uid">uid</a> for providers
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.CertificateRefreshFailed.html">CertificateRefreshFailed</a></td><td>Thrown if an error is encountered while refreshing root certificates and CRLs for any provider.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if a <a href="sms.provider.ProviderInfo.html#uid">uid</a> in providerId is invalid.</td>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if there exists no provider for a <a href="sms.provider.ProviderInfo.html#uid">uid</a> in providerId</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="unregisterProvider" name="unregisterProvider"></a>
+<h1>UnregisterProvider_Task(unregisterProvider)</h1>
+<p></p>
+         Unregister the provider.
+  <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.StorageManager.html">SmsStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>providerId</strong></td><td>xsd:string</td><td>
+<p></p>
+         <a href="sms.provider.ProviderInfo.html#uid">uid</a> for
+                    the provider
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if invalid input is provided.</td>
+</tr>
+<tr class="r0">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderUnregistrationFault.html">ProviderUnregistrationFault</a></td><td>Thrown if provider service is not available or any exception is thrown by the VASA provider during unregister provider.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

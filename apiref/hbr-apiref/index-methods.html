@@ -1,0 +1,354 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="dynamic-content.js" type="text/javascript"></script><script src="actb.js" type="text/javascript" language="javascript"></script><script src="common.js" type="text/javascript" language="javascript"></script><script>
+         var picklist = new Array(
+         'AddDisk_Task','AddPrimaryHosts_Task','BaseGroupRemove_Task','Cancel','CancelRetrievePropertiesEx','CancelWaitForUpdates','CheckForUpdates','ContinueRetrievePropertiesEx','CreateFilter','CreatePropertyCollector','CreateReplicationGroup_Task','DestroyPropertyCollector','DestroyPropertyFilter','GenerateSupportBundle_Task','GetDisk','GetInstanceCount','GetInstanceDataEx','GetInstances','GetReplicationGroup','HbrHostRemove','HbrReplicationGroupCommitToImage_Task','HbrReplicationGroupCreateFailoverImage_Task','HbrReplicationGroupCreateTestBubbleImage_Task','HbrReplicationGroupPauseRpoReporting','HbrReplicationGroupResumeRpoReporting','HbrReplicationGroupRevertImage_Task','HbrReplicationGroupUnconfigure_Task','HbrServerDisableLocalLog','HbrServerDisableSyslog','HbrServerEnableLocalLog','HbrServerEnableSyslog','HbrServerGetBundleChunk','HbrServerResetGroup','HbrServerSetLoglevel','HbrServerSetStressLevel','HbrServerShutdown','HbrServerVerify','HbrServerVerifyGroup','HbrSessionLoginSSL','HbrSessionLoginUser','HbrSessionLogoff','HbrSessionReadGuestInfo','HbrSessionRestartServer','HbrStorageManagerEnableHost','HbrVirtualMachineMove_Task','HbrVirtualMachineRemoveDisk_Task','LoadReplicationGroup_Task','QueryGroupsStats','QueryHostsStats','RemovePrimaryHosts_Task','RetrieveProperties','RetrievePropertiesEx','SetPrimaryHosts_Task','UnconfigureDisk','UpdateRepConfig','WaitForUpdates','WaitForUpdatesEx');
+                  var urls = new Array();
+                  urls['AddDisk_Task'] = 'hbr.replica.VirtualMachine.html#addDisk';urls['AddPrimaryHosts_Task'] = 'hbr.replica.ReplicationManager.html#addPrimaryHosts';urls['BaseGroupRemove_Task'] = 'hbr.replica.BaseGroup.html#remove';urls['Cancel'] = 'hbr.replica.Task.html#cancel';urls['CancelRetrievePropertiesEx'] = 'vmodl.query.PropertyCollector.html#cancelRetrievePropertiesEx';urls['CancelWaitForUpdates'] = 'vmodl.query.PropertyCollector.html#cancelWaitForUpdates';urls['CheckForUpdates'] = 'vmodl.query.PropertyCollector.html#checkForUpdates';urls['ContinueRetrievePropertiesEx'] = 'vmodl.query.PropertyCollector.html#continueRetrievePropertiesEx';urls['CreateFilter'] = 'vmodl.query.PropertyCollector.html#createFilter';urls['CreatePropertyCollector'] = 'vmodl.query.PropertyCollector.html#createPropertyCollector';urls['CreateReplicationGroup_Task'] = 'hbr.replica.ReplicationManager.html#createReplicationGroup';urls['DestroyPropertyCollector'] = 'vmodl.query.PropertyCollector.html#destroy';urls['DestroyPropertyFilter'] = 'vmodl.query.PropertyCollector.Filter.html#destroy';urls['GenerateSupportBundle_Task'] = 'hbr.replica.ServerManager.html#generateSupportBundle';urls['GetDisk'] = 'hbr.replica.VirtualMachine.html#getDisk';urls['GetInstanceCount'] = 'hbr.replica.BaseGroup.html#getInstanceCount';urls['GetInstanceDataEx'] = 'hbr.replica.BaseGroup.html#getInstanceDataEx';urls['GetInstances'] = 'hbr.replica.BaseGroup.html#getInstances';urls['GetReplicationGroup'] = 'hbr.replica.ReplicationManager.html#getReplicationGroup';urls['HbrHostRemove'] = 'hbr.replica.Host.html#remove';urls['HbrReplicationGroupCommitToImage_Task'] = 'hbr.replica.ReplicationGroup.html#commitToImage';urls['HbrReplicationGroupCreateFailoverImage_Task'] = 'hbr.replica.ReplicationGroup.html#createFailoverImage';urls['HbrReplicationGroupCreateTestBubbleImage_Task'] = 'hbr.replica.ReplicationGroup.html#createTestBubbleImage';urls['HbrReplicationGroupPauseRpoReporting'] = 'hbr.replica.ReplicationGroup.html#pauseRpoViolationReporting';urls['HbrReplicationGroupResumeRpoReporting'] = 'hbr.replica.ReplicationGroup.html#resumeRpoViolationReporting';urls['HbrReplicationGroupRevertImage_Task'] = 'hbr.replica.ReplicationGroup.html#revertImage';urls['HbrReplicationGroupUnconfigure_Task'] = 'hbr.replica.ReplicationGroup.html#unconfigure';urls['HbrServerDisableLocalLog'] = 'hbr.replica.ServerManager.html#disableLocalLog';urls['HbrServerDisableSyslog'] = 'hbr.replica.ServerManager.html#disableSyslog';urls['HbrServerEnableLocalLog'] = 'hbr.replica.ServerManager.html#enableLocalLog';urls['HbrServerEnableSyslog'] = 'hbr.replica.ServerManager.html#enableSyslog';urls['HbrServerGetBundleChunk'] = 'hbr.replica.ServerManager.html#supportBundleChunk';urls['HbrServerResetGroup'] = 'hbr.replica.ServerManager.html#resetGroup';urls['HbrServerSetLoglevel'] = 'hbr.replica.ServerManager.html#changeLoglevel';urls['HbrServerSetStressLevel'] = 'hbr.replica.ServerManager.html#changeStressOption';urls['HbrServerShutdown'] = 'hbr.replica.ServerManager.html#shutdown';urls['HbrServerVerify'] = 'hbr.replica.ServerManager.html#verifyServer';urls['HbrServerVerifyGroup'] = 'hbr.replica.ServerManager.html#verifyGroup';urls['HbrSessionLoginSSL'] = 'hbr.replica.SessionManager.html#loginBySSLThumbprint';urls['HbrSessionLoginUser'] = 'hbr.replica.SessionManager.html#login';urls['HbrSessionLogoff'] = 'hbr.replica.SessionManager.html#logoff';urls['HbrSessionReadGuestInfo'] = 'hbr.replica.SessionManager.html#readGuestInfoKeys';urls['HbrSessionRestartServer'] = 'hbr.replica.SessionManager.html#restartVmodlServer';urls['HbrStorageManagerEnableHost'] = 'hbr.replica.StorageManager.html#enableHost';urls['HbrVirtualMachineMove_Task'] = 'hbr.replica.VirtualMachine.html#move';urls['HbrVirtualMachineRemoveDisk_Task'] = 'hbr.replica.VirtualMachine.html#removeDisk';urls['LoadReplicationGroup_Task'] = 'hbr.replica.ReplicationManager.html#loadReplicationGroup';urls['QueryGroupsStats'] = 'hbr.replica.ReplicationManager.html#queryGroupsStats';urls['QueryHostsStats'] = 'hbr.replica.ReplicationManager.html#queryHostsStats';urls['RemovePrimaryHosts_Task'] = 'hbr.replica.ReplicationManager.html#removePrimaryHosts';urls['RetrieveProperties'] = 'vmodl.query.PropertyCollector.html#retrieveContents';urls['RetrievePropertiesEx'] = 'vmodl.query.PropertyCollector.html#retrievePropertiesEx';urls['SetPrimaryHosts_Task'] = 'hbr.replica.ReplicationManager.html#setPrimaryHosts';urls['UnconfigureDisk'] = 'hbr.replica.VirtualMachine.html#unconfigureDisk';urls['UpdateRepConfig'] = 'hbr.replica.BaseGroup.html#updateRepConfig';urls['WaitForUpdates'] = 'vmodl.query.PropertyCollector.html#waitForUpdates';urls['WaitForUpdatesEx'] = 'vmodl.query.PropertyCollector.html#waitForUpdatesEx';</script>
+<link href="index-style.css" type="text/css" rel="StyleSheet">
+</head>
+<body bgcolor="white">
+<a name="navbar_top"></a>
+<table cellSpacing="0" class="header-footer">
+<tr>
+<td><a href="javascript:void(location.href='left-pane.html');                         void(parent.frames[1].location.href='right-pane.html');">Home</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-mo_types.html');    void(parent.frames[1].location.href='mo-types-landing.html');">Managed Object Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-do_types.html');    void(parent.frames[1].location.href='do-types-landing.html');">Data Object Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-e_types.html');    void(parent.frames[1].location.href='enum-types-landing.html');">Enumerated Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-faults.html');    void(parent.frames[1].location.href='fault-types-landing.html');">Fault Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-all_types.html');    void(parent.frames[1].location.href='all-types-landing.html');">All Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-methods.html');    void(parent.frames[1].location.href='methods-landing.html');">All Methods</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-properties.html');    void(parent.frames[1].location.href='properties-landing.html');">All Properties</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-enums.html');    void(parent.frames[1].location.href='enums-landing.html');">All Enumerations</a></td>
+</tr>
+</table>
+<h2 class="index">All Methods</h2>
+<input onFocus="this.value=&quot;&quot;" value=" -- Quick Index -- " id="tb" style="font-family:verdana;width:95%;margin-bottom:10px" type="text">
+<br>
+<script>
+                  var obj = actb(document.getElementById('tb'),picklist,urls);
+               </script>
+<div style="margin-bottom:5px">
+<b><font size="-1"><a onclick="sweeptoggle('contract');expandcontent(this, 'AE')" style="padding:2" href="#">A-E</a><a onClick="sweeptoggle('contract');expandcontent(this, 'FJ')" style="padding:2" href="#">F-J</a><a onClick="sweeptoggle('contract');expandcontent(this, 'KO')" style="padding:2" href="#">K-O</a><a onClick="sweeptoggle('contract');expandcontent(this, 'PT')" style="padding:2" href="#">P-T</a><a onClick="sweeptoggle('contract');expandcontent(this, 'UZ')" style="padding:2" href="#">U-Z</a><a onClick="sweeptoggle('expand')" style="padding:2" href="#">All</a></font></b>
+</div>
+<font size="-1">
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="AE">
+<nobr><a title="AddDisk_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html#addDisk">AddDisk_Task</a>
+		 (in 
+         <a style="color:Navy" title="AddDisk_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>
+         )
+				<br>
+</nobr><nobr><a title="AddPrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#addPrimaryHosts">AddPrimaryHosts_Task</a>
+		 (in 
+         <a style="color:Navy" title="AddPrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="BaseGroupRemove_Task (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html#remove">BaseGroupRemove_Task</a>
+		 (in 
+         <a style="color:Navy" title="BaseGroupRemove_Task (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="Cancel (in HbrReplicaTask )" target="classFrame" href="hbr.replica.Task.html#cancel">Cancel</a>
+		 (in 
+         <a style="color:Navy" title="Cancel (in HbrReplicaTask )" target="classFrame" href="hbr.replica.Task.html">HbrReplicaTask</a>
+         )
+				<br>
+</nobr><nobr><a title="CancelRetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#cancelRetrievePropertiesEx">CancelRetrievePropertiesEx</a>
+		 (in 
+         <a style="color:Navy" title="CancelRetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="CancelWaitForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#cancelWaitForUpdates">CancelWaitForUpdates</a>
+		 (in 
+         <a style="color:Navy" title="CancelWaitForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="CheckForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#checkForUpdates">CheckForUpdates</a>
+		 (in 
+         <a style="color:Navy" title="CheckForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="ContinueRetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#continueRetrievePropertiesEx">ContinueRetrievePropertiesEx</a>
+		 (in 
+         <a style="color:Navy" title="ContinueRetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="CreateFilter (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#createFilter">CreateFilter</a>
+		 (in 
+         <a style="color:Navy" title="CreateFilter (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="CreatePropertyCollector (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#createPropertyCollector">CreatePropertyCollector</a>
+		 (in 
+         <a style="color:Navy" title="CreatePropertyCollector (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="CreateReplicationGroup_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#createReplicationGroup">CreateReplicationGroup_Task</a>
+		 (in 
+         <a style="color:Navy" title="CreateReplicationGroup_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="DestroyPropertyCollector (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#destroy">DestroyPropertyCollector</a>
+		 (in 
+         <a style="color:Navy" title="DestroyPropertyCollector (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="DestroyPropertyFilter (in PropertyFilter )" target="classFrame" href="vmodl.query.PropertyCollector.Filter.html#destroy">DestroyPropertyFilter</a>
+		 (in 
+         <a style="color:Navy" title="DestroyPropertyFilter (in PropertyFilter )" target="classFrame" href="vmodl.query.PropertyCollector.Filter.html">PropertyFilter</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="FJ">
+<nobr><a title="GenerateSupportBundle_Task (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#generateSupportBundle">GenerateSupportBundle_Task</a>
+		 (in 
+         <a style="color:Navy" title="GenerateSupportBundle_Task (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="GetDisk (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html#getDisk">GetDisk</a>
+		 (in 
+         <a style="color:Navy" title="GetDisk (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>
+         )
+				<br>
+</nobr><nobr><a title="GetInstanceCount (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html#getInstanceCount">GetInstanceCount</a>
+		 (in 
+         <a style="color:Navy" title="GetInstanceCount (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="GetInstanceDataEx (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html#getInstanceDataEx">GetInstanceDataEx</a>
+		 (in 
+         <a style="color:Navy" title="GetInstanceDataEx (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="GetInstances (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html#getInstances">GetInstances</a>
+		 (in 
+         <a style="color:Navy" title="GetInstances (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="GetReplicationGroup (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#getReplicationGroup">GetReplicationGroup</a>
+		 (in 
+         <a style="color:Navy" title="GetReplicationGroup (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrHostRemove (in HbrHost )" target="classFrame" href="hbr.replica.Host.html#remove">HbrHostRemove</a>
+		 (in 
+         <a style="color:Navy" title="HbrHostRemove (in HbrHost )" target="classFrame" href="hbr.replica.Host.html">HbrHost</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupCommitToImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#commitToImage">HbrReplicationGroupCommitToImage_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupCommitToImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupCreateFailoverImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#createFailoverImage">HbrReplicationGroupCreateFailoverImage_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupCreateFailoverImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupCreateTestBubbleImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#createTestBubbleImage">HbrReplicationGroupCreateTestBubbleImage_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupCreateTestBubbleImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupPauseRpoReporting (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#pauseRpoViolationReporting">HbrReplicationGroupPauseRpoReporting</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupPauseRpoReporting (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupResumeRpoReporting (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#resumeRpoViolationReporting">HbrReplicationGroupResumeRpoReporting</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupResumeRpoReporting (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupRevertImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupRevertImage_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrReplicationGroupUnconfigure_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html#unconfigure">HbrReplicationGroupUnconfigure_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrReplicationGroupUnconfigure_Task (in HbrReplicationGroup )" target="classFrame" href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerDisableLocalLog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#disableLocalLog">HbrServerDisableLocalLog</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerDisableLocalLog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerDisableSyslog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#disableSyslog">HbrServerDisableSyslog</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerDisableSyslog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerEnableLocalLog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#enableLocalLog">HbrServerEnableLocalLog</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerEnableLocalLog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerEnableSyslog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#enableSyslog">HbrServerEnableSyslog</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerEnableSyslog (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerGetBundleChunk (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#supportBundleChunk">HbrServerGetBundleChunk</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerGetBundleChunk (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerResetGroup (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#resetGroup">HbrServerResetGroup</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerResetGroup (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerSetLoglevel (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#changeLoglevel">HbrServerSetLoglevel</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerSetLoglevel (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerSetStressLevel (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#changeStressOption">HbrServerSetStressLevel</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerSetStressLevel (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerShutdown (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#shutdown">HbrServerShutdown</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerShutdown (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerVerify (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#verifyServer">HbrServerVerify</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerVerify (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrServerVerifyGroup (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html#verifyGroup">HbrServerVerifyGroup</a>
+		 (in 
+         <a style="color:Navy" title="HbrServerVerifyGroup (in HbrServerManager )" target="classFrame" href="hbr.replica.ServerManager.html">HbrServerManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrSessionLoginSSL (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html#loginBySSLThumbprint">HbrSessionLoginSSL</a>
+		 (in 
+         <a style="color:Navy" title="HbrSessionLoginSSL (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrSessionLoginUser (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html#login">HbrSessionLoginUser</a>
+		 (in 
+         <a style="color:Navy" title="HbrSessionLoginUser (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrSessionLogoff (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html#logoff">HbrSessionLogoff</a>
+		 (in 
+         <a style="color:Navy" title="HbrSessionLogoff (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrSessionReadGuestInfo (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html#readGuestInfoKeys">HbrSessionReadGuestInfo</a>
+		 (in 
+         <a style="color:Navy" title="HbrSessionReadGuestInfo (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrSessionRestartServer (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html#restartVmodlServer">HbrSessionRestartServer</a>
+		 (in 
+         <a style="color:Navy" title="HbrSessionRestartServer (in HbrSessionManager )" target="classFrame" href="hbr.replica.SessionManager.html">HbrSessionManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrStorageManagerEnableHost (in HbrStorageManager )" target="classFrame" href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>
+		 (in 
+         <a style="color:Navy" title="HbrStorageManagerEnableHost (in HbrStorageManager )" target="classFrame" href="hbr.replica.StorageManager.html">HbrStorageManager</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrVirtualMachineMove_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html#move">HbrVirtualMachineMove_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrVirtualMachineMove_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>
+         )
+				<br>
+</nobr><nobr><a title="HbrVirtualMachineRemoveDisk_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html#removeDisk">HbrVirtualMachineRemoveDisk_Task</a>
+		 (in 
+         <a style="color:Navy" title="HbrVirtualMachineRemoveDisk_Task (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="KO">
+<nobr><a title="LoadReplicationGroup_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#loadReplicationGroup">LoadReplicationGroup_Task</a>
+		 (in 
+         <a style="color:Navy" title="LoadReplicationGroup_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="PT">
+<nobr><a title="QueryGroupsStats (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#queryGroupsStats">QueryGroupsStats</a>
+		 (in 
+         <a style="color:Navy" title="QueryGroupsStats (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="QueryHostsStats (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#queryHostsStats">QueryHostsStats</a>
+		 (in 
+         <a style="color:Navy" title="QueryHostsStats (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="RemovePrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#removePrimaryHosts">RemovePrimaryHosts_Task</a>
+		 (in 
+         <a style="color:Navy" title="RemovePrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr><nobr><a title="RetrieveProperties (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#retrieveContents">RetrieveProperties</a>
+		 (in 
+         <a style="color:Navy" title="RetrieveProperties (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="RetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#retrievePropertiesEx">RetrievePropertiesEx</a>
+		 (in 
+         <a style="color:Navy" title="RetrievePropertiesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="SetPrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html#setPrimaryHosts">SetPrimaryHosts_Task</a>
+		 (in 
+         <a style="color:Navy" title="SetPrimaryHosts_Task (in HbrReplicationManager )" target="classFrame" href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="UZ">
+<nobr><a title="UnconfigureDisk (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html#unconfigureDisk">UnconfigureDisk</a>
+		 (in 
+         <a style="color:Navy" title="UnconfigureDisk (in HbrVirtualMachine )" target="classFrame" href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>
+         )
+				<br>
+</nobr><nobr><a title="UpdateRepConfig (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html#updateRepConfig">UpdateRepConfig</a>
+		 (in 
+         <a style="color:Navy" title="UpdateRepConfig (in HbrBaseGroup )" target="classFrame" href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+         )
+				<br>
+</nobr><nobr><a title="WaitForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#waitForUpdates">WaitForUpdates</a>
+		 (in 
+         <a style="color:Navy" title="WaitForUpdates (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr><nobr><a title="WaitForUpdatesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html#waitForUpdatesEx">WaitForUpdatesEx</a>
+		 (in 
+         <a style="color:Navy" title="WaitForUpdatesEx (in PropertyCollector )" target="classFrame" href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+         )
+				<br>
+</nobr>
+</div>
+</font>
+</body>
+</html>

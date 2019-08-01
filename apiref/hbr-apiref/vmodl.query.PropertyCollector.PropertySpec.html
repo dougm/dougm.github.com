@@ -1,0 +1,167 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="vmodl.query.PropertyCollector.PropertySpec" name="vmodl.query.PropertyCollector.PropertySpec"></a>
+<h1>Data Object - PropertySpec(vmodl.query.PropertyCollector.PropertySpec)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="vmodl.query.PropertyCollector.FilterSpec.html#field_detail">PropertyFilterSpec</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Within a <a href="vmodl.query.PropertyCollector.FilterSpec.html">PropertyFilterSpec</a>, A <a href="vmodl.query.PropertyCollector.PropertySpec.html">PropertySpec</a> specifies which properties should be
+  reported to the client for objects of the given managed object type that
+  are visited and not skipped.  One more subtle side effect is that if a
+  managed object is visited and not skipped, but there is no <a href="vmodl.query.PropertyCollector.PropertySpec.html">PropertySpec</a> associated with the managed object's
+  type, the managed object will not be reported to the client.
+
+  <p> Also, the set of properties applicable to a given managed object type
+  is the union of the properties implied by the <a href="vmodl.query.PropertyCollector.PropertySpec.html">PropertySpec</a> objects even, in the case of a <a href="vmodl.query.PropertyCollector.RetrieveResult.html">RetrieveResult</a>, where there may be an applicable
+  <a href="vmodl.query.PropertyCollector.PropertySpec.html">PropertySpec</a> in more than one filter.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="all" name="all"></a><strong>all</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         Specifies whether or not all properties of the object are read. If
+  this property is set to true, the <a href="vmodl.query.PropertyCollector.PropertySpec.html#pathSet">pathSet</a> property is ignored.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="pathSet" name="pathSet"></a><strong>pathSet</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string[]</td><td>
+<p></p>
+         Specifies which managed object properties are retrieved. If the <a href="vmodl.query.PropertyCollector.PropertySpec.html#pathSet">pathSet</a> is empty, then the
+  <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a> retrieves references to the managed objects
+  and no managed object properties are collected.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="type" name="type"></a><strong>type</strong></td><td>xsd:string</td><td>
+<p></p>
+         Name of the managed object type being collected.
+      <p class="table-title">Allowable values are:</p>
+<table cellspacing="0">
+<tr>
+<td>"HbrBaseGroup"</td><td> - <a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrDatastore"</td><td> - <a href="hbr.replica.Datastore.html">HbrDatastore</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrDisk"</td><td> - <a href="hbr.replica.Disk.html">HbrDisk</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrGroupImage"</td><td> - <a href="hbr.replica.GroupImage.html">HbrGroupImage</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrHost"</td><td> - <a href="hbr.replica.Host.html">HbrHost</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrReplicaTask"</td><td> - <a href="hbr.replica.Task.html">HbrReplicaTask</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrReplicationGroup"</td><td> - <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrReplicationManager"</td><td> - <a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrServerManager"</td><td> - <a href="hbr.replica.ServerManager.html">HbrServerManager</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrSessionManager"</td><td> - <a href="hbr.replica.SessionManager.html">HbrSessionManager</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrStorageManager"</td><td> - <a href="hbr.replica.StorageManager.html">HbrStorageManager</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"HbrVirtualMachine"</td><td> - <a href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"PropertyCollector"</td><td> - <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a> Managed Object.</td>
+</tr>
+<tr>
+<td>"PropertyFilter"</td><td> - <a href="vmodl.query.PropertyCollector.Filter.html">PropertyFilter</a> Managed Object.</td>
+</tr>
+</table>
+<br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="PropertySpec">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="type" type="xsd:string"/>
+                     <element name="all" type="xsd:boolean" minOccurs="0"/>
+                     <element name="pathSet" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

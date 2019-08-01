@@ -1,0 +1,384 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="dynamic-content.js" type="text/javascript"></script><script src="actb.js" type="text/javascript" language="javascript"></script><script src="common.js" type="text/javascript" language="javascript"></script><script>
+         var picklist = new Array(
+         'add (PropertyChangeOp)','applicationQuiesced (HbrVirtualMachineInstanceQuiescedType)','assign (PropertyChangeOp)','CommitToImagePending (HbrReplicaFaultGroupDestructionPendingReason)','config (HbrConfigFileImageFileType)','duplicateDiskId (HbrReplicaFaultInvalidGroupSpecReason)','duplicateId (HbrReplicaFaultInvalidIdentSpecReason)','enter (ObjectUpdateKind)','error (HbrReplicaTaskInfoState)','extendedConfig (HbrConfigFileImageFileType)','fileSystemQuiesced (HbrVirtualMachineInstanceQuiescedType)','fullsync (HbrBaseGroupReplicationState)','groupCommitToImage (HbrReplicaTaskInfoOperation)','groupCreateFailoverImage (HbrReplicaTaskInfoOperation)','groupCreateTestBubbleImage (HbrReplicaTaskInfoOperation)','groupRemove (HbrReplicaTaskInfoOperation)','groupRevertImage (HbrReplicaTaskInfoOperation)','groupUnconfigure (HbrReplicaTaskInfoOperation)','indirectRemove (PropertyChangeOp)','instancePrune (HbrReplicaTaskInfoOperation)','invalidAddress (HbrReplicaFaultInvalidHostSpecReason)','invalidAuthString (HbrReplicaFaultInvalidHostSpecReason)','invalidDiskId (HbrReplicaFaultInvalidHbrDiskSpecReason)','invalidDiskSet (HbrReplicaFaultInvalidVirtualMachineSpecReason)','invalidGroupId (HbrReplicaFaultInvalidGroupSpecReason)','invalidHostNameOnCert (HbrReplicaFaultInvalidHostSpecReason)','invalidId (HbrReplicaFaultInvalidHostSpecReason)','invalidNumberOfVms (HbrReplicaFaultInvalidGroupSpecReason)','invalidPath (HbrReplicaFaultInvalidHbrDiskSpecReason)','invalidPath (HbrReplicaFaultInvalidVirtualMachineSpecReason)','invalidReplicationStyle (HbrReplicaFaultInvalidGroupSpecReason)','invalidRetentionPolicy (HbrReplicaFaultInvalidGroupSpecReason)','invalidRpo (HbrReplicaFaultInvalidGroupSpecReason)','invalidVirtualMachineId (HbrReplicaFaultInvalidVirtualMachineSpecReason)','leave (ObjectUpdateKind)','lwd (HbrBaseGroupReplicationState)','modify (ObjectUpdateKind)','none (HbrVirtualMachineInstanceQuiescedType)','nvram (HbrConfigFileImageFileType)','opened (HbrBaseGroupReplicationState)','passive (HbrBaseGroupReplicationState)','paused (HbrBaseGroupReplicationState)','prune (HbrBaseGroupReplicationState)','queued (HbrReplicaTaskInfoState)','remove (PropertyChangeOp)','RemovePending (HbrReplicaFaultGroupDestructionPendingReason)','replication (HbrReplicaTaskInfoOperation)','replicationManagerCreateReplicationGroup (HbrReplicaTaskInfoOperation)','replicationManagerRecoverGroup (HbrReplicaTaskInfoOperation)','running (HbrReplicaTaskInfoState)','serverSupportBundle (HbrReplicaTaskInfoOperation)','success (HbrReplicaTaskInfoState)','UnconfigurePending (HbrReplicaFaultGroupDestructionPendingReason)','unknown (HbrBaseGroupReplicationState)','unknown (HbrConfigFileImageFileType)','unknownId (HbrReplicaFaultInvalidIdentSpecReason)','unsupportedLocation (HbrReplicaFaultInvalidIdentSpecReason)','updatePrimaryHosts (HbrReplicaTaskInfoOperation)','virtualMachineAddDisk (HbrReplicaTaskInfoOperation)','virtualMachineMove (HbrReplicaTaskInfoOperation)','virtualMachineRemoveDisk (HbrReplicaTaskInfoOperation)','vmsd (HbrConfigFileImageFileType)','vmsn (HbrConfigFileImageFileType)');
+                  var urls = new Array();
+                  urls['add (PropertyChangeOp)'] = 'vmodl.query.PropertyCollector.Change.Op.html#add';urls['applicationQuiesced (HbrVirtualMachineInstanceQuiescedType)'] = 'hbr.replica.VirtualMachineInstance.QuiescedType.html#applicationQuiesced';urls['assign (PropertyChangeOp)'] = 'vmodl.query.PropertyCollector.Change.Op.html#assign';urls['CommitToImagePending (HbrReplicaFaultGroupDestructionPendingReason)'] = 'hbr.replica.fault.GroupDestructionPending.Reason.html#CommitToImagePending';urls['config (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#config';urls['duplicateDiskId (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#duplicateDiskId';urls['duplicateId (HbrReplicaFaultInvalidIdentSpecReason)'] = 'hbr.replica.fault.InvalidIdentSpec.Reason.html#duplicateId';urls['enter (ObjectUpdateKind)'] = 'vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#enter';urls['error (HbrReplicaTaskInfoState)'] = 'hbr.replica.TaskInfo.State.html#error';urls['extendedConfig (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#extendedConfig';urls['fileSystemQuiesced (HbrVirtualMachineInstanceQuiescedType)'] = 'hbr.replica.VirtualMachineInstance.QuiescedType.html#fileSystemQuiesced';urls['fullsync (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#fullsync';urls['groupCommitToImage (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupCommitToImage';urls['groupCreateFailoverImage (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupCreateFailoverImage';urls['groupCreateTestBubbleImage (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupCreateTestBubbleImage';urls['groupRemove (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupRemove';urls['groupRevertImage (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupRevertImage';urls['groupUnconfigure (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#groupUnconfigure';urls['indirectRemove (PropertyChangeOp)'] = 'vmodl.query.PropertyCollector.Change.Op.html#indirectRemove';urls['instancePrune (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#instancePrune';urls['invalidAddress (HbrReplicaFaultInvalidHostSpecReason)'] = 'hbr.replica.fault.InvalidHostSpec.Reason.html#invalidAddress';urls['invalidAuthString (HbrReplicaFaultInvalidHostSpecReason)'] = 'hbr.replica.fault.InvalidHostSpec.Reason.html#invalidAuthString';urls['invalidDiskId (HbrReplicaFaultInvalidHbrDiskSpecReason)'] = 'hbr.replica.fault.InvalidHbrDiskSpec.Reason.html#invalidDiskId';urls['invalidDiskSet (HbrReplicaFaultInvalidVirtualMachineSpecReason)'] = 'hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidDiskSet';urls['invalidGroupId (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidGroupId';urls['invalidHostNameOnCert (HbrReplicaFaultInvalidHostSpecReason)'] = 'hbr.replica.fault.InvalidHostSpec.Reason.html#invalidHostNameOnCert';urls['invalidId (HbrReplicaFaultInvalidHostSpecReason)'] = 'hbr.replica.fault.InvalidHostSpec.Reason.html#invalidId';urls['invalidNumberOfVms (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidNumberOfVms';urls['invalidPath (HbrReplicaFaultInvalidHbrDiskSpecReason)'] = 'hbr.replica.fault.InvalidHbrDiskSpec.Reason.html#invalidPath';urls['invalidPath (HbrReplicaFaultInvalidVirtualMachineSpecReason)'] = 'hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidPath';urls['invalidReplicationStyle (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidReplicationStyle';urls['invalidRetentionPolicy (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidRetentionPolicy';urls['invalidRpo (HbrReplicaFaultInvalidGroupSpecReason)'] = 'hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidRpo';urls['invalidVirtualMachineId (HbrReplicaFaultInvalidVirtualMachineSpecReason)'] = 'hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidVirtualMachineId';urls['leave (ObjectUpdateKind)'] = 'vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#leave';urls['lwd (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#lwd';urls['modify (ObjectUpdateKind)'] = 'vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#modify';urls['none (HbrVirtualMachineInstanceQuiescedType)'] = 'hbr.replica.VirtualMachineInstance.QuiescedType.html#none';urls['nvram (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#nvram';urls['opened (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#opened';urls['passive (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#passive';urls['paused (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#paused';urls['prune (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#prune';urls['queued (HbrReplicaTaskInfoState)'] = 'hbr.replica.TaskInfo.State.html#queued';urls['remove (PropertyChangeOp)'] = 'vmodl.query.PropertyCollector.Change.Op.html#remove';urls['RemovePending (HbrReplicaFaultGroupDestructionPendingReason)'] = 'hbr.replica.fault.GroupDestructionPending.Reason.html#RemovePending';urls['replication (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#replication';urls['replicationManagerCreateReplicationGroup (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#replicationManagerCreateReplicationGroup';urls['replicationManagerRecoverGroup (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#replicationManagerRecoverGroup';urls['running (HbrReplicaTaskInfoState)'] = 'hbr.replica.TaskInfo.State.html#running';urls['serverSupportBundle (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#serverSupportBundle';urls['success (HbrReplicaTaskInfoState)'] = 'hbr.replica.TaskInfo.State.html#success';urls['UnconfigurePending (HbrReplicaFaultGroupDestructionPendingReason)'] = 'hbr.replica.fault.GroupDestructionPending.Reason.html#UnconfigurePending';urls['unknown (HbrBaseGroupReplicationState)'] = 'hbr.replica.BaseGroup.ReplicationState.html#unknown';urls['unknown (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#unknown';urls['unknownId (HbrReplicaFaultInvalidIdentSpecReason)'] = 'hbr.replica.fault.InvalidIdentSpec.Reason.html#unknownId';urls['unsupportedLocation (HbrReplicaFaultInvalidIdentSpecReason)'] = 'hbr.replica.fault.InvalidIdentSpec.Reason.html#unsupportedLocation';urls['updatePrimaryHosts (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#updatePrimaryHosts';urls['virtualMachineAddDisk (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#virtualMachineAddDisk';urls['virtualMachineMove (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#virtualMachineMove';urls['virtualMachineRemoveDisk (HbrReplicaTaskInfoOperation)'] = 'hbr.replica.TaskInfo.Operation.html#virtualMachineRemoveDisk';urls['vmsd (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#vmsd';urls['vmsn (HbrConfigFileImageFileType)'] = 'hbr.replica.ConfigFileImage.FileType.html#vmsn';</script>
+<link href="index-style.css" type="text/css" rel="StyleSheet">
+</head>
+<body bgcolor="white">
+<a name="navbar_top"></a>
+<table cellSpacing="0" class="header-footer">
+<tr>
+<td><a href="javascript:void(location.href='left-pane.html');                         void(parent.frames[1].location.href='right-pane.html');">Home</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-mo_types.html');    void(parent.frames[1].location.href='mo-types-landing.html');">Managed Object Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-do_types.html');    void(parent.frames[1].location.href='do-types-landing.html');">Data Object Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-e_types.html');    void(parent.frames[1].location.href='enum-types-landing.html');">Enumerated Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-faults.html');    void(parent.frames[1].location.href='fault-types-landing.html');">Fault Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-all_types.html');    void(parent.frames[1].location.href='all-types-landing.html');">All Types</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-methods.html');    void(parent.frames[1].location.href='methods-landing.html');">All Methods</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-properties.html');    void(parent.frames[1].location.href='properties-landing.html');">All Properties</a></td>
+</tr>
+<tr>
+<td><a href="javascript:void(location.href='index-enums.html');    void(parent.frames[1].location.href='enums-landing.html');">All Enumerations</a></td>
+</tr>
+</table>
+<h2 class="index">All Enumerations</h2>
+<input onFocus="this.value=&quot;&quot;" value=" -- Quick Index -- " id="tb" style="font-family:verdana;width:95%;margin-bottom:10px" type="text">
+<br>
+<script>
+                  var obj = actb(document.getElementById('tb'),picklist,urls);
+               </script>
+<div style="margin-bottom:5px">
+<b><font size="-1"><a onclick="sweeptoggle('contract');expandcontent(this, 'AE')" style="padding:2" href="#">A-E</a><a onClick="sweeptoggle('contract');expandcontent(this, 'FJ')" style="padding:2" href="#">F-J</a><a onClick="sweeptoggle('contract');expandcontent(this, 'KO')" style="padding:2" href="#">K-O</a><a onClick="sweeptoggle('contract');expandcontent(this, 'PT')" style="padding:2" href="#">P-T</a><a onClick="sweeptoggle('contract');expandcontent(this, 'UZ')" style="padding:2" href="#">U-Z</a><a onClick="sweeptoggle('expand')" style="padding:2" href="#">All</a></font></b>
+</div>
+<font size="-1">
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="AE">
+<nobr><a title="add (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html#add">add</a>
+		 (in 
+         <a style="color:Navy" title="add (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html">PropertyChangeOp</a>
+         )
+				<br>
+</nobr><nobr><a title="applicationQuiesced (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html#applicationQuiesced">applicationQuiesced</a>
+		 (in 
+         <a style="color:Navy" title="applicationQuiesced (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html">HbrVirtualMachineInstanceQuiescedType</a>
+         )
+				<br>
+</nobr><nobr><a title="assign (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html#assign">assign</a>
+		 (in 
+         <a style="color:Navy" title="assign (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html">PropertyChangeOp</a>
+         )
+				<br>
+</nobr><nobr><a title="CommitToImagePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html#CommitToImagePending">CommitToImagePending</a>
+		 (in 
+         <a style="color:Navy" title="CommitToImagePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html">HbrReplicaFaultGroupDestructionPendingReason</a>
+         )
+				<br>
+</nobr><nobr><a title="config (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#config">config</a>
+		 (in 
+         <a style="color:Navy" title="config (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr><nobr><a title="duplicateDiskId (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#duplicateDiskId">duplicateDiskId</a>
+		 (in 
+         <a style="color:Navy" title="duplicateDiskId (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="duplicateId (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html#duplicateId">duplicateId</a>
+		 (in 
+         <a style="color:Navy" title="duplicateId (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html">HbrReplicaFaultInvalidIdentSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="enter (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#enter">enter</a>
+		 (in 
+         <a style="color:Navy" title="enter (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html">ObjectUpdateKind</a>
+         )
+				<br>
+</nobr><nobr><a title="error (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html#error">error</a>
+		 (in 
+         <a style="color:Navy" title="error (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html">HbrReplicaTaskInfoState</a>
+         )
+				<br>
+</nobr><nobr><a title="extendedConfig (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#extendedConfig">extendedConfig</a>
+		 (in 
+         <a style="color:Navy" title="extendedConfig (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="FJ">
+<nobr><a title="fileSystemQuiesced (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html#fileSystemQuiesced">fileSystemQuiesced</a>
+		 (in 
+         <a style="color:Navy" title="fileSystemQuiesced (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html">HbrVirtualMachineInstanceQuiescedType</a>
+         )
+				<br>
+</nobr><nobr><a title="fullsync (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#fullsync">fullsync</a>
+		 (in 
+         <a style="color:Navy" title="fullsync (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="groupCommitToImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupCommitToImage">groupCommitToImage</a>
+		 (in 
+         <a style="color:Navy" title="groupCommitToImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="groupCreateFailoverImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupCreateFailoverImage">groupCreateFailoverImage</a>
+		 (in 
+         <a style="color:Navy" title="groupCreateFailoverImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="groupCreateTestBubbleImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupCreateTestBubbleImage">groupCreateTestBubbleImage</a>
+		 (in 
+         <a style="color:Navy" title="groupCreateTestBubbleImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="groupRemove (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupRemove">groupRemove</a>
+		 (in 
+         <a style="color:Navy" title="groupRemove (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="groupRevertImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupRevertImage">groupRevertImage</a>
+		 (in 
+         <a style="color:Navy" title="groupRevertImage (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="groupUnconfigure (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#groupUnconfigure">groupUnconfigure</a>
+		 (in 
+         <a style="color:Navy" title="groupUnconfigure (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="indirectRemove (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html#indirectRemove">indirectRemove</a>
+		 (in 
+         <a style="color:Navy" title="indirectRemove (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html">PropertyChangeOp</a>
+         )
+				<br>
+</nobr><nobr><a title="instancePrune (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#instancePrune">instancePrune</a>
+		 (in 
+         <a style="color:Navy" title="instancePrune (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidAddress (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html#invalidAddress">invalidAddress</a>
+		 (in 
+         <a style="color:Navy" title="invalidAddress (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html">HbrReplicaFaultInvalidHostSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidAuthString (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html#invalidAuthString">invalidAuthString</a>
+		 (in 
+         <a style="color:Navy" title="invalidAuthString (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html">HbrReplicaFaultInvalidHostSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidDiskId (in HbrReplicaFaultInvalidHbrDiskSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHbrDiskSpec.Reason.html#invalidDiskId">invalidDiskId</a>
+		 (in 
+         <a style="color:Navy" title="invalidDiskId (in HbrReplicaFaultInvalidHbrDiskSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHbrDiskSpec.Reason.html">HbrReplicaFaultInvalidHbrDiskSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidDiskSet (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidDiskSet">invalidDiskSet</a>
+		 (in 
+         <a style="color:Navy" title="invalidDiskSet (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html">HbrReplicaFaultInvalidVirtualMachineSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidGroupId (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidGroupId">invalidGroupId</a>
+		 (in 
+         <a style="color:Navy" title="invalidGroupId (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidHostNameOnCert (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html#invalidHostNameOnCert">invalidHostNameOnCert</a>
+		 (in 
+         <a style="color:Navy" title="invalidHostNameOnCert (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html">HbrReplicaFaultInvalidHostSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidId (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html#invalidId">invalidId</a>
+		 (in 
+         <a style="color:Navy" title="invalidId (in HbrReplicaFaultInvalidHostSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHostSpec.Reason.html">HbrReplicaFaultInvalidHostSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidNumberOfVms (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidNumberOfVms">invalidNumberOfVms</a>
+		 (in 
+         <a style="color:Navy" title="invalidNumberOfVms (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidPath (in HbrReplicaFaultInvalidHbrDiskSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHbrDiskSpec.Reason.html#invalidPath">invalidPath</a>
+		 (in 
+         <a style="color:Navy" title="invalidPath (in HbrReplicaFaultInvalidHbrDiskSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidHbrDiskSpec.Reason.html">HbrReplicaFaultInvalidHbrDiskSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidPath (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidPath">invalidPath</a>
+		 (in 
+         <a style="color:Navy" title="invalidPath (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html">HbrReplicaFaultInvalidVirtualMachineSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidReplicationStyle (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidReplicationStyle">invalidReplicationStyle</a>
+		 (in 
+         <a style="color:Navy" title="invalidReplicationStyle (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidRetentionPolicy (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidRetentionPolicy">invalidRetentionPolicy</a>
+		 (in 
+         <a style="color:Navy" title="invalidRetentionPolicy (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidRpo (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html#invalidRpo">invalidRpo</a>
+		 (in 
+         <a style="color:Navy" title="invalidRpo (in HbrReplicaFaultInvalidGroupSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidGroupSpec.Reason.html">HbrReplicaFaultInvalidGroupSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="invalidVirtualMachineId (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html#invalidVirtualMachineId">invalidVirtualMachineId</a>
+		 (in 
+         <a style="color:Navy" title="invalidVirtualMachineId (in HbrReplicaFaultInvalidVirtualMachineSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidVirtualMachineSpec.Reason.html">HbrReplicaFaultInvalidVirtualMachineSpecReason</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="KO">
+<nobr><a title="leave (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#leave">leave</a>
+		 (in 
+         <a style="color:Navy" title="leave (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html">ObjectUpdateKind</a>
+         )
+				<br>
+</nobr><nobr><a title="lwd (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#lwd">lwd</a>
+		 (in 
+         <a style="color:Navy" title="lwd (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="modify (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html#modify">modify</a>
+		 (in 
+         <a style="color:Navy" title="modify (in ObjectUpdateKind )" target="classFrame" href="vmodl.query.PropertyCollector.ObjectUpdate.Kind.html">ObjectUpdateKind</a>
+         )
+				<br>
+</nobr><nobr><a title="none (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html#none">none</a>
+		 (in 
+         <a style="color:Navy" title="none (in HbrVirtualMachineInstanceQuiescedType )" target="classFrame" href="hbr.replica.VirtualMachineInstance.QuiescedType.html">HbrVirtualMachineInstanceQuiescedType</a>
+         )
+				<br>
+</nobr><nobr><a title="nvram (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#nvram">nvram</a>
+		 (in 
+         <a style="color:Navy" title="nvram (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr><nobr><a title="opened (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#opened">opened</a>
+		 (in 
+         <a style="color:Navy" title="opened (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="PT">
+<nobr><a title="passive (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#passive">passive</a>
+		 (in 
+         <a style="color:Navy" title="passive (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="paused (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#paused">paused</a>
+		 (in 
+         <a style="color:Navy" title="paused (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="prune (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#prune">prune</a>
+		 (in 
+         <a style="color:Navy" title="prune (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="queued (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html#queued">queued</a>
+		 (in 
+         <a style="color:Navy" title="queued (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html">HbrReplicaTaskInfoState</a>
+         )
+				<br>
+</nobr><nobr><a title="remove (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html#remove">remove</a>
+		 (in 
+         <a style="color:Navy" title="remove (in PropertyChangeOp )" target="classFrame" href="vmodl.query.PropertyCollector.Change.Op.html">PropertyChangeOp</a>
+         )
+				<br>
+</nobr><nobr><a title="RemovePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html#RemovePending">RemovePending</a>
+		 (in 
+         <a style="color:Navy" title="RemovePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html">HbrReplicaFaultGroupDestructionPendingReason</a>
+         )
+				<br>
+</nobr><nobr><a title="replication (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#replication">replication</a>
+		 (in 
+         <a style="color:Navy" title="replication (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="replicationManagerCreateReplicationGroup (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#replicationManagerCreateReplicationGroup">replicationManagerCreateReplicationGroup</a>
+		 (in 
+         <a style="color:Navy" title="replicationManagerCreateReplicationGroup (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="replicationManagerRecoverGroup (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#replicationManagerRecoverGroup">replicationManagerRecoverGroup</a>
+		 (in 
+         <a style="color:Navy" title="replicationManagerRecoverGroup (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="running (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html#running">running</a>
+		 (in 
+         <a style="color:Navy" title="running (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html">HbrReplicaTaskInfoState</a>
+         )
+				<br>
+</nobr><nobr><a title="serverSupportBundle (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#serverSupportBundle">serverSupportBundle</a>
+		 (in 
+         <a style="color:Navy" title="serverSupportBundle (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="success (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html#success">success</a>
+		 (in 
+         <a style="color:Navy" title="success (in HbrReplicaTaskInfoState )" target="classFrame" href="hbr.replica.TaskInfo.State.html">HbrReplicaTaskInfoState</a>
+         )
+				<br>
+</nobr>
+</div>
+<div style="width:100%;overflow:hidden;text-overflow:ellipsis;display:block" class="switchcontent" id="UZ">
+<nobr><a title="UnconfigurePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html#UnconfigurePending">UnconfigurePending</a>
+		 (in 
+         <a style="color:Navy" title="UnconfigurePending (in HbrReplicaFaultGroupDestructionPendingReason )" target="classFrame" href="hbr.replica.fault.GroupDestructionPending.Reason.html">HbrReplicaFaultGroupDestructionPendingReason</a>
+         )
+				<br>
+</nobr><nobr><a title="unknown (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html#unknown">unknown</a>
+		 (in 
+         <a style="color:Navy" title="unknown (in HbrBaseGroupReplicationState )" target="classFrame" href="hbr.replica.BaseGroup.ReplicationState.html">HbrBaseGroupReplicationState</a>
+         )
+				<br>
+</nobr><nobr><a title="unknown (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#unknown">unknown</a>
+		 (in 
+         <a style="color:Navy" title="unknown (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr><nobr><a title="unknownId (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html#unknownId">unknownId</a>
+		 (in 
+         <a style="color:Navy" title="unknownId (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html">HbrReplicaFaultInvalidIdentSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="unsupportedLocation (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html#unsupportedLocation">unsupportedLocation</a>
+		 (in 
+         <a style="color:Navy" title="unsupportedLocation (in HbrReplicaFaultInvalidIdentSpecReason )" target="classFrame" href="hbr.replica.fault.InvalidIdentSpec.Reason.html">HbrReplicaFaultInvalidIdentSpecReason</a>
+         )
+				<br>
+</nobr><nobr><a title="updatePrimaryHosts (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#updatePrimaryHosts">updatePrimaryHosts</a>
+		 (in 
+         <a style="color:Navy" title="updatePrimaryHosts (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="virtualMachineAddDisk (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#virtualMachineAddDisk">virtualMachineAddDisk</a>
+		 (in 
+         <a style="color:Navy" title="virtualMachineAddDisk (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="virtualMachineMove (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#virtualMachineMove">virtualMachineMove</a>
+		 (in 
+         <a style="color:Navy" title="virtualMachineMove (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="virtualMachineRemoveDisk (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html#virtualMachineRemoveDisk">virtualMachineRemoveDisk</a>
+		 (in 
+         <a style="color:Navy" title="virtualMachineRemoveDisk (in HbrReplicaTaskInfoOperation )" target="classFrame" href="hbr.replica.TaskInfo.Operation.html">HbrReplicaTaskInfoOperation</a>
+         )
+				<br>
+</nobr><nobr><a title="vmsd (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#vmsd">vmsd</a>
+		 (in 
+         <a style="color:Navy" title="vmsd (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr><nobr><a title="vmsn (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html#vmsn">vmsn</a>
+		 (in 
+         <a style="color:Navy" title="vmsn (in HbrConfigFileImageFileType )" target="classFrame" href="hbr.replica.ConfigFileImage.FileType.html">HbrConfigFileImageFileType</a>
+         )
+				<br>
+</nobr>
+</div>
+</font>
+</body>
+</html>

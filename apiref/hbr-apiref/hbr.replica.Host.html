@@ -1,0 +1,223 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.Host" name="hbr.replica.Host"></a>
+<h1>Managed Object -  
+						HbrHost(hbr.replica.Host)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.StorageManager.html#field_detail">HbrStorageManager</a>
+</dd>
+<dt>Returned by</dt>
+<dd>
+<a href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.HostStats.html">HbrHostStats</a>, <a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to manage hosts for the host-based replication server.
+ <p>
+ Hosts are added via <a href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>.
+ <p>
+ The list of datastores accessible by this host may be updated as
+ a result of datastore configuration API as well as asynchronous
+ connectivity events.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="accessible" name="accessible"></a><strong>accessible</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         Connectivity status of the host. If this is set to false,
+ this host is not accessible.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="addresses" name="addresses"></a><strong>addresses</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         List of hostname/IP addresses for the host.
+
+ Note that they may not be in the exact same order they were given to
+ <a href="hbr.replica.StorageManager.html#enableHost">HbrStorageManagerEnableHost</a>.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="hostStatsSet" name="hostStatsSet"></a><strong>hostStatsSet</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="hbr.replica.HostStats.html">HbrHostStats[]</a></td><td>
+<p></p>
+         Statistics for various types of network traffic on a host.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         Identifier of host passed in during configuration.
+
+ The hostId is used to create the MoID for the Host managed
+ object.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="lastError" name="lastError"></a><strong>lastError</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a></td><td>
+<p></p>
+         The last error encountered while performing a host-related
+ operation, or from a failed host connectivity check.
+
+ <p> This field is never cleared.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#remove">HbrHostRemove</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="remove" name="remove"></a>
+<h1>HbrHostRemove(remove)</h1>
+<p></p>
+         Remove a host from HBR server. It will no longer be used for
+ datastore connections.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.Host.html">HbrHost</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrHostRemove-textarea');expandcontent(this, 'HbrHostRemove-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrHostRemove-div">
+<textarea cols="20" rows="10" name="HbrHostRemove-textarea" wrap="off" readonly="1" id="HbrHostRemove-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrHostRemove" type="hbrsrv:HbrHostRemoveRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrHostRemoveResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

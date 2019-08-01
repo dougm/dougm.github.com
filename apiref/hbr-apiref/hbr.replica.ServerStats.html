@@ -1,0 +1,154 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.ServerStats" name="hbr.replica.ServerStats"></a>
+<h1>Data Object - HbrServerStats(hbr.replica.ServerStats)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#field_detail">HbrReplicationManager</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.NetworkStats.html">HbrNetworkStats</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Statistics for Hbr Server.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="lwd" name="lwd"></a><strong>lwd</strong></td><td><a href="hbr.replica.NetworkStats.html">HbrNetworkStats</a></td><td>
+<p></p>
+         Network stats for lwd replication network traffic for the hbr server since
+ hbrsrv starts.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="nfc" name="nfc"></a><strong>nfc</strong></td><td><a href="hbr.replica.NetworkStats.html">HbrNetworkStats</a></td><td>
+<p></p>
+         Network stats for NFC network traffic for this hbr server since hbrsrv
+ starts.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="numDisksConfigured" name="numDisksConfigured"></a><strong>numDisksConfigured</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total number of disks currently configured for replication for this
+ server.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="numGroups" name="numGroups"></a><strong>numGroups</strong></td><td>xsd:int</td><td>
+<p></p>
+         Total number of replication groups (vms) currently protected by this hbr
+ server.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="numGroupsAdded" name="numGroupsAdded"></a><strong>numGroupsAdded</strong></td><td>xsd:int</td><td>
+<p></p>
+         Total number of groups successfully added to this server since hbrsrv
+ daemon starts.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="numGroupsRemoved" name="numGroupsRemoved"></a><strong>numGroupsRemoved</strong></td><td>xsd:int</td><td>
+<p></p>
+         Total number of groups successfully removed from this server since hbrsrv
+ daemon starts.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="startCounterCollect" name="startCounterCollect"></a><strong>startCounterCollect</strong></td><td>xsd:dateTime</td><td>
+<p></p>
+         Starting timestamp to collect the above counters. For now it is hbrsrv
+ daemon starting time. Later we may change it to since this server ever
+ starts serving replication, i.e. DB initiation time.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerStats">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="numGroups" type="xsd:int"/>
+                     <element name="numGroupsAdded" type="xsd:int"/>
+                     <element name="numGroupsRemoved" type="xsd:int"/>
+                     <element name="numDisksConfigured" type="xsd:long"/>
+                     <element name="startCounterCollect" type="xsd:dateTime"/>
+                     <element name="lwd" type="hbrsrv:HbrNetworkStats"/>
+                     <element name="nfc" type="hbrsrv:HbrNetworkStats"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

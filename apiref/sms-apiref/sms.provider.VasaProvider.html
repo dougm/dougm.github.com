@@ -1,0 +1,1668 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="sms.provider.VasaProvider" name="sms.provider.VasaProvider"></a>
+<h1>Managed Object -  
+						VasaProvider(sms.provider.VasaProvider)</h1>
+<dl>
+<dt>Extends</dt>
+<dd>
+<a href="sms.provider.Provider.html">SmsProvider</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="sms.provider.AlarmFilter.html">AlarmFilter</a>, <a href="sms.provider.AlarmResult.html">AlarmResult</a>, <a href="sms.storage.replication.FailoverParam.html">FailoverParam</a>, <a href="vim.vm.replication.FaultDomainId.html">FaultDomainId</a>, <a href="sms.storage.replication.GroupOperationResult.html">GroupOperationResult</a>, <a href="sms.storage.replication.PromoteParam.html">PromoteParam</a>, <a href="sms.storage.replication.QueryPointInTimeReplicaParam.html">QueryPointInTimeReplicaParam</a>, <a href="sms.storage.replication.QueryReplicationPeerResult.html">QueryReplicationPeerResult</a>, <a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId</a>, <a href="sms.storage.replication.TestFailoverParam.html">TestFailoverParam</a>
+</dd>
+<dt>Since </dt>
+<dd>SMS API 2.0</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         VASA(vStorage APIs for Storage Awareness) provider
+  definition.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="sms.provider.Provider.html">SmsProvider</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#failoverReplicationGroup">FailoverReplicationGroup_Task</a>, <a href="#prepareFailoverReplicationGroup">PrepareFailoverReplicationGroup_Task</a>, <a href="#promoteReplicationGroup">PromoteReplicationGroup_Task</a>, <a href="#queryActiveAlarm">QueryActiveAlarm</a>, <a href="#queryPointInTimeReplica">QueryPointInTimeReplica</a>, <a href="#queryReplicationGroup">QueryReplicationGroup</a>, <a href="#queryReplicationPeer">QueryReplicationPeer</a>, <a href="#reverseReplicateGroup">ReverseReplicateGroup_Task</a>, <a href="#syncReplicationGroup">SyncReplicationGroup_Task</a>, <a href="#testFailoverReplicationGroupStart">TestFailoverReplicationGroupStart_Task</a>, <a href="#testFailoverReplicationGroupStop">TestFailoverReplicationGroupStop_Task</a>, <a href="#reconnect">VasaProviderReconnect_Task</a>, <a href="#refreshCertificate">VasaProviderRefreshCertificate_Task</a>, <a href="#revokeCertificate">VasaProviderRevokeCertificate_Task</a>, <a href="#sync">VasaProviderSync_Task</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href="sms.provider.Provider.html">SmsProvider</a></td>
+</tr>
+<tr class="r0">
+<td><a href="sms.provider.Provider.html#queryProviderInfo">QueryProviderInfo</a></td>
+</tr>
+</table>
+<br>
+<a id="failoverReplicationGroup" name="failoverReplicationGroup"></a>
+<h1>FailoverReplicationGroup_Task(failoverReplicationGroup)</h1>
+<p></p>
+         Failover the specified device groups. This function will always be called
+ at the replication target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>failoverParam</strong></td><td><a href="sms.storage.replication.FailoverParam.html">FailoverParam</a></td><td>
+<p></p>
+         Settings for the failover.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if failoverParam is null or contains invalid data.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="prepareFailoverReplicationGroup" name="prepareFailoverReplicationGroup"></a>
+<h1>PrepareFailoverReplicationGroup_Task(prepareFailoverReplicationGroup)</h1>
+<p></p>
+         Prepare to fail over the specified replication groups. This function is always
+ called at the replication source location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         List of replication group IDs.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if groupId is null or empty.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="promoteReplicationGroup" name="promoteReplicationGroup"></a>
+<h1>PromoteReplicationGroup_Task(promoteReplicationGroup)</h1>
+<p></p>
+         Promotes the replication groups currently ReplicationState#INTEST
+ to ReplicationState#FAILEDOVER. This
+ function must be called at the replication target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>promoteParam</strong></td><td><a href="sms.storage.replication.PromoteParam.html">PromoteParam</a></td><td>
+<p></p>
+         Specifies an array of replication group IDs whose
+        in-test devices (ReplicationStateEnum#INTEST) need to be
+        promoted to failover ReplicationStateEnum#FAILEDOVER state.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if promoteParam is null or contains invalid data.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="queryActiveAlarm" name="queryActiveAlarm"></a>
+<h1>QueryActiveAlarm(queryActiveAlarm)</h1>
+<p></p>
+         Query for the currently active alarms known to this VASA provider.
+ Provider is expected to return Red and Yellow types of alarms only.
+ No Green alarms should be included in the result for this API.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>alarmFilter</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="sms.provider.AlarmFilter.html">AlarmFilter</a></td><td>
+<p></p>
+         Filter criteria for the alarm state.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.provider.AlarmResult.html">AlarmResult</a></td><td><a href="sms.provider.AlarmResult.html">AlarmResult</a> containing all (or requested) active alarm objects owned by the VASA provider.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if invalid input is provided.</td>
+</tr>
+<tr class="r1">
+<td><a href="vim.fault.NotFound.html">NotFound</a></td><td>Thrown if the specified entity does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryActiveAlarm-textarea');expandcontent(this, 'QueryActiveAlarm-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryActiveAlarm-div">
+<textarea cols="20" rows="10" name="QueryActiveAlarm-textarea" wrap="off" readonly="1" id="QueryActiveAlarm-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryActiveAlarm" type="sms:QueryActiveAlarmRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryActiveAlarmResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:AlarmResult" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryPointInTimeReplica" name="queryPointInTimeReplica"></a>
+<h1>QueryPointInTimeReplica(queryPointInTimeReplica)</h1>
+<p></p>
+         Query for the point-in-time replicas available at the target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         List of replication group IDs.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>queryParam</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="sms.storage.replication.QueryPointInTimeReplicaParam.html">QueryPointInTimeReplicaParam</a></td><td>
+<p></p>
+         Search criteria specification for all the groups.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.replication.GroupOperationResult.html">GroupOperationResult[]</a></td><td>An array of GroupOperationResult elements. <p> Each of these elements is either GroupErrorResult or QueryPointInTimeReplicaSuccessResult or QueryPointInTimeReplicaSummaryResult for CDP capable replicators. <p> The fault in the result entry can be set to: <li>NotFound if the replication group identifier is not present. <li>DuplicateEntry if the replication group identifier is duplicate. <li>TooMany if the number of entries is too large to be returned in one call. <li>QueryExecutionFault for any other error.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified replication groups.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if groupId is null or empty, or queryParam is invalid.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryPointInTimeReplica-textarea');expandcontent(this, 'QueryPointInTimeReplica-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryPointInTimeReplica-div">
+<textarea cols="20" rows="10" name="QueryPointInTimeReplica-textarea" wrap="off" readonly="1" id="QueryPointInTimeReplica-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPointInTimeReplica" type="sms:QueryPointInTimeReplicaRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryPointInTimeReplicaResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:GroupOperationResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryReplicationGroup" name="queryReplicationGroup"></a>
+<h1>QueryReplicationGroup(queryReplicationGroup)</h1>
+<p></p>
+         Query for the replication group details.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         List of replication group IDs.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.replication.GroupOperationResult.html">GroupOperationResult[]</a></td><td>An array of sms.storage.GroupOperationResult elements. <p> If the input array is null or empty, VASA Provider needs to return all available replication groups. Depending on the number of replication groups to be returned, VASA Provider can return either a list of sms.storage.GroupOperationResult or a list of sms.storage.QueryReplicationGroupSuccessResult. However, VASA Provider should not return a hybrid result. <p> If the input array is not empty, VASA Provider needs to return an array of results, one for each entry in the input. Each entry in the returned array is either a sms.storage.QueryReplicationGroupSuccessResult (for success), or a sms.storage.GroupErrorResult (for failure). The length of the result arrays must be the same as the input. <p> The fault in the result entry can be set to: <li>NotFound if the replication group identifier is not present. <li>DuplicateEntry if the replication group identifier is duplicate. <li>TooMany if the number of entries is too large to be returned in one call. <li>QueryExecutionFault for any other error.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified replication groups.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryReplicationGroup-textarea');expandcontent(this, 'QueryReplicationGroup-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryReplicationGroup-div">
+<textarea cols="20" rows="10" name="QueryReplicationGroup-textarea" wrap="off" readonly="1" id="QueryReplicationGroup-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationGroup" type="sms:QueryReplicationGroupRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationGroupResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:GroupOperationResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryReplicationPeer" name="queryReplicationPeer"></a>
+<h1>QueryReplicationPeer(queryReplicationPeer)</h1>
+<p></p>
+         Query for the replication peer fault domains.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>faultDomainId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.FaultDomainId.html">FaultDomainId[]</a></td><td>
+<p></p>
+         An optional list of source fault domain ID.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="sms.storage.replication.QueryReplicationPeerResult.html">QueryReplicationPeerResult[]</a></td><td>An array of sms.storage.QueryReplicationPeerResult. <p> If the input array is null or empty, VASA provider needs to return result for all available source FaultDomain(s). If the input array is not empty, VASA Provider needs to return one entry in result for each entry in the input. The length of the input and result arrays must be same in that case. <p> The fault in the result entry can be set to: <li>NotFound if the fault domain identifier is not present. <li>DuplicateEntry if the fault domain identifier is duplicate. <li>TooMany if the number of entries is too large to be returned in one call. <li>QueryExecutionFault for any other error.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified fault domains.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.QueryExecutionFault.html">QueryExecutionFault</a></td><td>Thrown if an error is encountered while processing the query request.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryReplicationPeer-textarea');expandcontent(this, 'QueryReplicationPeer-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryReplicationPeer-div">
+<textarea cols="20" rows="10" name="QueryReplicationPeer-textarea" wrap="off" readonly="1" id="QueryReplicationPeer-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationPeer" type="sms:QueryReplicationPeerRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sms="urn:sms" name="QueryReplicationPeerResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="sms:QueryReplicationPeerResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="reverseReplicateGroup" name="reverseReplicateGroup"></a>
+<h1>ReverseReplicateGroup_Task(reverseReplicateGroup)</h1>
+<p></p>
+         Initiate replication in the reverse way, making the currently
+ ReplicationState#FAILEDOVER devices as sources.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         Array of replication groups (currently in
+        ReplicationState#FAILEDOVER state) that need to be reversed.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if groupId is null or empty.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="syncReplicationGroup" name="syncReplicationGroup"></a>
+<h1>SyncReplicationGroup_Task(syncReplicationGroup)</h1>
+<p></p>
+         Synchronize the data between source and replica for the specified
+ replication group. This function will always be called at the replication
+ target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         List of replication group IDs.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>pitName</strong></td><td>xsd:string</td><td>
+<p></p>
+         Localized name for the point-in-time snapshot created.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if groupId is null or empty, or pitName is null.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="testFailoverReplicationGroupStart" name="testFailoverReplicationGroupStart"></a>
+<h1>TestFailoverReplicationGroupStart_Task(testFailoverReplicationGroupStart)</h1>
+<p></p>
+         Start a test failover for the specified replication groups. This
+ function will always be called at the replication target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>testFailoverParam</strong></td><td><a href="sms.storage.replication.TestFailoverParam.html">TestFailoverParam</a></td><td>
+<p></p>
+         Settings for the failover.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified entity.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if testFailoverParam is null or contains invalid data.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="testFailoverReplicationGroupStop" name="testFailoverReplicationGroupStop"></a>
+<h1>TestFailoverReplicationGroupStop_Task(testFailoverReplicationGroupStop)</h1>
+<p></p>
+         Stop the ongoing test failover. This function will always be called at
+ the replication target location.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 6.5</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="vim.vm.replication.ReplicationGroupId.html">ReplicationGroupId[]</a></td><td>
+<p></p>
+         Array of replication groups that need to stop test.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>force</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         - if true, VP should force-unbind all Virtual Volumes
+ and move the RG from INTEST to TARGET state. If false, VP will report all the
+ Virtual Volumes which need to be cleaned up before a failover operation
+ can be triggered. The default value will be false.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InactiveProvider.html">InactiveProvider</a></td><td>Thrown if the provider is inactive for the specified replication groups.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if groupId is null or empty.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.NotImplemented.html">NotImplemented</a></td><td>Thrown if the provider does not implement this function.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.NotSupportedByProvider.html">NotSupportedByProvider</a></td><td>Thrown if the provider does not support force operation.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderBusy.html">ProviderBusy</a></td><td>Thrown if the provider is busy and cannot process the request.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderOutOfResource.html">ProviderOutOfResource</a></td><td>Thrown if it is not possible to perform the operation due to lack of resources.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.ProviderUnavailable.html">ProviderUnavailable</a></td><td>Thrown if the provider is temporarily unavailable.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.replication.ReplicationFault.html">SmsReplicationFault</a></td><td>Thrown if an error is encountered while processing the request.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.TooMany.html">TooMany</a></td><td>Thrown if the Provider is unable to handle the given set of replication groups in one call. The client needs to call this method based on the maxBatchSize specified in the TooMany fault. If the maxBatchSize is not specified, the client is expected to call the function for each group individually (i.e. maxBatchSize = 1).</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="reconnect" name="reconnect"></a>
+<h1>VasaProviderReconnect_Task(reconnect)</h1>
+<p></p>
+         Reconnect to the provider. This API will be used to reconnect to a provider that
+ is in "disconnected" state. If reconnecting fails due to InvalidCertificate exception,
+ that means the current provider certificate is expired or corrupted. Then user has to
+ recover the provider following these steps:
+ 1. Unregister the provider using sms.StorageManager.unregisterProvider
+ 2. Provision a new self signed certificate for the provider
+ 3. Register the provider using sms.StorageManager.registerProvider
+ If the provider is not in "disconnected" state, this operation will be a no-op.
+
+ Note: This API works only for providers that support VASA 2.0 and onwards.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.InvalidCertificate.html">InvalidCertificate</a></td><td>Thrown if the provider certificate is invalid</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderConnectionFailed.html">ProviderConnectionFailed</a></td><td>Thrown if an error is encountered while reconnecting to the provider.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="refreshCertificate" name="refreshCertificate"></a>
+<h1>VasaProviderRefreshCertificate_Task(refreshCertificate)</h1>
+<p></p>
+         Refresh a CA signed certificate for the provider. This API will be used when provider
+ certificate is about to expire, but still within soft or hard limit window. If the
+ provider is in "disconnected" state, this operation will be a no-op.
+
+ Note: This API works only for providers that support VASA 2.0 and onwards.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.CertificateRefreshFailed.html">CertificateRefreshFailed</a></td><td>Thrown if an error is encountered while refreshing CA signed certificate for the provider.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="revokeCertificate" name="revokeCertificate"></a>
+<h1>VasaProviderRevokeCertificate_Task(revokeCertificate)</h1>
+<p></p>
+         Revoke CA signed certificate of the provider. This API will unregister the
+ provider automatically.
+
+ Note: This API works only for providers that support VASA 2.0 and onwards.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.ConfigureService</dd>
+<dt>Since </dt>
+<dd>SMS API 5.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="sms.fault.CertificateRevocationFailed.html">CertificateRevocationFailed</a></td><td>Thrown if an error is encountered while revoking CA signed certificate of the provider.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="sync" name="sync"></a>
+<h1>VasaProviderSync_Task(sync)</h1>
+<p></p>
+         Issue a sync for the given Storage Array.
+  <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageViews.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="sms.provider.VasaProvider.html">VasaProvider</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>arrayId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="sms.Task.html">SmsTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if invalid input is provided.</td>
+</tr>
+<tr class="r0">
+<td><a href="sms.fault.ProviderSyncFailed.html">ProviderSyncFailed</a></td><td>Thrown if an error is encountered while executing sync operation for the provider.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

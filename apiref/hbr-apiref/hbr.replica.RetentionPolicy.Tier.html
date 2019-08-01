@@ -1,0 +1,123 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.RetentionPolicy.Tier" name="hbr.replica.RetentionPolicy.Tier"></a>
+<h1>Data Object - HbrRetentionPolicyTier(hbr.replica.RetentionPolicy.Tier)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.RetentionPolicy.html#field_detail">HbrRetentionPolicy</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         A "tier" specifies that the server will try to retain instances that
+ span <a href="hbr.replica.RetentionPolicy.Tier.html#numSlots">numSlots</a> "slots" of <a href="hbr.replica.RetentionPolicy.Tier.html#granularityMinutes">granularityMinutes</a> minutes.
+ <p>
+ For example, to retain one hourly instance for the last 3 hours, set
+ <a href="hbr.replica.RetentionPolicy.Tier.html#granularityMinutes">granularityMinutes</a>=60, <a href="hbr.replica.RetentionPolicy.Tier.html#numSlots">numSlots</a>=3. Note that the
+ latest instance will always be retained. This means a total of 4
+ instances will be retained in this example.
+ <p>
+ <a href="hbr.replica.RetentionPolicy.Tier.html#granularityMinutes">granularityMinutes</a> can set to 0 to retain the '<a href="hbr.replica.RetentionPolicy.Tier.html#numSlots">numSlots</a> + 1' latest instances.
+ <p>
+ The slots are aligned to "round" dates/times; for example:<ul>
+  <li>slots of granularity 5 minutes would be delimited at times of the
+      form xx:x5
+  <li>slots of granularity 1440 (one day) would be delimited at
+      12:00am
+ </ul>
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="granularityMinutes" name="granularityMinutes"></a><strong>granularityMinutes</strong></td><td>xsd:int</td><td>
+<p></p>
+         Slot granularity, in minutes. It can be 0 or a positive value. A value
+ of 0 can be used to specify tier for latest instances.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="numSlots" name="numSlots"></a><strong>numSlots</strong></td><td>xsd:int</td><td>
+<p></p>
+         Number of slots. This value must be at least 1. Note that when the
+ number of slots is 1, the only instance that is retained may be too
+ new. For example, if retaining 1 instance each day with RPO of 60
+ minutes, if instances gets created at 12:45am and 1:45am, the
+ 1:45am instance will get retained as the latest instance and 12:45am
+ instance will get retained as the daily instance.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrRetentionPolicyTier">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="granularityMinutes" type="xsd:int"/>
+                     <element name="numSlots" type="xsd:int"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

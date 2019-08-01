@@ -1,0 +1,659 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.BaseGroup" name="hbr.replica.BaseGroup"></a>
+<h1>Managed Object -  
+						HbrBaseGroup(hbr.replica.BaseGroup)</h1>
+<dl>
+<dt>Extended by</dt>
+<dd>
+<a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.GroupInstanceData.html">HbrGroupInstanceData</a>, <a href="hbr.replica.GroupInstanceDataEx.html">HbrGroupInstanceDataEx</a>, <a href="hbr.replica.GroupStats.html">HbrGroupStats</a>, <a href="hbr.replica.InstanceQueryResult.html">HbrInstanceQueryResult</a>, <a href="hbr.replica.InstanceQuerySpec.html">HbrInstanceQuerySpec</a>, <a href="hbr.replica.ReplicationConfig.html">HbrReplicationConfig</a>, <a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Base type of a group representing the "consistency group" of a
+  set of VMs (and their disks) that are maintained in crash-consistent
+  replicas.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="currentRpoViolation" name="currentRpoViolation"></a><strong>currentRpoViolation</strong><span title="May not be present" class="footnote-ref">*</span></td><td>xsd:int</td><td>
+<p></p>
+         Return the current RPO violation for this replica group's next
+ replication deadline (in minutes since the deadline elapsed).
+ Returns 0 if current replication is within its RPO deadline. It is unset
+ if there are no known consistent instances for this group. For an idle
+ group, it always return 0.
+
+ <p>
+ We update this property (and notify via PropertyCollector) whenever we go
+ from a non-violation state to a violation state and vice-versa; and while
+ in violation we update the value approximately every minute.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="groupStats" name="groupStats"></a><strong>groupStats</strong></td><td><a href="hbr.replica.GroupStats.html">HbrGroupStats</a></td><td>
+<p></p>
+         Statistics for the replication group
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         Unique replication identifier for the group.
+
+ <p>See <a href="hbr.replica.IdentSpec.html#id">id</a> for a description of replication
+ identifiers.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="lastGroupError" name="lastGroupError"></a><strong>lastGroupError</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.LocalizedMethodFault.html">LocalizedMethodFault</a></td><td>
+<p></p>
+         The current error or fault impeding on-going replication for this
+ group.
+
+ <p> Faults related to VMODL-initiated operations (like creating an
+ image or adding or removing a disk) are returned by those
+ operations.  This 'lastGroupError' is only for errors and faults
+ that occuring during the LWD replication (either full-sync or during
+ an instance creation).
+
+ <p> If the error condition goes away (e.g., a datastore was
+ unreachable) this field will be cleared.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="latestInstance" name="latestInstance"></a><strong>latestInstance</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="hbr.replica.GroupInstanceData.html">HbrGroupInstanceData</a></td><td>
+<p></p>
+         Like #latestInstances() but only gets the most recent consistent
+ instance, this is exactly equivalent to invoking latestInstances() and
+ finding the instance with the largest timestamp.
+
+ <p>This field can also be watched by the Property Collector.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="latestInstances" name="latestInstances"></a><strong>latestInstances</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="hbr.replica.GroupInstanceData.html">HbrGroupInstanceData[]</a></td><td>
+<p></p>
+         Return the latest instances created for this group.
+
+ XXX UI also lists out quiescedType for latest PITs and the incurred RPO violation.
+
+ <p>
+ The returned array may be empty if no consistent instance has completed for
+ this group.
+ <p>
+ The size of the returned array is limited to a system default
+ which is 200. This default value can be updated via hbrsrv config option
+ maxNumOfReportedLatestInstances.
+
+ <p>
+ Array is not ordered. But each element has a timestamp
+ (<a href="hbr.replica.GroupInstanceStats.html#timestamp">timestamp</a>).
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="repConfig" name="repConfig"></a><strong>repConfig</strong></td><td><a href="hbr.replica.ReplicationConfig.html">HbrReplicationConfig</a></td><td>
+<p></p>
+         The current replication configuration for the group.
+
+ <p> This configuration includes parameters that user defined
+ for replication such as RPO and retention policy.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="state" name="state"></a><strong>state</strong></td><td>xsd:string</td><td>
+<p></p>
+         The state of this group.  Should be one of the types from the
+ ReplicationState enum, but there may be additional types in
+ future versions.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#remove">BaseGroupRemove_Task</a>, <a href="#getInstanceCount">GetInstanceCount</a>, <a href="#getInstanceDataEx">GetInstanceDataEx</a>, <a href="#getInstances">GetInstances</a>, <a href="#updateRepConfig">UpdateRepConfig</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="remove" name="remove"></a>
+<h1>BaseGroupRemove_Task(remove)</h1>
+<p></p>
+         Remove this group.
+
+ <p> if keepInstances is true, all the instances for this group
+ will be retained.
+
+ <p> If keepInstances is false, all files created on-behalf of this replica
+ will be cleaned up.  Any files created by the caller (e.g., the base
+ disk for any replica disk) will be left alone.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>keepInstances</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         if the group's instances will be retained.
+ The default value is false if not specified. Note that a
+ <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a> object does not currently support setting
+ this value to true.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupDestructionPending.html">HbrReplicaFaultGroupDestructionPending</a></td><td>Thrown if unconfigure or commitToImage is pending.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.GroupHasImage.html">HbrReplicaFaultGroupHasImage</a></td><td>Thrown if there is an image of this replica group (any images must be destroyed first).</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.TaskInProgress.html">HbrReplicaFaultTaskInProgress</a></td><td>Thrown if there is an on-going task that must first finish or be canceled (like a move operation)</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.fault.NotSupported.html">NotSupported</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="getInstanceCount" name="getInstanceCount"></a>
+<h1>GetInstanceCount(getInstanceCount)</h1>
+<p></p>
+         Get the number of instances qualified for the querySpec.
+ Ignore <a href="hbr.replica.InstanceQuerySpec.html#maxInstances">maxInstances</a> and return
+ all the qualified instances.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>querySpec</strong></td><td><a href="hbr.replica.InstanceQuerySpec.html">HbrInstanceQuerySpec</a></td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td>xsd:int</td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if querySpec is invalid, for example querySpec.startTime has invalid format or is larger than querySpec.endTime.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('GetInstanceCount-textarea');expandcontent(this, 'GetInstanceCount-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="GetInstanceCount-div">
+<textarea cols="20" rows="10" name="GetInstanceCount-textarea" wrap="off" readonly="1" id="GetInstanceCount-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstanceCount" type="hbrsrv:GetInstanceCountRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstanceCountResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="xsd:int"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="getInstanceDataEx" name="getInstanceDataEx"></a>
+<h1>GetInstanceDataEx(getInstanceDataEx)</h1>
+<p></p>
+         Return the instance for a given Id
+ (<a href="hbr.replica.GroupInstanceData.html#key">key</a>).
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>instanceId</strong></td><td>xsd:string</td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="hbr.replica.GroupInstanceDataEx.html">HbrGroupInstanceDataEx</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('GetInstanceDataEx-textarea');expandcontent(this, 'GetInstanceDataEx-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="GetInstanceDataEx-div">
+<textarea cols="20" rows="10" name="GetInstanceDataEx-textarea" wrap="off" readonly="1" id="GetInstanceDataEx-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstanceDataEx" type="hbrsrv:GetInstanceDataExRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstanceDataExResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:HbrGroupInstanceDataEx" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="getInstances" name="getInstances"></a>
+<h1>GetInstances(getInstances)</h1>
+<p></p>
+         Query for instances based on the given spec.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>querySpec</strong></td><td><a href="hbr.replica.InstanceQuerySpec.html">HbrInstanceQuerySpec</a></td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="hbr.replica.InstanceQueryResult.html">HbrInstanceQueryResult</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if querySpec is invalid, for example querySpec.startTime has invalid format or is larger than querySpec.endTime.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('GetInstances-textarea');expandcontent(this, 'GetInstances-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="GetInstances-div">
+<textarea cols="20" rows="10" name="GetInstances-textarea" wrap="off" readonly="1" id="GetInstances-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstances" type="hbrsrv:GetInstancesRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetInstancesResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:HbrInstanceQueryResult"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="updateRepConfig" name="updateRepConfig"></a>
+<h1>UpdateRepConfig(updateRepConfig)</h1>
+<p></p>
+         Update replication configuration for this group.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.BaseGroup.html">HbrBaseGroup</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>newConfig</strong></td><td><a href="hbr.replica.ReplicationConfig.html">HbrReplicationConfig</a></td><td>
+<p></p>
+         if the new replication configuration.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if any parameter is not valid.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('UpdateRepConfig-textarea');expandcontent(this, 'UpdateRepConfig-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="UpdateRepConfig-div">
+<textarea cols="20" rows="10" name="UpdateRepConfig-textarea" wrap="off" readonly="1" id="UpdateRepConfig-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="UpdateRepConfig" type="hbrsrv:UpdateRepConfigRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="UpdateRepConfigResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

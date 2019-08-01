@@ -1,0 +1,178 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.ServerDetails" name="hbr.replica.ServerDetails"></a>
+<h1>Data Object - HbrServerDetails(hbr.replica.ServerDetails)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#field_detail">HbrReplicationManager</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Host-based replication service identifying and versioning information.
+ <p>
+ All string versions are reported as a dot-separated version. For
+ example, "1.2" or "11.2.34".
+ <p>
+ XXX: report the LWD port?  Database path?  Database version?  PID?<br>See <a href="hbr.replica.ReplicationManager.html#serverDetails">serverDetails</a><br>
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="build" name="build"></a><strong>build</strong></td><td>xsd:string</td><td>
+<p></p>
+         VMware internal build string for this hbrsrv.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="buildDate" name="buildDate"></a><strong>buildDate</strong></td><td>xsd:string</td><td>
+<p></p>
+         VMware internal build date.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="buildIdentifier" name="buildIdentifier"></a><strong>buildIdentifier</strong></td><td>xsd:string</td><td>
+<p></p>
+         VMware internal build identifying information.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="buildNumber" name="buildNumber"></a><strong>buildNumber</strong></td><td>xsd:int</td><td>
+<p></p>
+         VMware internal build number for this hbrsrv.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="buildType" name="buildType"></a><strong>buildType</strong></td><td>xsd:string</td><td>
+<p></p>
+         VMware internal build type.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="instanceName" name="instanceName"></a><strong>instanceName</strong></td><td>xsd:string</td><td>
+<p></p>
+         Server name.  A pretty name provided when this HBR server was
+ created.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="instanceUUID" name="instanceUUID"></a><strong>instanceUUID</strong></td><td>xsd:string</td><td>
+<p></p>
+         A globally unique identifier provided when this HBR server was
+ created.  This identifer is always in ISO-11758 format
+ (dash-separated hexadecimal numbers).
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="lwdVersion" name="lwdVersion"></a><strong>lwdVersion</strong></td><td>xsd:string</td><td>
+<p></p>
+         Version of the "LWD" wire protocol used between this server and the
+ primary hosts.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="version" name="version"></a><strong>version</strong></td><td>xsd:string</td><td>
+<p></p>
+         Dot-separated version of this HBR server.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="vmodlVersion" name="vmodlVersion"></a><strong>vmodlVersion</strong></td><td>xsd:string</td><td>
+<p></p>
+         Version of the VMODL API exported by this server.  This is a
+ distinct concept from the official "VMODL version".  That version is
+ used to enforce client compatibility, this version is used to report
+ development changes in the API.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrServerDetails">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="vmodlVersion" type="xsd:string"/>
+                     <element name="lwdVersion" type="xsd:string"/>
+                     <element name="instanceUUID" type="xsd:string"/>
+                     <element name="instanceName" type="xsd:string"/>
+                     <element name="buildNumber" type="xsd:int"/>
+                     <element name="buildDate" type="xsd:string"/>
+                     <element name="buildType" type="xsd:string"/>
+                     <element name="buildIdentifier" type="xsd:string"/>
+                     <element name="version" type="xsd:string"/>
+                     <element name="build" type="xsd:string"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

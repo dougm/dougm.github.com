@@ -1,0 +1,982 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.ReplicationManager" name="hbr.replica.ReplicationManager"></a>
+<h1>Managed Object -  
+						HbrReplicationManager(hbr.replica.ReplicationManager)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.SessionManager.html#field_detail">HbrSessionManager</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a>, <a href="hbr.replica.GroupStats.html">HbrGroupStats</a>, <a href="hbr.replica.HostStats.html">HbrHostStats</a>, <a href="hbr.replica.PrimaryHostSpec.html">HbrReplicaPrimaryHostSpec</a>, <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>, <a href="hbr.replica.ServerDetails.html">HbrServerDetails</a>, <a href="hbr.replica.ServerStats.html">HbrServerStats</a>, <a href="hbr.replica.StorageManager.html">HbrStorageManager</a>, <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to control the host-based replication secondary site
+ configuration. Also interface to do bulk stats query for hosts, groups and
+ server.
+
+ <h2>Configuration</h2>
+
+ Configuring an HBR server involves informing the server of the storage
+ configuration.  See the <a href="hbr.replica.StorageManager.html">HbrStorageManager</a> for details.
+
+ <h2>Replication Groups</h2>
+
+ Each replication group added to the server enables the VMs in that
+ group to use this server as a replication target (e.g.,
+ <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>).
+ <p>
+ A Replication Group contains one or more VMs (just one in version 1).
+ Each VM has a set of virtual disks associated with it. The disks within
+ a group are replicated in a consistent manner (crash-consistent,
+ file-consistent, or application-consistent) as a set.
+ <p>
+ Groups are defined and configured
+ with <b>specs</b> that define the elements (see
+ <a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a>,
+ <a href="hbr.replica.VirtualMachineSpec.html">HbrVirtualMachineSpec</a>,
+ <a href="hbr.replica.DiskSpec.html">HbrDiskSpec</a>).
+ <p>
+ Once a group is registered, it can be queried about its basic
+ configuration (see
+ <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a>,
+ <a href="hbr.replica.VirtualMachine.html">HbrVirtualMachine</a>,
+ <a href="hbr.replica.Disk.html">HbrDisk</a>).
+ <p>
+ Each group has zero or more consistent <b>instances</b> of the
+ group.  Each instance represents a single point-in-time replica of the
+ source group. See
+ <a href="hbr.replica.GroupInstanceData.html">HbrGroupInstanceData</a>.
+ <p>
+ Each instance can be used to create bootable <b>images</b> of the
+ group.  See
+ <a href="hbr.replica.GroupImage.html">HbrGroupImage</a>,
+ <a href="hbr.replica.VirtualMachineImage.html">HbrVirtualMachineImage</a>,
+ <a href="hbr.replica.DiskImage.html">HbrDiskImage</a>,
+ <a href="hbr.replica.ConfigFileImage.html">HbrConfigFileImage</a>.
+ <p>
+ Note that the replicated virtual machines are not in a completely
+ bootable form.  At a minimum the VM configuration file will need to be
+ patched up to reference the replicated disks (the replica disk paths
+ need not match the original paths on the replica side).
+
+ <h2>Missing Features</h2>
+ <ul>
+   <li>Authentication and authorization of the VMODL client
+   <li>Pushing asynchronous events to clients
+   <li>Exception signatures, exception types
+   <li>GroupConfigurationCheck -- check that Spec config is 'valid' for a
+       strong definition of valid.
+ </ul>
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="nextInstanceSequenceNumber" name="nextInstanceSequenceNumber"></a><strong>nextInstanceSequenceNumber</strong></td><td>xsd:long</td><td>
+<p></p>
+         Returns the next instance sequence number.
+
+ If the returned value is <tt>X</tt>, then any instance started after the
+ call will have a corresponding <a href="hbr.replica.GroupInstanceData.html#key">key</a> value
+ that is greater than or equal to <tt>X</tt>. Note that there is no
+ guarantee that there will be an instance with sequence number exactly
+ <tt>X</tt>.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="propertyCollector" name="propertyCollector"></a><strong>propertyCollector</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="vmodl.query.PropertyCollector.html">PropertyCollector</a></td><td>
+<p></p>
+         Return a reference to a property collector that clients can
+ use to listen for property updates.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="replicationGroups" name="replicationGroups"></a><strong>replicationGroups</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup[]</a></td><td>
+<p></p>
+         Return an array of all replication groups managed by this HBR server.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="replicationTrafficIpAddress" name="replicationTrafficIpAddress"></a><strong>replicationTrafficIpAddress</strong><span title="May not be present" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Return the current replication traffic IP address for the HBR
+ Server.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="serverDetails" name="serverDetails"></a><strong>serverDetails</strong></td><td><a href="hbr.replica.ServerDetails.html">HbrServerDetails</a></td><td>
+<p></p>
+         Report various identifying, version, and build information about
+ this replication server.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="serverStats" name="serverStats"></a><strong>serverStats</strong></td><td><a href="hbr.replica.ServerStats.html">HbrServerStats</a></td><td>
+<p></p>
+         Return the current stats for the hbr server
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="storageManager" name="storageManager"></a><strong>storageManager</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.StorageManager.html">HbrStorageManager</a></td><td>
+<p></p>
+         Return a reference to the storage manager that will be used
+ for configuring hosts and datastores
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#addPrimaryHosts">AddPrimaryHosts_Task</a>, <a href="#createReplicationGroup">CreateReplicationGroup_Task</a>, <a href="#getReplicationGroup">GetReplicationGroup</a>, <a href="#loadReplicationGroup">LoadReplicationGroup_Task</a>, <a href="#queryGroupsStats">QueryGroupsStats</a>, <a href="#queryHostsStats">QueryHostsStats</a>, <a href="#removePrimaryHosts">RemovePrimaryHosts_Task</a>, <a href="#setPrimaryHosts">SetPrimaryHosts_Task</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="addPrimaryHosts" name="addPrimaryHosts"></a>
+<h1>AddPrimaryHosts_Task(addPrimaryHosts)</h1>
+<p></p>
+         Add primary hosts to a trusted site.
+
+ <p> If given host is not registered with the server then it will be added,
+ otherwise it will be updated.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+<dt>Since </dt>
+<dd>7.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>trustedSite</strong></td><td>xsd:string</td><td>
+<p></p>
+         a trusted site identifier which the hosts belong to.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>specs</strong></td><td><a href="hbr.replica.PrimaryHostSpec.html">HbrReplicaPrimaryHostSpec[]</a></td><td>
+<p></p>
+         an array of trusted primary host specs.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="createReplicationGroup" name="createReplicationGroup"></a>
+<h1>CreateReplicationGroup_Task(createReplicationGroup)</h1>
+<p></p>
+         Create a new replication group with the specified configuration.
+ <p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupSpec</strong></td><td><a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a></td><td>
+<p></p>
+         is a reference to a <a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a> that
+        describes the configuration for the group
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupAlreadyExists.html">HbrReplicaFaultGroupAlreadyExists</a></td><td>Thrown if a group with the given ID already exists</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.HbrDiskAlreadyExists.html">HbrReplicaFaultHbrDiskAlreadyExists</a></td><td>Thrown if a disk with an ID found in the specification already exists.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidGroupSpec.html">HbrReplicaFaultInvalidGroupSpec</a></td><td></td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InvalidHbrDiskSpec.html">HbrReplicaFaultInvalidHbrDiskSpec</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidVirtualMachineSpec.html">HbrReplicaFaultInvalidVirtualMachineSpec</a></td><td></td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="getReplicationGroup" name="getReplicationGroup"></a>
+<h1>GetReplicationGroup(getReplicationGroup)</h1>
+<p></p>
+         Return the replica group with the the matching replication id.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         is the unique identifier that the group was created (see <a href="hbr.replica.GroupSpec.html#id">id</a>)
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.ReplicationGroup.html">HbrReplicationGroup</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupNotFound.html">HbrReplicaFaultGroupNotFound</a></td><td>Thrown if a group with the given ID does not exist.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('GetReplicationGroup-textarea');expandcontent(this, 'GetReplicationGroup-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="GetReplicationGroup-div">
+<textarea cols="20" rows="10" name="GetReplicationGroup-textarea" wrap="off" readonly="1" id="GetReplicationGroup-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetReplicationGroup" type="hbrsrv:GetReplicationGroupRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="GetReplicationGroupResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:ManagedObjectReference"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="loadReplicationGroup" name="loadReplicationGroup"></a>
+<h1>LoadReplicationGroup_Task(loadReplicationGroup)</h1>
+<p></p>
+         Load a replication group with the specified configuration,
+ looking for existing configuration state from an older server on
+ disk (such as existing consistent instances and images).
+<p>
+ See <a href="hbr.replica.ReplicationGroup.html#unconfigure">HbrReplicationGroupUnconfigure_Task</a>
+<p>
+ Otherwise, works just like <a href="hbr.replica.ReplicationManager.html#createReplicationGroup">CreateReplicationGroup_Task</a>.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupSpec</strong></td><td><a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a></td><td>
+<p></p>
+         is a reference to a
+        <a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a> that describes
+        the configuration for the group
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupAlreadyExists.html">HbrReplicaFaultGroupAlreadyExists</a></td><td>Thrown if a group with the given ID already exists.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.GroupSpecMismatch.html">HbrReplicaFaultGroupSpecMismatch</a></td><td>Thrown if the supplied group spec and the recovery file on the server mismatch.</td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.HbrDiskAlreadyExists.html">HbrReplicaFaultHbrDiskAlreadyExists</a></td><td>Thrown if a disk with an ID found in the specification already exists.</td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InvalidGroupSpec.html">HbrReplicaFaultInvalidGroupSpec</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidHbrDiskSpec.html">HbrReplicaFaultInvalidHbrDiskSpec</a></td><td></td>
+</tr>
+<tr class="r0">
+<td><a href="hbr.replica.fault.InvalidVirtualMachineSpec.html">HbrReplicaFaultInvalidVirtualMachineSpec</a></td><td></td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="queryGroupsStats" name="queryGroupsStats"></a>
+<h1>QueryGroupsStats(queryGroupsStats)</h1>
+<p></p>
+         Return the group stats for the specified groups.
+<p>
+ See <a href="hbr.replica.GroupStats.html">HbrGroupStats</a>
+<p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>groupIDs</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         an array of groupIDs for which stats will be returned.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="hbr.replica.GroupStats.html">HbrGroupStats[]</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.GroupNotFound.html">HbrReplicaFaultGroupNotFound</a></td><td>Thrown if any given ID does not have associated group.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryGroupsStats-textarea');expandcontent(this, 'QueryGroupsStats-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryGroupsStats-div">
+<textarea cols="20" rows="10" name="QueryGroupsStats-textarea" wrap="off" readonly="1" id="QueryGroupsStats-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="QueryGroupsStats" type="hbrsrv:QueryGroupsStatsRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="QueryGroupsStatsResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:HbrGroupStats" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryHostsStats" name="queryHostsStats"></a>
+<h1>QueryHostsStats(queryHostsStats)</h1>
+<p></p>
+         Return the host stats for the specified hosts.
+<p>
+ See  <a href="hbr.replica.HostStats.html">HbrHostStats</a>
+<p>
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hostIDs</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         an array of hostIDs for which stats will be returned.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="hbr.replica.HostStats.html">HbrHostStats[]</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.HostNotFound.html">HbrReplicaFaultHostNotFound</a></td><td>Thrown if any given ID does not have associated host object.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('QueryHostsStats-textarea');expandcontent(this, 'QueryHostsStats-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="QueryHostsStats-div">
+<textarea cols="20" rows="10" name="QueryHostsStats-textarea" wrap="off" readonly="1" id="QueryHostsStats-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="QueryHostsStats" type="hbrsrv:QueryHostsStatsRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="QueryHostsStatsResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:HbrHostStats" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="removePrimaryHosts" name="removePrimaryHosts"></a>
+<h1>RemovePrimaryHosts_Task(removePrimaryHosts)</h1>
+<p></p>
+         Remove primary hosts from a trusted site.
+
+ <p> If the host is registered with the server then remove it,
+ otherwise NOP.
+
+ <p> LWD connections already established on behalf of a removed
+ host will be closed.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+<dt>Since </dt>
+<dd>7.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>trustedSite</strong></td><td>xsd:string</td><td>
+<p></p>
+         a trusted site identifier which the hosts belong to.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>hostIds</strong></td><td>xsd:string[]</td><td>
+<p></p>
+         an array of host identifiers.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<a id="setPrimaryHosts" name="setPrimaryHosts"></a>
+<h1>SetPrimaryHosts_Task(setPrimaryHosts)</h1>
+<p></p>
+         Specify a full set of primary hosts that belong to a trusted site.
+
+ <p> If given host is not registered with the server then it will be added,
+ otherwise it will be updated. A host that is already registered
+ with the server but not present in the spec array will be removed.
+
+ <p> LWD connections already established on behalf of updated or removed
+ host will be closed.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+<dt>Since </dt>
+<dd>7.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.ReplicationManager.html">HbrReplicationManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>trustedSite</strong></td><td>xsd:string</td><td>
+<p></p>
+         a trusted site identifier which the hosts belong to.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>specs</strong></td><td><a href="hbr.replica.PrimaryHostSpec.html">HbrReplicaPrimaryHostSpec[]</a></td><td>
+<p></p>
+         an array of trusted primary host specs.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Task.html">HbrReplicaTask</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

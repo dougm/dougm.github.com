@@ -1,0 +1,161 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.InstanceQuerySpec" name="hbr.replica.InstanceQuerySpec"></a>
+<h1>Data Object - HbrInstanceQuerySpec(hbr.replica.InstanceQuerySpec)</h1>
+<dl>
+<dt>Parameter to</dt>
+<dd>
+<a href="hbr.replica.BaseGroup.html#getInstanceCount">GetInstanceCount</a>, <a href="hbr.replica.BaseGroup.html#getInstances">GetInstances</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Specification to query for instances by their timestamp (@link
+ GroupInstanceStats#timestamp}. It specifies a time window
+ for searching for instances.
+
+ <p> To query for instances with timestamp equal to or earlier than
+ a given time point, set <a href="hbr.replica.InstanceQuerySpec.html#endTime">endTime</a> to the time point.
+
+ <p> To query for instances with timestamp equal to or later than
+ a given time point, set <a href="hbr.replica.InstanceQuerySpec.html#startTime">startTime</a> to the time point.
+
+ <p> To query for the latest N quiesced instances,
+ set maxInstances to N and set quiesced to true.
+
+ <p> To query for the quiesced instances within a specific
+ time window, set {<a href="hbr.replica.InstanceQuerySpec.html#endTime">endTime</a>, <a href="hbr.replica.InstanceQuerySpec.html#startTime">startTime</a> and
+ <a href="hbr.replica.InstanceQuerySpec.html#quiesced">quiesced</a>.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="endTime" name="endTime"></a><strong>endTime</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Query for instances with timestamp no later than endTime.
+ Any timestamp qualifies if not specified.
+
+ <p> The format is "YYYY-MM-DD HH:MM:SS UTC". HH is 0-23.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="maxInstances" name="maxInstances"></a><strong>maxInstances</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:long</td><td>
+<p></p>
+         Maximum number of instances returned by the query.
+ This is to alleviate performance impact on the system if
+ there are a large number of instances satisfied the query.
+
+ The same as the system default which is XXX if not
+ specified. Negative value means no limit. The system default
+ can be updated via hbrsrv config option XXX.
+
+ The server will return the most recent maxInstances if the number
+ of qualified instances is larger than maxInstances.
+
+ XXX option to return the last maxInstances?
+
+ This is ignored by <a href="hbr.replica.BaseGroup.html#getInstanceCount">GetInstanceCount</a>.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="quiesced" name="quiesced"></a><strong>quiesced</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         Query for quiesced instances.
+
+ <p> If not specified, any instances regardless quiesced or not
+ will be returned.
+
+ <p> If it is true, return applicatin-quiesced or file-quiesced
+ instances.
+
+ <p> Otherwise, return non-quiesced instances.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="startTime" name="startTime"></a><strong>startTime</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Query for instances with timestamp no earlier than startTime.
+ Any timestamp qualifies if not specified.
+
+ <p> The format is "YYYY-MM-DD HH:MM:SS UTC". HH is 0-23.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrInstanceQuerySpec">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="startTime" type="xsd:string" minOccurs="0"/>
+                     <element name="endTime" type="xsd:string" minOccurs="0"/>
+                     <element name="quiesced" type="xsd:boolean" minOccurs="0"/>
+                     <element name="maxInstances" type="xsd:long" minOccurs="0"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

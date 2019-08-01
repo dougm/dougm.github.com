@@ -1,0 +1,237 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.StorageManager" name="hbr.replica.StorageManager"></a>
+<h1>Managed Object -  
+						HbrStorageManager(hbr.replica.StorageManager)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#field_detail">HbrReplicationManager</a>, <a href="hbr.replica.SessionManager.html#field_detail">HbrSessionManager</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.Datastore.html">HbrDatastore</a>, <a href="hbr.replica.Host.html">HbrHost</a>, <a href="hbr.replica.HostSpec.html">HbrHostSpec</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         Interface to control hosts and datastores for the
+ the host-based replication secondary site.
+
+ <h2>Configuration</h2>
+
+ Configuring an HBR server involves informing the server of available
+ hosts, and for those hosts which datastores should be accessed.  The
+ set of datastores, hosts, and preferred hosts can be updated at any
+ time both through configuration API or connectivity events in real
+ time.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="enabledHostsList" name="enabledHostsList"></a><strong>enabledHostsList</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="hbr.replica.Host.html">HbrHost[]</a></td><td>
+<p></p>
+         Returns all of the hosts configured on this hbrsrv.
+
+ <p>
+ While this could just be a method since the caller initiates host
+ enablement, allowing this to be a property means that caller can
+ use the property collector to monitor hosts as a group through
+ the more advanced features of the property collector.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="expectedDatastoresList" name="expectedDatastoresList"></a><strong>expectedDatastoresList</strong><span title="May not be present" class="footnote-ref">*</span></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference[]</a>
+<br> to a
+                  <a href="hbr.replica.Datastore.html">HbrDatastore[]</a></td><td>
+<p></p>
+         Returns the the list of datastores that the HBR server will access
+ in support of its configured replications.  This list will contain
+ all of the datastores that have been configured for some group (via
+ a <a href="hbr.replica.GroupSpec.html">HbrGroupSpec</a> or image (via <a href="hbr.replica.ReplicationGroup.html#createTestBubbleImage">HbrReplicationGroupCreateTestBubbleImage_Task</a> or
+ <a href="hbr.replica.ReplicationGroup.html#createFailoverImage">HbrReplicationGroupCreateFailoverImage_Task</a>).
+
+ <p>
+ While this could just be a method because the caller supplies the
+ datastores and knows when to refresh the list, allowing this to be
+ a property means that the caller can monitor datastores as a group
+ through the more advanced features of the property collector.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">May not be present</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#enableHost">HbrStorageManagerEnableHost</a></td>
+</tr>
+<tr class="r1">
+<td>
+            Methods inherited from <a href=".html"></a></td>
+</tr>
+<tr class="r0">
+<td>None</td>
+</tr>
+</table>
+<br>
+<a id="enableHost" name="enableHost"></a>
+<h1>HbrStorageManagerEnableHost(enableHost)</h1>
+<p></p>
+         Enable the HBR server to access the given host and the datastores attached
+ to that host. The given hostAuth credentials will let us in.
+ <p>
+ The HBR server will discover the set of available datastores directly
+ from the host.
+ <p>
+ The call to EnableHost is idempotent. Adding the same host multiple times
+ should end up modifying any host attributes that have changed.
+
+ <p>
+ In all cases, the call causes the server to re-establish the connection to
+ the host. This is useful e.g. to force a quicker reconnect after the
+ hbrsrv thumbprint has been pushed into the host.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>None</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="hbr.replica.StorageManager.html">HbrStorageManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>spec</strong></td><td><a href="hbr.replica.HostSpec.html">HbrHostSpec</a></td><td>
+<p></p>
+<br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>
+<br> to a
+                  <a href="hbr.replica.Host.html">HbrHost</a></td><td></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="hbr.replica.fault.InvalidHostSpec.html">HbrReplicaFaultInvalidHostSpec</a></td><td>Thrown if the spec is invalid</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('HbrStorageManagerEnableHost-textarea');expandcontent(this, 'HbrStorageManagerEnableHost-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="HbrStorageManagerEnableHost-div">
+<textarea cols="20" rows="10" name="HbrStorageManagerEnableHost-textarea" wrap="off" readonly="1" id="HbrStorageManagerEnableHost-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrStorageManagerEnableHost" type="hbrsrv:HbrStorageManagerEnableHostRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrStorageManagerEnableHostResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="hbrsrv:ManagedObjectReference" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.TaskInfo.Operation" name="hbr.replica.TaskInfo.Operation"></a>
+<h1>Enum - 
+						HbrReplicaTaskInfoOperation(hbr.replica.TaskInfo.Operation)</h1>
+<dl>
+<p></p>
+</dl>
+<br>
+<h2>Enum Description</h2>
+<p></p>
+         List of possible operations that a task could track.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Enum Constants</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><a id="groupCommitToImage" name="groupCommitToImage"></a>groupCommitToImage</td><td>
+      Committing an image (see <a href="hbr.replica.ReplicationGroup.html#commitToImage">HbrReplicationGroupCommitToImage_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="groupCreateFailoverImage" name="groupCreateFailoverImage"></a>groupCreateFailoverImage</td><td>
+      Creating a fail over image (see <a href="hbr.replica.ReplicationGroup.html#createFailoverImage">HbrReplicationGroupCreateFailoverImage_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="groupCreateTestBubbleImage" name="groupCreateTestBubbleImage"></a>groupCreateTestBubbleImage</td><td>
+      Creating a test bubble image (see <a href="hbr.replica.ReplicationGroup.html#createTestBubbleImage">HbrReplicationGroupCreateTestBubbleImage_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="groupRemove" name="groupRemove"></a>groupRemove</td><td>
+      Removing a group (see <a href="hbr.replica.BaseGroup.html#remove">BaseGroupRemove_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="groupRevertImage" name="groupRevertImage"></a>groupRevertImage</td><td>
+      Reverting a group image (see <a href="hbr.replica.ReplicationGroup.html#revertImage">HbrReplicationGroupRevertImage_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="groupUnconfigure" name="groupUnconfigure"></a>groupUnconfigure</td><td>
+      Unconfiguring a group (see <a href="hbr.replica.ReplicationGroup.html#unconfigure">HbrReplicationGroupUnconfigure_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="instancePrune" name="instancePrune"></a>instancePrune</td><td>
+      Pruning an instance
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="replication" name="replication"></a>replication</td><td>
+      Replication (full sync or delta)
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="replicationManagerCreateReplicationGroup" name="replicationManagerCreateReplicationGroup"></a>replicationManagerCreateReplicationGroup</td><td>
+      Creating a group (see
+ <a href="hbr.replica.ReplicationManager.html#createReplicationGroup">CreateReplicationGroup_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="replicationManagerRecoverGroup" name="replicationManagerRecoverGroup"></a>replicationManagerRecoverGroup</td><td>
+      Recovering a group (see <a href="hbr.replica.ReplicationManager.html#loadReplicationGroup">LoadReplicationGroup_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="serverSupportBundle" name="serverSupportBundle"></a>serverSupportBundle</td><td>
+      Generating a server support bundle
+ (see <a href="hbr.replica.ServerManager.html#generateSupportBundle">GenerateSupportBundle_Task</a>)
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="updatePrimaryHosts" name="updatePrimaryHosts"></a>updatePrimaryHosts</td><td>
+      Update (set, add or remove) primary host list.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="virtualMachineAddDisk" name="virtualMachineAddDisk"></a>virtualMachineAddDisk</td><td>
+      Adding a disk to a replica virtual machine (see
+ <a href="hbr.replica.VirtualMachine.html#addDisk">AddDisk_Task</a>).
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="virtualMachineMove" name="virtualMachineMove"></a>virtualMachineMove</td><td>
+      Moving the secondary-side location of a replicated virtual machine (see
+ <a href="hbr.replica.VirtualMachine.html#move">HbrVirtualMachineMove_Task</a>).
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="virtualMachineRemoveDisk" name="virtualMachineRemoveDisk"></a>virtualMachineRemoveDisk</td><td>
+      Renoving a disk from a replica virtual machine (see
+ <a href="hbr.replica.VirtualMachine.html#addDisk">AddDisk_Task</a>).
+   <br>
+</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <simpleType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrReplicaTaskInfoOperation">
+            <restriction base="xsd:string">
+               <enumeration value="virtualMachineMove"/>
+               <enumeration value="virtualMachineAddDisk"/>
+               <enumeration value="virtualMachineRemoveDisk"/>
+               <enumeration value="serverSupportBundle"/>
+               <enumeration value="groupCommitToImage"/>
+               <enumeration value="groupCreateTestBubbleImage"/>
+               <enumeration value="groupCreateFailoverImage"/>
+               <enumeration value="groupUnconfigure"/>
+               <enumeration value="groupRemove"/>
+               <enumeration value="groupRevertImage"/>
+               <enumeration value="replicationManagerCreateReplicationGroup"/>
+               <enumeration value="replicationManagerRecoverGroup"/>
+               <enumeration value="instancePrune"/>
+               <enumeration value="replication"/>
+               <enumeration value="updatePrimaryHosts"/>
+            </restriction>
+         </simpleType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

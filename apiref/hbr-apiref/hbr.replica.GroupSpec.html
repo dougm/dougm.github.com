@@ -1,0 +1,157 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.GroupSpec" name="hbr.replica.GroupSpec"></a>
+<h1>Data Object - HbrGroupSpec(hbr.replica.GroupSpec)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.fault.InvalidGroupSpec.html#field_detail">HbrReplicaFaultInvalidGroupSpec</a>
+</dd>
+<dt>Parameter to</dt>
+<dd>
+<a href="hbr.replica.ReplicationManager.html#createReplicationGroup">CreateReplicationGroup_Task</a>, <a href="hbr.replica.ReplicationManager.html#loadReplicationGroup">LoadReplicationGroup_Task</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="hbr.replica.RetentionPolicy.html">HbrRetentionPolicy</a>, <a href="hbr.replica.VirtualMachineSpec.html">HbrVirtualMachineSpec</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         GroupSpec represents the settings required to create a
+ Group in the remote site.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         Unique replication identifier for the group
+
+ <p> See <a href="hbr.replica.IdentSpec.html#id">id</a> for the replication ID
+ format.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="retentionPolicy" name="retentionPolicy"></a><strong>retentionPolicy</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="hbr.replica.RetentionPolicy.html">HbrRetentionPolicy</a></td><td>
+<p></p>
+         Retention policy for this group's replication instances.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="rpo" name="rpo"></a><strong>rpo</strong></td><td>xsd:long</td><td>
+<p></p>
+         The recovery point objective (RPO) for the group, in minutes.
+
+ <p> The minimum valid RPO support is 15 minutes.  The maximum valid
+ RPO is 24 hours of minutes (1440 minutes).  A 0 RPO means the
+ automated replica scheduler is disabled.  A negative RPO is an
+ error.
+
+ <p> The RPO specified on this side (the recovery side) is used to
+ generate warning and errors if the primary side scheduler is unable
+ to deliver a consistent instance on schedule.  The RPO specified
+ here does not actually drive the primary-side scheduler.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="trustedSite" name="trustedSite"></a><strong>trustedSite</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Trusted site identifier.
+
+ <p> If specified then a primary ESX is allowed to establish
+ SSL connections to this server if it's certificate matches one
+ of the primary host certificates in this trusted site.
+      <p></p>
+<B><I>Since </I></B>7.0<br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="vms" name="vms"></a><strong>vms</strong></td><td><a href="hbr.replica.VirtualMachineSpec.html">HbrVirtualMachineSpec[]</a></td><td>
+<p></p>
+         The virtual machines to be configured as members of this replica
+ group.
+
+ <p> Only one VM per group is supported in version 1.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrGroupSpec">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="id" type="xsd:string"/>
+                     <element name="rpo" type="xsd:long"/>
+                     <element name="vms" type="hbrsrv:HbrVirtualMachineSpec" maxOccurs="unbounded"/>
+                     <element name="retentionPolicy" type="hbrsrv:HbrRetentionPolicy" minOccurs="0"/>
+                     <element name="trustedSite" type="xsd:string" minOccurs="0"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.BaseGroup.ReplicationState" name="hbr.replica.BaseGroup.ReplicationState"></a>
+<h1>Enum - 
+						HbrBaseGroupReplicationState(hbr.replica.BaseGroup.ReplicationState)</h1>
+<dl>
+<p></p>
+</dl>
+<br>
+<h2>Enum Description</h2>
+<p></p>
+         Describe the set of states that a group might be in with
+ respect to replications from its primary.
+
+ <p> Note these are only the Group states visible to VMODL clients.
+ Internally, or to LWD clients, a Group might be in more sub-states
+ (e.g., being deleted, or commiting, etc).  Also there are no
+ states to distinguish the various end-states (cleanedup, committed,
+ rebalanced, etc) because the VMODL object is gone by the time those
+ states are completed, so there is no place to report such states.
+
+ <p> Because the Property Collector introduces latency between state
+ updates and propagating those updates to clients, a short-lived
+ property update may not be seen by the Property Collector.
+
+ <p> State transitions at replica side may lag changes made at the
+ primary site.
+
+ <p> Regarding the 'fullsync' state:
+ <ul>
+ <li>for replicated VMs running on MN hosts: the HBR server cannot detect
+     when a group "fullsync" is complete (the primary just stops sending
+     "fullsync" updates), so that state will not change until an "lwd" is
+     started, or the primary disconnects (and the state becomes "passive").
+ <li>for replicated VMs running on an MN.next (or later) host: the HBR
+     server will be notified when a full sync completes and the
+     state will be switched to "opened"
+ </ul>
+
+ <p> Some "group" states are an imprecise amalgamation of per-disk
+ states.  For example, if during an "lwd" it happens that one of the
+ disks in the group must go into "fullsync", the entire group state
+ will change to "fullsync".
+
+ <p> If an "lwd" or "fullsync" is aborted, the group state change may
+ not get reflected here until the client disconnects (state becomes
+ "passive") or another "lwd" or "fullsync" are initiated.
+
+ <p> The HBR server cannot detect if a primary is "paused" so it
+ cannot present that state here.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Enum Constants</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><a id="fullsync" name="fullsync"></a>fullsync</td><td>
+      fullsync - opened connection with ongoing full-sync.
+ This state applies to all group types.
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="lwd" name="lwd"></a>lwd</td><td>
+      lwd - opened connection with ongoing light-weight delta.
+ This state applies to all group types.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="opened" name="opened"></a>opened</td><td>
+      opened - an open connection from a primary, but no active fullsync or lwd.
+ This state applies only to a ReplicationGroup.
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="passive" name="passive"></a>passive</td><td>
+      passive - configured but no active or open connections.
+ This state applies to all group types.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="paused" name="paused"></a>paused</td><td>
+      paused - replication is paused.
+ This applies to group type derived from CascadedGroup: CloudStorageGroup.
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="prune" name="prune"></a>prune</td><td>
+      prune - prune instance in progress.
+ This state applies only to a ReplicationGroup.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="unknown" name="unknown"></a>unknown</td><td>
+      unknown -- Future compatibility type
+   <br>
+</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <simpleType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrBaseGroupReplicationState">
+            <restriction base="xsd:string">
+               <enumeration value="passive"/>
+               <enumeration value="opened"/>
+               <enumeration value="fullsync"/>
+               <enumeration value="lwd"/>
+               <enumeration value="prune"/>
+               <enumeration value="paused"/>
+               <enumeration value="unknown"/>
+            </restriction>
+         </simpleType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

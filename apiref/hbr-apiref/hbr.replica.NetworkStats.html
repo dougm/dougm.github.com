@@ -1,0 +1,151 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="hbr.replica.NetworkStats" name="hbr.replica.NetworkStats"></a>
+<h1>Data Object - HbrNetworkStats(hbr.replica.NetworkStats)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="hbr.replica.GroupStats.html#field_detail">HbrGroupStats</a>, <a href="hbr.replica.HostStats.html#field_detail">HbrHostStats</a>, <a href="hbr.replica.ServerStats.html#field_detail">HbrServerStats</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Network transfer statistics for LWD or NFC traffic.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="errors" name="errors"></a><strong>errors</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total network transfer errors encountered so far
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="inbound" name="inbound"></a><strong>inbound</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total number of bytes of incoming network traffic
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="inboundOps" name="inboundOps"></a><strong>inboundOps</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total number of incoming network operations
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="inboundTp" name="inboundTp"></a><strong>inboundTp</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:long</td><td>
+<p></p>
+         Throughput (bytes per second) of incoming network traffic
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="outbound" name="outbound"></a><strong>outbound</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total number of bytes of outgoing network traffic
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="outboundOps" name="outboundOps"></a><strong>outboundOps</strong></td><td>xsd:long</td><td>
+<p></p>
+         Total number of outgoing network operations
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="outboundTp" name="outboundTp"></a><strong>outboundTp</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:long</td><td>
+<p></p>
+         Throughput (bytes per second) of outgoing network traffic
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="startCollect" name="startCollect"></a><strong>startCollect</strong></td><td>xsd:dateTime</td><td>
+<p></p>
+         Starting timestamp when the stats are initially collected
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:hbrsrv="urn:hbrsrv" name="HbrNetworkStats">
+            <complexContent>
+               <extension base="hbrsrv:DynamicData">
+                  <sequence>
+                     <element name="inbound" type="xsd:long"/>
+                     <element name="inboundOps" type="xsd:long"/>
+                     <element name="inboundTp" type="xsd:long" minOccurs="0"/>
+                     <element name="outbound" type="xsd:long"/>
+                     <element name="outboundOps" type="xsd:long"/>
+                     <element name="outboundTp" type="xsd:long" minOccurs="0"/>
+                     <element name="errors" type="xsd:long"/>
+                     <element name="startCollect" type="xsd:dateTime"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>
